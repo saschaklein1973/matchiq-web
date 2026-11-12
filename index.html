@@ -33,6 +33,9 @@
     .analysis-item:first-child { border-top: 0; }
     .analysis-item h3 { margin: 0 0 8px; font-size: 1.04rem; }
     .analysis-item p { margin: 6px 0; line-height: 1.45; }
+    .prediction { background: #293c47; border-radius: 10px; padding: 12px; margin-top: 10px; }
+    .prediction p { margin: 5px 0; }
+    .prediction strong { color: #58e69b; }
     .pill { display: inline-block; border-radius: 8px; background: #30424d; padding: 4px 8px; }
     .filters { margin-bottom: 12px; }
     .filters button { margin: 0 6px 6px 0; padding: 8px 12px; }
@@ -69,12 +72,12 @@
     <section class="card">
       <h2>📅 Tagesanalyse</h2>
       <p id="date"></p>
-      <p class="muted">Vorschau auf die nächsten 14 Tage. Vergleich auf Basis der zuletzt verfügbaren abgeschlossenen Spiele. Keine Live-KI und keine Wettgarantie.</p>
+      <p class="muted">Vorschau auf die nächsten 14 Tage. Vergleich auf Basis der zuletzt verfügbaren abgeschlossenen Spiele. Statistische Modellschätzungen aus verfügbaren Ergebnissen, keine Live-KI, Quoten oder Wettgarantie.</p>
       <div id="analysen" aria-live="polite">Analysen werden geladen ...</div>
     </section>
 
     <section class="card">
-      <h2>🎯 Tipps des Tages</h2>
+      <h2>🎯 MatchIQ-Tipps</h2>
       <div id="tipps" aria-live="polite">Einschätzungen werden geladen ...</div>
     </section>
 
@@ -168,6 +171,44 @@
     return differenz > 0 ? "Formtendenz: Heimteam" : "Formtendenz: Auswärtsteam";
   }
 
+  // Ein einfaches, bewusst konservatives Poisson-Modell. Keine trainierte KI,
+  // keine Buchmacherquoten und keine empirisch kalibrierten Wahrscheinlichkeiten.
+  function modell(heim, gast) {
+    if (heim.n < 3 || gast.n < 3) return null;
+    const clamp = (x, min, max) => Math.max(min, Math.min(max, x));
+    // Kleine Stichproben werden in Richtung 1,35 Tore pro Team geglättet.
+    const angrH = (heim.erzielt + 4 * 1.35) / (heim.n + 4);
+    const abwH = (heim.kassiert + 4 * 1.35) / (heim.n + 4);
+    const angrG = (gast.erzielt + 4 * 1.35) / (gast.n + 4);
+    const abwG = (gast.kassiert + 4 * 1.35) / (gast.n + 4);
+    const lambdaH = clamp((angrH + abwG) / 2 * 1.06, 0.35, 3.5);
+    const lambdaG = clamp((angrG + abwH) / 2 * 0.94, 0.35, 3.5);
+    function verteilung(lambda) {
+      const p = [Math.exp(-lambda)];
+      for (let i = 1; i <= 12; i++) p.push(p[i-1] * lambda / i);
+      return p;
+    }
+    const ph = verteilung(lambdaH), pg = verteilung(lambdaG);
+    let eins = 0, x = 0, zwei = 0, ueber = 0;
+    for (let h = 0; h < ph.length; h++) {
+      for (let g = 0; g < pg.length; g++) {
+        const p = ph[h] * pg[g];
+        if (h > g) eins += p;
+        else if (h === g) x += p;
+        else zwei += p;
+        if (h + g >= 3) ueber += p;
+      }
+    }
+    const btts = (1 - Math.exp(-lambdaH)) * (1 - Math.exp(-lambdaG));
+    const werte = [{name: "1 (Heimsieg)", p: eins}, {name: "X (Remis)", p: x}, {name: "2 (Auswärtssieg)", p: zwei}];
+    werte.sort((a,b) => b.p - a.p);
+    const ausgang = werte[0].p - werte[1].p >= 0.10 ? werte[0].name : "Kein klarer 1/X/2-Favorit";
+    const toreTipp = Math.abs(ueber - 0.5) >= 0.10 ? (ueber > 0.5 ? "Über 2,5 Tore" : "Unter 2,5 Tore") : "Keine klare Über/Unter-Tendenz";
+    const bttsTipp = Math.abs(btts - 0.5) >= 0.10 ? (btts > 0.5 ? "Ja" : "Nein") : "Keine klare Tendenz";
+    const pct = p => `${Math.round(p * 100)} %`;
+    return { eins, x, zwei, ueber, btts, ausgang, toreTipp, bttsTipp, pct, lambdaH, lambdaG };
+  }
+
   function spielAnalyse(spiel) {
     const box = elem("div", undefined, "analysis-item");
     box.appendChild(elem("h3", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
@@ -177,8 +218,26 @@
     const fmt = (name, f) => `${name}: ${f.n} Spiele · ${f.punkte} Punkte · Tore ${f.erzielt}:${f.kassiert} · Form ${f.reihe || "–"}`;
     box.appendChild(elem("p", fmt("Heim", h)));
     box.appendChild(elem("p", fmt("Gast", g)));
-    box.appendChild(elem("p", einschaetzung(h,g) || "Noch zu wenige abgeschlossene Spiele für eine seriöse Einschätzung.", "green"));
-    return { box, tendenz: einschaetzung(h,g) };
+    const tendenz = einschaetzung(h, g);
+    box.appendChild(elem("p", tendenz || "Zu wenige abgeschlossene Spiele für eine Einschätzung.", "green"));
+    const m = modell(h, g);
+    if (m) {
+      const pred = elem("div", undefined, "prediction");
+      pred.appendChild(elem("p", "1 / X / 2 – Modellschätzung:"));
+      pred.appendChild(elem("p", `1: ${m.pct(m.eins)} · X: ${m.pct(m.x)} · 2: ${m.pct(m.zwei)}`));
+      pred.appendChild(elem("p", `Über 2,5 Tore: ${m.pct(m.ueber)} · Unter 2,5 Tore: ${m.pct(1-m.ueber)}`));
+      pred.appendChild(elem("p", `Beide Teams treffen – Ja: ${m.pct(m.btts)} · Nein: ${m.pct(1-m.btts)}`));
+      const fazit = elem("p");
+      const strong = elem("strong", `MatchIQ-Einschätzung: ${m.ausgang} · ${m.toreTipp} · Beide treffen: ${m.bttsTipp}`);
+      fazit.appendChild(strong);
+      pred.appendChild(fazit);
+      pred.appendChild(elem("p", `Grundlage: letzte ${h.n} Heimteam- und ${g.n} Gastteam-Spiele; Tore, Gegentore und leichter Heimvorteil. Erwartete Tore (Modell): ${m.lambdaH.toFixed(1)} : ${m.lambdaG.toFixed(1)}.`, "muted"));
+      pred.appendChild(elem("p", "Nur grobe Modellwerte aus wenigen Spielen – nicht validiert und keine verlässlichen Gewinnwahrscheinlichkeiten.", "muted"));
+      box.appendChild(pred);
+    } else {
+      box.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 3 abgeschlossene Spiele je Team erforderlich).", "muted"));
+    }
+    return { box, tendenz, modell: m };
   }
 
   function zeigeAnalysen() {
@@ -195,15 +254,18 @@
     }
     let anzahl = 0;
     for (const spiel of kandidaten) {
-      const {box, tendenz} = spielAnalyse(spiel);
+      const {box, modell: m} = spielAnalyse(spiel);
       ziel.appendChild(box);
-      if (tendenz && !tendenz.startsWith("Ausgeglichene")) {
-        tipps.appendChild(elem("p", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}: ${tendenz}`));
+      if (m && (m.ausgang !== "Kein klarer 1/X/2-Favorit" || m.toreTipp !== "Keine klare Über/Unter-Tendenz" || m.bttsTipp !== "Keine klare Tendenz")) {
+        const item = elem("div", undefined, "analysis-item");
+        item.appendChild(elem("p", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
+        item.appendChild(elem("p", `1/X/2: ${m.ausgang} · Tore: ${m.toreTipp} · Beide treffen: ${m.bttsTipp}`, "green"));
+        tipps.appendChild(item);
         anzahl++;
       }
     }
-    if (!anzahl) tipps.textContent = "Derzeit keine ausreichend belegten Formtendenzen. Keine Tipps erfunden.";
-    tipps.appendChild(elem("p", "Nur statistische Formtendenzen, keine Gewinnwahrscheinlichkeiten oder Wettempfehlungen.", "muted"));
+    if (!anzahl) tipps.textContent = "Derzeit keine ausreichend deutlichen statistischen Tendenzen.";
+    tipps.appendChild(elem("p", "Rein statistische, nicht validierte Modellschätzungen. Keine Buchmacherquoten oder Wettgarantie.", "muted"));
   }
 
   function zeigeSpiele() {
@@ -237,8 +299,9 @@
       const antwort = await fetch("matches.json?zeit=" + Date.now(), {cache:"no-store"});
       if (!antwort.ok) throw new Error(`HTTP ${antwort.status}`);
       const daten = await antwort.json();
-      if (!Array.isArray(daten)) throw new Error("Unerwartetes JSON-Format");
-      alleSpiele = daten;
+      const liste = Array.isArray(daten) ? daten : daten?.matches;
+      if (!Array.isArray(liste)) throw new Error("Unerwartetes JSON-Format");
+      alleSpiele = liste;
       zeigeSpiele();
       zeigeAnalysen();
     } catch (fehler) {
