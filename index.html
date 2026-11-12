@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <title>MatchIQ – Sportanalysen</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #101820;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 25px 20px;
+      background: #192630;
+    }
+    h1 { margin: 0; color: #58e69b; }
+    .subtitle { color: #aab8c3; }
+    main { max-width: 800px; margin: auto; padding: 20px; }
+    .card {
+      background: #202f3a;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .green { color: #58e69b; }
+    .sports {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .sport {
+      background: #30424d;
+      padding: 12px;
+      border-radius: 10px;
+    }
+    button {
+      background: #58e69b;
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚽ MatchIQ</h1>
+    <p class="subtitle">Dein persönlicher KI-Sportanalyst</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>📅 Tagesanalyse</h2>
+      <p id="date"></p>
+      <p class="green">MatchIQ wird vorbereitet.</p>
+      <p>
+        Automatische Spielanalysen und konkrete
+        Prognosen folgen in der nächsten Version.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>🎯 Tipps des Tages</h2>
+      <p>Noch keine Prognosen vorhanden.</p>
+      <p>Wir zeigen hier später nur berechnete Tipps.</p>
+    </section>
+
+    <section class="card">
+      <h2>🏆 Unsere Sportarten</h2>
+      <div class="sports">
+        <span class="sport">⚽ Fußball</span>
+        <span class="sport">🏀 Basketball</span>
+        <span class="sport">🏒 Eishockey</span>
+        <span class="sport">🎾 Tennis</span>
+        <span class="sport">🤾 Handball</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📊 Statistik</h2>
+      <p>Ausgewertete Prognosen: 0</p>
+      <p>Trefferquote: Noch keine Daten</p>
+      <p>Virtuelles Testguthaben: 10,00 €</p>
+    </section>
+
+    <section class="card">
+      <h2>🔔 Benachrichtigungen</h2>
+      <p>
+        iPhone-Push-Mitteilungen werden
+        in einer späteren Phase eingerichtet.
+      </p>
+    </section>
+  <section class="card">
+  <h2>⚽ Aktuelle Fußballspiele</h2>
+  <div id="spiele">Spiele werden geladen ...</div>
+</section>
+  </main>
+
+  <script>
+    document.getElementById("date").textContent =
+      new Date().toLocaleDateString("de-DE", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+  
+async function ladeSpiele() {
+  const anzeige = document.getElementById("spiele");
+
+  try {
+    const antwort = await fetch("matches.json?zeit=" + Date.now());
+    if (!antwort.ok) throw new Error("Datei nicht erreichbar");
+
+    const spiele = await antwort.json();
+    anzeige.replaceChildren();
+
+    if (!spiele.length) {
+      anzeige.textContent = "Zurzeit keine Spiele vorhanden.";
+      return;
+    }
+
+    spiele.sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
+
+    for (const spiel of spiele) {
+      const zeile = document.createElement("p");
+      const datum = new Date(spiel.utcDate).toLocaleString("de-DE", {
+        day: "2-digit",
+        month: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      const heim = spiel.homeTeam?.name || "Unbekannt";
+      const gast = spiel.awayTeam?.name || "Unbekannt";
+      const liga = spiel.competition?.name || "Fußball";
+      const tore = spiel.score?.fullTime;
+      const ergebnis = tore?.home != null && tore?.away != null
+        ? `${tore.home}:${tore.away}`
+        : "Noch offen";
+
+      zeile.textContent =
+        `${datum} | ${liga} | ${heim} – ${gast} | ${ergebnis}`;
+
+      anzeige.appendChild(zeile);
+    }
+  } catch (fehler) {
+    anzeige.textContent = "Fußballspiele konnten nicht geladen werden.";
+    console.error(fehler);
+  }
+}
+
+ladeSpiele();
+
+  </script>
+</body>
+</html>
