@@ -45,6 +45,7 @@ jobs:
           url = (
               "https://api.football-data.org/v4/matches"
               f"?dateFrom={start}&dateTo={end}"
+              "&competitions=BL1,PL,PD,SA,FL1,DED"
           )
 
           request = urllib.request.Request(
