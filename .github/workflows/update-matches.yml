@@ -50,7 +50,7 @@ jobs:
               url = (
                   "https://api.football-data.org/v4/matches"
                   f"?dateFrom={current.isoformat()}&dateTo={chunk_end.isoformat()}"
-                  "&competitions=BL1,PL,PD,SA,FL1,DED,CL,WC,EC"
+                  
               )
               request = urllib.request.Request(
                   url, headers={"X-Auth-Token": key}
