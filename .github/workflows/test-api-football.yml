@@ -1,0 +1,72 @@
+
+name: API-Football Laenderspiele testen
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Nations League und Laenderspiele pruefen
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import json
+          import urllib.request
+          import urllib.parse
+          import urllib.error
+
+          key = os.environ["API_FOOTBALL_KEY"]
+          base = "https://v3.football.api-sports.io"
+
+          for name in [
+              "UEFA Nations League",
+              "Friendlies",
+              "World Cup - Qualification"
+          ]:
+              print(f"\nSuche: {name}", flush=True)
+              query = urllib.parse.urlencode({"search": name})
+              url = f"{base}/leagues?{query}"
+
+              request = urllib.request.Request(
+                  url,
+                  headers={"x-apisports-key": key}
+              )
+
+              try:
+                  with urllib.request.urlopen(
+                      request, timeout=30
+                  ) as response:
+                      data = json.load(response)
+
+                  print("Fehler:", data.get("errors"))
+                  print("Treffer:", data.get("results", 0))
+
+                  for item in data.get("response", [])[:10]:
+                      league = item.get("league", {})
+                      seasons = item.get("seasons", [])
+                      print(
+                          "Wettbewerb:",
+                          league.get("id"),
+                          league.get("name"),
+                          "Land:",
+                          item.get("country", {}).get("name")
+                      )
+                      print(
+                          "Saisons:",
+                          [s.get("year") for s in seasons[-5:]]
+                      )
+
+              except urllib.error.HTTPError as error:
+                  print("HTTP-Fehler:", error.code)
+              except Exception as error:
+                  print("Fehler:", type(error).__name__)
+
+          PY
