@@ -12,6 +12,84 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Konkrete Laenderspiele abfragen
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import json
+          import urllib.request
+          import urllib.parse
+          import urllib.error
+
+          key = os.environ["API_FOOTBALL_KEY"]
+          base = "https://v3.football.api-sports.io"
+
+          competitions = [
+              (5, "UEFA Nations League", 2026),
+              (10, "Internationale Freundschaftsspiele", 2026),
+          ]
+
+          for league_id, name, season in competitions:
+              print(f"\n=== {name} ===", flush=True)
+
+              params = urllib.parse.urlencode({
+                  "league": league_id,
+                  "season": season,
+                  "from": "2026-11-12",
+                  "to": "2026-11-22",
+              })
+
+              url = f"{base}/fixtures?{params}"
+
+              request = urllib.request.Request(
+                  url,
+                  headers={"x-apisports-key": key}
+              )
+
+              try:
+                  with urllib.request.urlopen(
+                      request, timeout=30
+                  ) as response:
+                      data = json.load(response)
+
+                  print("API-Fehler:", data.get("errors"))
+                  print("Gefundene Spiele:", data.get("results", 0))
+
+                  for item in data.get("response", [])[:30]:
+                      fixture = item.get("fixture", {})
+                      teams = item.get("teams", {})
+                      home = teams.get("home", {}).get("name")
+                      away = teams.get("away", {}).get("name")
+
+                      print(
+                          fixture.get("date"),
+                          home, "-", away,
+                          "| Status:",
+                          fixture.get("status", {}).get("short")
+                      )
+
+              except urllib.error.HTTPError as error:
+                  print("HTTP-Fehler:", error.code)
+              except Exception as error:
+                  print("Fehler:", type(error).__name__, str(error))
+
+          PY
+
+name: API-Football Laenderspiele testen
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Nations League und Laenderspiele pruefen
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
