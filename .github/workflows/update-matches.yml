@@ -1,0 +1,79 @@
+
+name: MatchIQ - Fußballspiele aktualisieren
+
+on:
+  schedule:
+    - cron: "0 6,12,18,22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: matchiq-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fußballspiele abrufen
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from datetime import datetime, timedelta, timezone
+
+          key = os.environ["FOOTBALL_DATA_API_KEY"]
+          today = datetime.now(timezone.utc).date()
+
+          start = (today - timedelta(days=2)).isoformat()
+          end = (today + timedelta(days=10)).isoformat()
+
+          url = (
+              "https://api.football-data.org/v4/matches"
+              f"?dateFrom={start}&dateTo={end}"
+          )
+
+          request = urllib.request.Request(
+              url,
+              headers={"X-Auth-Token": key}
+          )
+
+          with urllib.request.urlopen(request, timeout=45) as response:
+              data = json.load(response)
+
+          matches = data.get("matches", [])
+
+          if not matches:
+              raise RuntimeError(
+                  "Keine Spiele erhalten. Alte Daten bleiben erhalten."
+              )
+
+          with open("matches.json", "w", encoding="utf-8") as file:
+              json.dump(matches, file, ensure_ascii=False, indent=2)
+
+          print(f"{len(matches)} Spiele gespeichert.")
+          PY
+
+      - name: Änderungen veröffentlichen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add matches.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Fußballspiele automatisch aktualisieren"
+            git push
+          fi
