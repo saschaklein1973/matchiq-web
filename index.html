@@ -144,6 +144,8 @@
   const gueltig = spiel => !Number.isNaN(datum(spiel).getTime());
   const sameTeam = (a,b) => teamKey(a) === teamKey(b) && teamKey(a) !== "name:";
   const localDay = d => tagFormat.format(d);
+  const gestartet = spiel => gueltig(spiel) && datum(spiel) <= new Date();
+  const bevorstehend = spiel => gueltig(spiel) && datum(spiel) > new Date() && ["SCHEDULED", "TIMED"].includes(spiel.status);
   const elem = (tag, text, cls) => {
     const el = document.createElement(tag);
     if (text !== undefined) el.textContent = text;
@@ -276,7 +278,7 @@
   function zeigeAnalysen() {
     const jetzt = new Date();
     const ende = new Date(jetzt.getTime() + 14 * 24 * 60 * 60 * 1000);
-    const kandidaten = alleSpiele.filter(s => gueltig(s) && datum(s) >= jetzt && datum(s) <= ende && !beendet(s))
+    const kandidaten = alleSpiele.filter(s => gueltig(s) && datum(s) > jetzt && datum(s) <= ende && bevorstehend(s))
       .sort((a,b) => datum(a) - datum(b)).slice(0,12);
     const ziel = $("analysen"), tipps = $("tipps");
     ziel.replaceChildren(); tipps.replaceChildren();
@@ -306,15 +308,19 @@
     ziel.replaceChildren();
     const jetzt = new Date();
     const gefiltert = alleSpiele.filter(s => gueltig(s) && (
-      aktiverFilter === "alle" ||
+      (aktiverFilter === "alle" && localDay(datum(s)) >= localDay(jetzt)) ||
       (aktiverFilter === "heute" && localDay(datum(s)) === localDay(jetzt)) ||
-      (aktiverFilter === "kommend" && datum(s) >= jetzt && !beendet(s)) ||
-      (aktiverFilter === "beendet" && beendet(s))
+      (aktiverFilter === "kommend" && bevorstehend(s)) ||
+      (aktiverFilter === "beendet" && beendet(s) && datum(s) <= jetzt)
     )).sort((a,b) => datum(a) - datum(b));
     if (!gefiltert.length) { ziel.textContent = "Für diesen Filter sind keine Spiele vorhanden."; return; }
     for (const spiel of gefiltert) {
       const score = tore(spiel);
-      const ergebnis = beendet(spiel) ? `${score.home}:${score.away}` : "Noch offen";
+      const ergebnis = beendet(spiel) ? `${score.home}:${score.away}`
+        : spiel.status === "IN_PLAY" || spiel.status === "PAUSED" ? "Läuft"
+        : spiel.status === "POSTPONED" ? "Verschoben"
+        : spiel.status === "CANCELLED" ? "Abgesagt"
+        : "Noch offen";
       ziel.appendChild(elem("p", `${zeitFormat.format(datum(spiel))} | ${spiel.competition?.name || "Fußball"} | ${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)} | ${ergebnis}`));
     }
   }
@@ -345,6 +351,12 @@
     }
   }
   ladeSpiele();
+  // Beim Tageswechsel und bei länger geöffnetem Tab die Ansicht aktualisieren.
+  setInterval(() => {
+    $("date").textContent = datumFormat.format(new Date());
+    zeigeSpiele();
+    zeigeAnalysen();
+  }, 60000);
   </script>
 </body>
 </html>
