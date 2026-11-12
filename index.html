@@ -69,7 +69,7 @@
     <section class="card">
       <h2>📅 Tagesanalyse</h2>
       <p id="date"></p>
-      <p class="muted">Vorschau auf die nächsten 7 Tage. Vergleich auf Basis der zuletzt verfügbaren abgeschlossenen Spiele. Keine Live-KI und keine Wettgarantie.</p>
+      <p class="muted">Vorschau auf die nächsten 14 Tage. Vergleich auf Basis der zuletzt verfügbaren abgeschlossenen Spiele. Keine Live-KI und keine Wettgarantie.</p>
       <div id="analysen" aria-live="polite">Analysen werden geladen ...</div>
     </section>
 
@@ -183,13 +183,13 @@
 
   function zeigeAnalysen() {
     const jetzt = new Date();
-    const ende = new Date(jetzt.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const ende = new Date(jetzt.getTime() + 14 * 24 * 60 * 60 * 1000);
     const kandidaten = alleSpiele.filter(s => gueltig(s) && datum(s) >= jetzt && datum(s) <= ende && !beendet(s))
       .sort((a,b) => datum(a) - datum(b)).slice(0,12);
     const ziel = $("analysen"), tipps = $("tipps");
     ziel.replaceChildren(); tipps.replaceChildren();
     if (!kandidaten.length) {
-      ziel.textContent = "Keine anstehenden Spiele in den nächsten 7 Tagen in den verfügbaren Daten.";
+      ziel.textContent = "Keine anstehenden Spiele in den nächsten 14 Tagen in den verfügbaren Daten.";
       tipps.textContent = "Keine Einschätzungen verfügbar.";
       return;
     }
