@@ -28,6 +28,17 @@
       margin-bottom: 16px;
     }
     .green { color: #58e69b; }
+    .muted { color: #aab8c3; font-size: 0.92rem; }
+    .analysis-item { border-top: 1px solid #40505b; padding: 14px 0; }
+    .analysis-item:first-child { border-top: 0; }
+    .analysis-item h3 { margin: 0 0 8px; font-size: 1.04rem; }
+    .analysis-item p { margin: 6px 0; line-height: 1.45; }
+    .pill { display: inline-block; border-radius: 8px; background: #30424d; padding: 4px 8px; }
+    .filters { margin-bottom: 12px; }
+    .filters button { margin: 0 6px 6px 0; padding: 8px 12px; }
+    .filters button[aria-pressed="false"] { background: #30424d; color: white; }
+    #spiele p { border-bottom: 1px solid #344650; padding-bottom: 9px; line-height: 1.5; }
+    .error { color: #ffb6a9; }
     .sports {
       display: flex;
       flex-wrap: wrap;
@@ -58,17 +69,13 @@
     <section class="card">
       <h2>📅 Tagesanalyse</h2>
       <p id="date"></p>
-      <p class="green">MatchIQ wird vorbereitet.</p>
-      <p>
-        Automatische Spielanalysen und konkrete
-        Prognosen folgen in der nächsten Version.
-      </p>
+      <p class="muted">Vergleich auf Basis der zuletzt verfügbaren abgeschlossenen Spiele. Keine Live-KI und keine Wettgarantie.</p>
+      <div id="analysen" aria-live="polite">Analysen werden geladen ...</div>
     </section>
 
     <section class="card">
       <h2>🎯 Tipps des Tages</h2>
-      <p>Noch keine Prognosen vorhanden.</p>
-      <p>Wir zeigen hier später nur berechnete Tipps.</p>
+      <div id="tipps" aria-live="polite">Einschätzungen werden geladen ...</div>
     </section>
 
     <section class="card">
@@ -98,66 +105,150 @@
     </section>
   <section class="card">
   <h2>⚽ Aktuelle Fußballspiele</h2>
+  <div class="filters" id="filter" aria-label="Spiele filtern">
+    <button type="button" data-filter="alle" aria-pressed="true">Alle</button>
+    <button type="button" data-filter="heute" aria-pressed="false">Heute</button>
+    <button type="button" data-filter="kommend" aria-pressed="false">Kommende</button>
+    <button type="button" data-filter="beendet" aria-pressed="false">Ergebnisse</button>
+  </div>
   <div id="spiele">Spiele werden geladen ...</div>
 </section>
   </main>
 
   <script>
-    document.getElementById("date").textContent =
-      new Date().toLocaleDateString("de-DE", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      });
-  
-async function ladeSpiele() {
-  const anzeige = document.getElementById("spiele");
+  "use strict";
+  const datumFormat = new Intl.DateTimeFormat("de-DE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  const zeitFormat = new Intl.DateTimeFormat("de-DE", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+  const tagFormat = new Intl.DateTimeFormat("sv-SE", { year: "numeric", month: "2-digit", day: "2-digit" });
+  document.getElementById("date").textContent = datumFormat.format(new Date());
 
-  try {
-    const antwort = await fetch("matches.json?zeit=" + Date.now());
-    if (!antwort.ok) throw new Error("Datei nicht erreichbar");
+  let alleSpiele = [];
+  let aktiverFilter = "alle";
+  const $ = id => document.getElementById(id);
+  const teamKey = team => team?.id != null ? `id:${team.id}` : `name:${(team?.name || "").toLowerCase().trim()}`;
+  const teamName = team => team?.name || "Unbekannt";
+  const tore = spiel => spiel?.score?.fullTime;
+  const beendet = spiel => spiel.status === "FINISHED" &&
+    Number.isInteger(tore(spiel)?.home) && Number.isInteger(tore(spiel)?.away);
+  const datum = spiel => new Date(spiel.utcDate);
+  const gueltig = spiel => !Number.isNaN(datum(spiel).getTime());
+  const sameTeam = (a,b) => teamKey(a) === teamKey(b) && teamKey(a) !== "name:";
+  const localDay = d => tagFormat.format(d);
+  const elem = (tag, text, cls) => {
+    const el = document.createElement(tag);
+    if (text !== undefined) el.textContent = text;
+    if (cls) el.className = cls;
+    return el;
+  };
 
-    const spiele = await antwort.json();
-    anzeige.replaceChildren();
+  function form(team, vorSpiel, spiele) {
+    const letzte = spiele.filter(s => beendet(s) && datum(s) < vorSpiel &&
+      (sameTeam(s.homeTeam, team) || sameTeam(s.awayTeam, team)))
+      .sort((a,b) => datum(b) - datum(a)).slice(0,5);
+    let punkte = 0, erzielt = 0, kassiert = 0;
+    const reihe = [];
+    for (const s of letzte) {
+      const heim = sameTeam(s.homeTeam, team);
+      const eigen = heim ? tore(s).home : tore(s).away;
+      const gegen = heim ? tore(s).away : tore(s).home;
+      erzielt += eigen; kassiert += gegen;
+      if (eigen > gegen) { punkte += 3; reihe.push("S"); }
+      else if (eigen === gegen) { punkte += 1; reihe.push("U"); }
+      else reihe.push("N");
+    }
+    return { n: letzte.length, punkte, erzielt, kassiert, reihe: reihe.join(" · ") };
+  }
 
-    if (!spiele.length) {
-      anzeige.textContent = "Zurzeit keine Spiele vorhanden.";
+  function einschaetzung(heim, gast) {
+    if (heim.n < 3 || gast.n < 3) return null;
+    const heimQuote = heim.punkte / (heim.n * 3);
+    const gastQuote = gast.punkte / (gast.n * 3);
+    const differenz = heimQuote - gastQuote;
+    if (Math.abs(differenz) < 0.20) return "Ausgeglichene Form – keine klare Tendenz";
+    return differenz > 0 ? "Formtendenz: Heimteam" : "Formtendenz: Auswärtsteam";
+  }
+
+  function spielAnalyse(spiel) {
+    const box = elem("div", undefined, "analysis-item");
+    box.appendChild(elem("h3", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
+    box.appendChild(elem("p", `${spiel.competition?.name || "Fußball"} · ${zeitFormat.format(datum(spiel))}`, "muted"));
+    const h = form(spiel.homeTeam, datum(spiel), alleSpiele);
+    const g = form(spiel.awayTeam, datum(spiel), alleSpiele);
+    const fmt = (name, f) => `${name}: ${f.n} Spiele · ${f.punkte} Punkte · Tore ${f.erzielt}:${f.kassiert} · Form ${f.reihe || "–"}`;
+    box.appendChild(elem("p", fmt("Heim", h)));
+    box.appendChild(elem("p", fmt("Gast", g)));
+    box.appendChild(elem("p", einschaetzung(h,g) || "Noch zu wenige abgeschlossene Spiele für eine seriöse Einschätzung.", "green"));
+    return { box, tendenz: einschaetzung(h,g) };
+  }
+
+  function zeigeAnalysen() {
+    const jetzt = new Date();
+    const ende = new Date(jetzt.getTime() + 48 * 60 * 60 * 1000);
+    const kandidaten = alleSpiele.filter(s => gueltig(s) && datum(s) >= jetzt && datum(s) <= ende && !beendet(s))
+      .sort((a,b) => datum(a) - datum(b)).slice(0,12);
+    const ziel = $("analysen"), tipps = $("tipps");
+    ziel.replaceChildren(); tipps.replaceChildren();
+    if (!kandidaten.length) {
+      ziel.textContent = "Keine anstehenden Spiele in den nächsten 48 Stunden in den verfügbaren Daten.";
+      tipps.textContent = "Keine Einschätzungen verfügbar.";
       return;
     }
-
-    spiele.sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
-
-    for (const spiel of spiele) {
-      const zeile = document.createElement("p");
-      const datum = new Date(spiel.utcDate).toLocaleString("de-DE", {
-        day: "2-digit",
-        month: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit"
-      });
-
-      const heim = spiel.homeTeam?.name || "Unbekannt";
-      const gast = spiel.awayTeam?.name || "Unbekannt";
-      const liga = spiel.competition?.name || "Fußball";
-      const tore = spiel.score?.fullTime;
-      const ergebnis = tore?.home != null && tore?.away != null
-        ? `${tore.home}:${tore.away}`
-        : "Noch offen";
-
-      zeile.textContent =
-        `${datum} | ${liga} | ${heim} – ${gast} | ${ergebnis}`;
-
-      anzeige.appendChild(zeile);
+    let anzahl = 0;
+    for (const spiel of kandidaten) {
+      const {box, tendenz} = spielAnalyse(spiel);
+      ziel.appendChild(box);
+      if (tendenz && !tendenz.startsWith("Ausgeglichene")) {
+        tipps.appendChild(elem("p", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}: ${tendenz}`));
+        anzahl++;
+      }
     }
-  } catch (fehler) {
-    anzeige.textContent = "Fußballspiele konnten nicht geladen werden.";
-    console.error(fehler);
+    if (!anzahl) tipps.textContent = "Derzeit keine ausreichend belegten Formtendenzen. Keine Tipps erfunden.";
+    tipps.appendChild(elem("p", "Nur statistische Formtendenzen, keine Gewinnwahrscheinlichkeiten oder Wettempfehlungen.", "muted"));
   }
-}
 
-ladeSpiele();
+  function zeigeSpiele() {
+    const ziel = $("spiele");
+    ziel.replaceChildren();
+    const jetzt = new Date();
+    const gefiltert = alleSpiele.filter(s => gueltig(s) && (
+      aktiverFilter === "alle" ||
+      (aktiverFilter === "heute" && localDay(datum(s)) === localDay(jetzt)) ||
+      (aktiverFilter === "kommend" && datum(s) >= jetzt && !beendet(s)) ||
+      (aktiverFilter === "beendet" && beendet(s))
+    )).sort((a,b) => datum(a) - datum(b));
+    if (!gefiltert.length) { ziel.textContent = "Für diesen Filter sind keine Spiele vorhanden."; return; }
+    for (const spiel of gefiltert) {
+      const score = tore(spiel);
+      const ergebnis = beendet(spiel) ? `${score.home}:${score.away}` : "Noch offen";
+      ziel.appendChild(elem("p", `${zeitFormat.format(datum(spiel))} | ${spiel.competition?.name || "Fußball"} | ${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)} | ${ergebnis}`));
+    }
+  }
 
+  $("filter").addEventListener("click", event => {
+    const button = event.target.closest("button[data-filter]");
+    if (!button) return;
+    aktiverFilter = button.dataset.filter;
+    for (const b of $("filter").querySelectorAll("button")) b.setAttribute("aria-pressed", String(b === button));
+    zeigeSpiele();
+  });
+
+  async function ladeSpiele() {
+    try {
+      const antwort = await fetch("matches.json?zeit=" + Date.now(), {cache:"no-store"});
+      if (!antwort.ok) throw new Error(`HTTP ${antwort.status}`);
+      const daten = await antwort.json();
+      if (!Array.isArray(daten)) throw new Error("Unerwartetes JSON-Format");
+      alleSpiele = daten;
+      zeigeSpiele();
+      zeigeAnalysen();
+    } catch (fehler) {
+      $("spiele").textContent = "Fußballspiele konnten nicht geladen werden.";
+      $("analysen").textContent = "Tagesanalyse derzeit nicht verfügbar.";
+      $("tipps").textContent = "Keine Einschätzungen verfügbar.";
+      console.error("MatchIQ:", fehler);
+    }
+  }
+  ladeSpiele();
   </script>
 </body>
 </html>
