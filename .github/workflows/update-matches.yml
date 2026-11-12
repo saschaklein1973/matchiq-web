@@ -39,7 +39,7 @@ jobs:
           key = os.environ["FOOTBALL_DATA_API_KEY"]
           today = datetime.now(timezone.utc).date()
 
-          start = (today - timedelta(days=2)).isoformat()
+          start = (today - timedelta(days=30)).isoformat()
           end = (today + timedelta(days=10)).isoformat()
 
           url = (
