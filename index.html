@@ -189,14 +189,30 @@
       return p;
     }
     const ph = verteilung(lambdaH), pg = verteilung(lambdaG);
-    let eins = 0, x = 0, zwei = 0, ueber = 0;
+    let eins = 0, x = 0, zwei = 0;
     for (let h = 0; h < ph.length; h++) {
       for (let g = 0; g < pg.length; g++) {
         const p = ph[h] * pg[g];
         if (h > g) eins += p;
         else if (h === g) x += p;
         else zwei += p;
-        if (h + g >= 3) ueber += p;
+      }
+    }
+    const gesamtLambda = lambdaH + lambdaG;
+    const torWahrscheinlichkeiten = [];
+    let poisson = Math.exp(-gesamtLambda);
+    let kumuliert = 0;
+    for (let k = 0; k <= 5; k++) {
+      kumuliert += poisson;
+      torWahrscheinlichkeiten.push({ linie: `${k},5`, unter: kumuliert, ueber: 1 - kumuliert });
+      poisson *= gesamtLambda / (k + 1);
+    }
+    const ueber = torWahrscheinlichkeiten[2].ueber;
+    let ergebnis = { heim: 0, gast: 0, p: -1 };
+    for (let h = 0; h < ph.length; h++) {
+      for (let g = 0; g < pg.length; g++) {
+        const p = ph[h] * pg[g];
+        if (p > ergebnis.p) ergebnis = { heim: h, gast: g, p };
       }
     }
     const btts = (1 - Math.exp(-lambdaH)) * (1 - Math.exp(-lambdaG));
@@ -206,7 +222,7 @@
     const toreTipp = Math.abs(ueber - 0.5) >= 0.10 ? (ueber > 0.5 ? "Über 2,5 Tore" : "Unter 2,5 Tore") : "Keine klare Über/Unter-Tendenz";
     const bttsTipp = Math.abs(btts - 0.5) >= 0.10 ? (btts > 0.5 ? "Ja" : "Nein") : "Keine klare Tendenz";
     const pct = p => `${Math.round(p * 100)} %`;
-    return { eins, x, zwei, ueber, btts, ausgang, toreTipp, bttsTipp, pct, lambdaH, lambdaG };
+    return { eins, x, zwei, ueber, btts, ausgang, toreTipp, bttsTipp, pct, lambdaH, lambdaG, torWahrscheinlichkeiten, ergebnis };
   }
 
   function spielAnalyse(spiel) {
@@ -225,14 +241,18 @@
       const pred = elem("div", undefined, "prediction");
       pred.appendChild(elem("p", "1 / X / 2 – Modellschätzung:"));
       pred.appendChild(elem("p", `1: ${m.pct(m.eins)} · X: ${m.pct(m.x)} · 2: ${m.pct(m.zwei)}`));
-      pred.appendChild(elem("p", `Über 2,5 Tore: ${m.pct(m.ueber)} · Unter 2,5 Tore: ${m.pct(1-m.ueber)}`));
+      pred.appendChild(elem("p", "Über/Unter – geschätzte Modellwahrscheinlichkeiten:"));
+      for (const t of m.torWahrscheinlichkeiten) {
+        pred.appendChild(elem("p", `${t.linie} Tore: Über ${m.pct(t.ueber)} · Unter ${m.pct(t.unter)}`));
+      }
+      pred.appendChild(elem("p", `Möglichstes exaktes Ergebnis im Modell: ${m.ergebnis.heim}:${m.ergebnis.gast} (${m.pct(m.ergebnis.p)})`));
       pred.appendChild(elem("p", `Beide Teams treffen – Ja: ${m.pct(m.btts)} · Nein: ${m.pct(1-m.btts)}`));
       const fazit = elem("p");
       const strong = elem("strong", `MatchIQ-Einschätzung: ${m.ausgang} · ${m.toreTipp} · Beide treffen: ${m.bttsTipp}`);
       fazit.appendChild(strong);
       pred.appendChild(fazit);
       pred.appendChild(elem("p", `Grundlage: letzte ${h.n} Heimteam- und ${g.n} Gastteam-Spiele; Tore, Gegentore und leichter Heimvorteil. Erwartete Tore (Modell): ${m.lambdaH.toFixed(1)} : ${m.lambdaG.toFixed(1)}.`, "muted"));
-      pred.appendChild(elem("p", "Nur grobe Modellwerte aus wenigen Spielen – nicht validiert und keine verlässlichen Gewinnwahrscheinlichkeiten.", "muted"));
+      pred.appendChild(elem("p", "Grobe, nicht validierte Modellwahrscheinlichkeiten. Der Ergebnistipp ist nur das wahrscheinlichste Einzelergebnis, keine sichere Vorhersage. Ohne Quoten keine Aussage zum Wettwert.", "muted"));
       box.appendChild(pred);
     } else {
       box.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 3 abgeschlossene Spiele je Team erforderlich).", "muted"));
