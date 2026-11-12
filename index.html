@@ -32,6 +32,13 @@
     .analysis-item { border-top: 1px solid #40505b; padding: 14px 0; }
     .analysis-item:first-child { border-top: 0; }
     .analysis-item h3 { margin: 0 0 8px; font-size: 1.04rem; }
+    .match-details summary { cursor: pointer; list-style: none; padding: 6px 0; }
+    .match-details summary::-webkit-details-marker { display: none; }
+    .match-details summary::after { content: "  ▾ Details anzeigen"; color: #58e69b; font-size: .88rem; }
+    .match-details[open] summary::after { content: "  ▴ Details schließen"; }
+    .match-details summary:focus-visible { outline: 2px solid #58e69b; border-radius: 6px; }
+    .match-details .match-heading { display: block; font-weight: bold; font-size: 1.04rem; margin-bottom: 5px; }
+    .match-details .match-meta { display: block; color: #aab8c3; font-size: .92rem; }
     .analysis-item p { margin: 6px 0; line-height: 1.45; }
     .prediction { background: #293c47; border-radius: 10px; padding: 12px; margin-top: 10px; }
     .prediction p { margin: 5px 0; }
@@ -227,15 +234,20 @@
 
   function spielAnalyse(spiel) {
     const box = elem("div", undefined, "analysis-item");
-    box.appendChild(elem("h3", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
-    box.appendChild(elem("p", `${spiel.competition?.name || "Fußball"} · ${zeitFormat.format(datum(spiel))}`, "muted"));
+    const details = elem("details", undefined, "match-details");
+    const summary = elem("summary");
+    summary.appendChild(elem("span", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`, "match-heading"));
+    summary.appendChild(elem("span", `${spiel.competition?.name || "Fußball"} · ${zeitFormat.format(datum(spiel))}`, "match-meta"));
+    details.appendChild(summary);
+    const inhalt = elem("div");
+    box.appendChild(details);
     const h = form(spiel.homeTeam, datum(spiel), alleSpiele);
     const g = form(spiel.awayTeam, datum(spiel), alleSpiele);
     const fmt = (name, f) => `${name}: ${f.n} Spiele · ${f.punkte} Punkte · Tore ${f.erzielt}:${f.kassiert} · Form ${f.reihe || "–"}`;
-    box.appendChild(elem("p", fmt("Heim", h)));
-    box.appendChild(elem("p", fmt("Gast", g)));
+    inhalt.appendChild(elem("p", fmt("Heim", h)));
+    inhalt.appendChild(elem("p", fmt("Gast", g)));
     const tendenz = einschaetzung(h, g);
-    box.appendChild(elem("p", tendenz || "Zu wenige abgeschlossene Spiele für eine Einschätzung.", "green"));
+    inhalt.appendChild(elem("p", tendenz || "Zu wenige abgeschlossene Spiele für eine Einschätzung.", "green"));
     const m = modell(h, g);
     if (m) {
       const pred = elem("div", undefined, "prediction");
@@ -253,10 +265,11 @@
       pred.appendChild(fazit);
       pred.appendChild(elem("p", `Grundlage: letzte ${h.n} Heimteam- und ${g.n} Gastteam-Spiele; Tore, Gegentore und leichter Heimvorteil. Erwartete Tore (Modell): ${m.lambdaH.toFixed(1)} : ${m.lambdaG.toFixed(1)}.`, "muted"));
       pred.appendChild(elem("p", "Grobe, nicht validierte Modellwahrscheinlichkeiten. Der Ergebnistipp ist nur das wahrscheinlichste Einzelergebnis, keine sichere Vorhersage. Ohne Quoten keine Aussage zum Wettwert.", "muted"));
-      box.appendChild(pred);
+      inhalt.appendChild(pred);
     } else {
-      box.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 3 abgeschlossene Spiele je Team erforderlich).", "muted"));
+      inhalt.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 3 abgeschlossene Spiele je Team erforderlich).", "muted"));
     }
+    details.appendChild(inhalt);
     return { box, tendenz, modell: m };
   }
 
