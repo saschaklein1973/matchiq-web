@@ -31,7 +31,7 @@ jobs:
           def zeit(s):
               return datetime.fromisoformat(s.replace('Z', '+00:00'))
           def key(team):
-              return 'id:' + str(team['id']) if team.get('id') is not None else 'name:' + team.get('name', '').strip().lower()
+              return 'id:' + str(team['id']) if team.get('id') is not None else 'name:' + str(team.get('name') or '').strip().lower()
           def finished(s):
               score = (s.get('score') or {}).get('fullTime') or {}
               return s.get('status') == 'FINISHED' and type(score.get('home')) is int and type(score.get('away')) is int
