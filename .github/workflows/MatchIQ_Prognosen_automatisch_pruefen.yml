@@ -42,7 +42,7 @@ jobs:
                       and (s.get('competition') or {}).get('id') == cid]
               past.sort(key=lambda s: s['utcDate'], reverse=True)
               past = past[:15]
-              venue = [s for s in past if key(s.get('homeTeam') if home else s.get('awayTeam') or {}) == key(team)]
+              venue = [s for s in past if key((s.get('homeTeam') if home else s.get('awayTeam')) or {}) == key(team)]
               def goals(s):
                   score = s['score']['fullTime']
                   return (score['home'], score['away']) if key(s['homeTeam']) == key(team) else (score['away'], score['home'])
@@ -83,16 +83,25 @@ jobs:
           by_id = {str(s['id']): s for s in matches if s.get('id') is not None}
           saved = {str(r['spiel_id']) for r in records}
           created = settled = 0
+          counts = dict(kommend=0, schon_gespeichert=0, zu_wenig_daten=0, ohne_modelltipp=0)
           for s in sorted(matches, key=lambda m: m.get('utcDate', '')):
               if s.get('id') is None or s.get('status') not in ('SCHEDULED','TIMED'):
                   continue
-              if not (now < zeit(s['utcDate']) <= now + timedelta(hours=4)):
+              if not (now < zeit(s['utcDate']) <= now + timedelta(days=10)):
                   continue
-              if str(s['id']) in saved: continue
+              counts['kommend'] += 1
+              if str(s['id']) in saved:
+                  counts['schon_gespeichert'] += 1
+                  continue
               h = form(s['homeTeam'], s, matches, True)
               a = form(s['awayTeam'], s, matches, False)
+              if min(h['n'], a['n']) < 5:
+                  counts['zu_wenig_daten'] += 1
+                  continue
               p = pick(h, a)
-              if not p: continue
+              if not p:
+                  counts['ohne_modelltipp'] += 1
+                  continue
               _, direction, line, probability = p
               records.append(dict(spiel_id=s['id'], spiel=s['homeTeam'].get('name','?') + ' – ' + s['awayTeam'].get('name','?'),
                                   wettbewerb=(s.get('competition') or {}).get('name',''), anpfiff=s['utcDate'],
@@ -126,6 +135,7 @@ jobs:
               writer = csv.DictWriter(f,fieldnames=fields,extrasaction='ignore')
               writer.writeheader()
               writer.writerows(records)
+          print('Diagnose Auswahl:', counts)
           print(f'Neu vor Spielbeginn gespeichert: {created}; neu ausgewertet: {settled}; insgesamt: {len(records)}; davon beendet: {len(done)}; gewonnen: {wins}')
           PY
       - name: Prognoseverlauf speichern
