@@ -1,0 +1,88 @@
+name: MatchIQ - Historie einmalig nachladen
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: matchiq-update
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Historische Ergebnisse ergänzen
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os, time, urllib.request, urllib.error
+          from datetime import datetime, timedelta, timezone
+
+          key = os.environ.get('FOOTBALL_DATA_API_KEY')
+          if not key:
+              raise RuntimeError('FOOTBALL_DATA_API_KEY fehlt in GitHub Secrets.')
+          today = datetime.now(timezone.utc).date()
+          first = today - timedelta(days=180)
+          last = today + timedelta(days=10)
+          by_id = {}
+          if os.path.exists('matches.json'):
+              with open('matches.json', encoding='utf-8') as f:
+                  old = json.load(f)
+              if isinstance(old, dict):
+                  old = old.get('matches', [])
+              for m in old:
+                  if m.get('id') is not None:
+                      by_id[m['id']] = m
+          print('Vorhandene Spiele:', len(by_id), flush=True)
+
+          cursor = first
+          received = 0
+          while cursor <= last:
+              end = min(cursor + timedelta(days=9), last)
+              url = ('https://api.football-data.org/v4/matches'
+                     f'?dateFrom={cursor.isoformat()}&dateTo={end.isoformat()}')
+              request = urllib.request.Request(url, headers={'X-Auth-Token': key})
+              try:
+                  with urllib.request.urlopen(request, timeout=60) as response:
+                      batch = json.load(response).get('matches', [])
+              except urllib.error.HTTPError as exc:
+                  print('API-Fehler', exc.code, exc.read().decode('utf-8', 'replace'), flush=True)
+                  raise
+              for match in batch:
+                  if match.get('id') is not None:
+                      by_id[match['id']] = match
+              received += len(batch)
+              print(cursor, 'bis', end, ':', len(batch), 'Spiele', flush=True)
+              cursor = end + timedelta(days=1)
+              if cursor <= last:
+                  time.sleep(7)  # API-Rate-Limit schonen
+          if not received:
+              raise RuntimeError('Keine Spieldaten empfangen; alte Datei bleibt unverändert.')
+          matches = sorted(by_id.values(), key=lambda m: m.get('utcDate', ''))
+          with open('matches.json', 'w', encoding='utf-8') as f:
+              json.dump(matches, f, ensure_ascii=False, indent=2)
+          finished = sum(m.get('status') == 'FINISHED' and
+                         isinstance((m.get('score') or {}).get('fullTime', {}).get('home'), int) and
+                         isinstance((m.get('score') or {}).get('fullTime', {}).get('away'), int)
+                         for m in matches)
+          print(f'Gespeichert: {len(matches)} Spiele, {finished} abgeschlossene.', flush=True)
+          PY
+      - name: Neue Daten veröffentlichen
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add matches.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'MatchIQ: 180 Tage historische Ergebnisse ergänzen'
+            git push
+          fi
