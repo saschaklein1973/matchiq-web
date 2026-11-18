@@ -93,7 +93,7 @@
       <h2>🎯 Unsere Über-/Unter-Empfehlungen</h2>
       <p id="date" class="muted"></p>
       <div id="tipps" aria-live="polite">Empfehlungen werden berechnet ...</div>
-      <p class="muted">Automatische statistische Modellschätzungen – keine garantierten Treffer oder nachgewiesenen Wettvorteile. Zunächst nur zum Testen ohne Geldeinsatz.</p>
+      <p class="muted">Alle Torlinien von 0,5 bis 5,5 werden geprüft. Automatische statistische Modellschätzungen – keine garantierten Treffer oder nachgewiesenen Wettvorteile. Zunächst nur zum Testen ohne Geldeinsatz.</p>
     </section>
     <section id="view-spiele" class="card view" hidden>
       <h2>⚽ Alle Spiele</h2>
@@ -269,8 +269,8 @@
      const kandidaten = [];
      for (const t of m.torWahrscheinlichkeiten) {
        const linie = Number(t.linie.replace(",", "."));
-       // Extreme Linien liefern oft hohe, aber wenig aussagekräftige Wahrscheinlichkeiten.
-       if (linie < 1.5 || linie > 4.5) continue;
+       // Alle sechs Torlinien von 0,5 bis 5,5 werden berücksichtigt.
+       if (linie < 0.5 || linie > 5.5) continue;
        for (const [richtung, p] of [["Über", t.ueber], ["Unter", t.unter]]) {
          if (p >= 0.70 && p <= 0.85) kandidaten.push({ richtung, linie: t.linie, p });
        }
