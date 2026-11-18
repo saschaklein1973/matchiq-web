@@ -44,6 +44,14 @@
     .prediction p { margin: 5px 0; }
     .prediction strong { color: #58e69b; }
     .pill { display: inline-block; border-radius: 8px; background: #30424d; padding: 4px 8px; }
+    .nav { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+    .nav-button { background:#30424d; color:#fff; flex:1 1 145px; }
+    .nav-button[aria-pressed="true"] { background:#58e69b; color:#101820; }
+    [hidden] { display:none !important; }
+    .recommendation { border-top:1px solid #40505b; padding:15px 0; }
+    .recommendation:first-child { border-top:0; }
+    .recommendation h3 { margin:0 0 8px; font-size:1.08rem; }
+    .recommendation .pick { color:#58e69b; font-weight:700; font-size:1.18rem; }
     .filters { margin-bottom: 12px; }
     .filters button { margin: 0 6px 6px 0; padding: 8px 12px; }
     .filters button[aria-pressed="false"] { background: #30424d; color: white; }
@@ -76,53 +84,32 @@
   </header>
 
   <main>
-    <section class="card">
-      <h2>📅 Tagesanalyse</h2>
-      <p id="date"></p>
-      <p class="muted">Vorschau auf die nächsten 14 Tage. Vergleich auf Basis der zuletzt verfügbaren abgeschlossenen Spiele. Statistische Modellschätzungen aus verfügbaren Ergebnissen, keine Live-KI, Quoten oder Wettgarantie.</p>
-      <div id="analysen" aria-live="polite">Analysen werden geladen ...</div>
+    <nav class="nav" aria-label="Bereiche">
+      <button type="button" class="nav-button" data-view="empfehlungen" aria-pressed="true">🎯 Empfehlungen</button>
+      <button type="button" class="nav-button" data-view="spiele" aria-pressed="false">⚽ Alle Spiele</button>
+      <button type="button" class="nav-button" data-view="analyse" aria-pressed="false">📊 Analysen</button>
+    </nav>
+    <section id="view-empfehlungen" class="card view">
+      <h2>🎯 Unsere Über-/Unter-Empfehlungen</h2>
+      <p id="date" class="muted"></p>
+      <div id="tipps" aria-live="polite">Empfehlungen werden berechnet ...</div>
+      <p class="muted">Automatische statistische Modellschätzungen – keine garantierten Treffer oder nachgewiesenen Wettvorteile. Zunächst nur zum Testen ohne Geldeinsatz.</p>
     </section>
-
-    <section class="card">
-      <h2>🎯 MatchIQ-Tipps</h2>
-      <div id="tipps" aria-live="polite">Einschätzungen werden geladen ...</div>
-    </section>
-
-    <section class="card">
-      <h2>🏆 Unsere Sportarten</h2>
-      <div class="sports">
-        <span class="sport">⚽ Fußball</span>
-        <span class="sport">🏀 Basketball</span>
-        <span class="sport">🏒 Eishockey</span>
-        <span class="sport">🎾 Tennis</span>
-        <span class="sport">🤾 Handball</span>
+    <section id="view-spiele" class="card view" hidden>
+      <h2>⚽ Alle Spiele</h2>
+      <div class="filters" id="filter" aria-label="Spiele filtern">
+        <button type="button" data-filter="alle" aria-pressed="true">Alle</button>
+        <button type="button" data-filter="heute" aria-pressed="false">Heute</button>
+        <button type="button" data-filter="kommend" aria-pressed="false">Kommende</button>
+        <button type="button" data-filter="beendet" aria-pressed="false">Ergebnisse</button>
       </div>
+      <div id="spiele">Spiele werden geladen ...</div>
     </section>
-
-    <section class="card">
-      <h2>📊 Statistik</h2>
-      <p>Ausgewertete Prognosen: 0</p>
-      <p>Trefferquote: Noch keine Daten</p>
-      <p>Virtuelles Testguthaben: 10,00 €</p>
+    <section id="view-analyse" class="card view" hidden>
+      <h2>📊 Detailanalysen</h2>
+      <p class="muted">Weitere Modellwerte und Formvergleiche für kommende Spiele. Die Empfehlungen auf der Startseite werden unabhängig davon automatisch ausgewählt.</p>
+      <div id="analysen">Analysen werden geladen ...</div>
     </section>
-
-    <section class="card">
-      <h2>🔔 Benachrichtigungen</h2>
-      <p>
-        iPhone-Push-Mitteilungen werden
-        in einer späteren Phase eingerichtet.
-      </p>
-    </section>
-  <section class="card">
-  <h2>⚽ Aktuelle Fußballspiele</h2>
-  <div class="filters" id="filter" aria-label="Spiele filtern">
-    <button type="button" data-filter="alle" aria-pressed="true">Alle</button>
-    <button type="button" data-filter="heute" aria-pressed="false">Heute</button>
-    <button type="button" data-filter="kommend" aria-pressed="false">Kommende</button>
-    <button type="button" data-filter="beendet" aria-pressed="false">Ergebnisse</button>
-  </div>
-  <div id="spiele">Spiele werden geladen ...</div>
-</section>
   </main>
 
   <script>
@@ -275,33 +262,64 @@
     return { box, tendenz, modell: m };
   }
 
+   // Nur aussagekräftige Über-/Unter-Prognosen zeigen. Keine 1X2- oder BTTS-Tipps.
+   // Schwellen sind vorläufige Filter, keine validierte Erfolgsquote.
+   function waehleTorTipp(m) {
+     if (!m) return null;
+     const kandidaten = [];
+     for (const t of m.torWahrscheinlichkeiten) {
+       const linie = Number(t.linie.replace(",", "."));
+       // Extreme Linien liefern oft hohe, aber wenig aussagekräftige Wahrscheinlichkeiten.
+       if (linie < 1.5 || linie > 4.5) continue;
+       for (const [richtung, p] of [["Über", t.ueber], ["Unter", t.unter]]) {
+         if (p >= 0.70 && p <= 0.85) kandidaten.push({ richtung, linie: t.linie, p });
+       }
+     }
+     kandidaten.sort((a,b) => b.p - a.p || Math.abs(Number(a.linie.replace(",", ".")) - 2.5) - Math.abs(Number(b.linie.replace(",", ".")) - 2.5));
+     return kandidaten[0] || null;
+   }
+
   function zeigeAnalysen() {
-    const jetzt = new Date();
-    const ende = new Date(jetzt.getTime() + 14 * 24 * 60 * 60 * 1000);
-    const kandidaten = alleSpiele.filter(s => gueltig(s) && datum(s) > jetzt && datum(s) <= ende && bevorstehend(s))
-      .sort((a,b) => datum(a) - datum(b)).slice(0,12);
-    const ziel = $("analysen"), tipps = $("tipps");
-    ziel.replaceChildren(); tipps.replaceChildren();
-    if (!kandidaten.length) {
-      ziel.textContent = "Keine anstehenden Spiele in den nächsten 14 Tagen in den verfügbaren Daten.";
-      tipps.textContent = "Keine Einschätzungen verfügbar.";
-      return;
-    }
-    let anzahl = 0;
-    for (const spiel of kandidaten) {
-      const {box, modell: m} = spielAnalyse(spiel);
-      ziel.appendChild(box);
-      if (m && (m.ausgang !== "Kein klarer 1/X/2-Favorit" || m.toreTipp !== "Keine klare Über/Unter-Tendenz" || m.bttsTipp !== "Keine klare Tendenz")) {
-        const item = elem("div", undefined, "analysis-item");
-        item.appendChild(elem("p", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
-        item.appendChild(elem("p", `1/X/2: ${m.ausgang} · Tore: ${m.toreTipp} · Beide treffen: ${m.bttsTipp}`, "green"));
-        tipps.appendChild(item);
-        anzahl++;
-      }
-    }
-    if (!anzahl) tipps.textContent = "Derzeit keine ausreichend deutlichen statistischen Tendenzen.";
-    tipps.appendChild(elem("p", "Rein statistische, nicht validierte Modellschätzungen. Keine Buchmacherquoten oder Wettgarantie.", "muted"));
-  }
+     const jetzt = new Date();
+     const ende = new Date(jetzt.getTime() + 14 * 24 * 60 * 60 * 1000);
+     const kandidaten = alleSpiele.filter(s => bevorstehend(s) && datum(s) <= ende)
+       .sort((a,b) => datum(a) - datum(b));
+     const ziel = $("analysen"), tipps = $("tipps");
+     ziel.replaceChildren(); tipps.replaceChildren();
+     if (!kandidaten.length) {
+       ziel.textContent = "Keine anstehenden Spiele in den nächsten 14 Tagen in den verfügbaren Daten.";
+       tipps.textContent = "Derzeit keine Empfehlungen: keine anstehenden Spiele in den verfügbaren Daten.";
+       return;
+     }
+     const empfehlungen = [];
+     // Alle kommenden Spiele prüfen, nicht nur die ersten zwölf.
+     for (const spiel of kandidaten) {
+       const h = form(spiel.homeTeam, datum(spiel), alleSpiele);
+       const g = form(spiel.awayTeam, datum(spiel), alleSpiele);
+       // Mehr historische Ergebnisse als Mindestanforderung für die reine Modellberechnung.
+       if (h.n < 5 || g.n < 5) continue;
+       const m = modell(h, g);
+       const tipp = waehleTorTipp(m);
+       if (tipp) empfehlungen.push({ spiel, tipp, h, g });
+     }
+     empfehlungen.sort((a,b) => b.tipp.p - a.tipp.p || datum(a.spiel) - datum(b.spiel));
+     for (const {spiel, tipp, h, g} of empfehlungen.slice(0, 5)) {
+       const item = elem("article", undefined, "recommendation");
+       item.appendChild(elem("h3", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
+       item.appendChild(elem("p", `${spiel.competition?.name || "Fußball"} · ${zeitFormat.format(datum(spiel))}`, "muted"));
+       item.appendChild(elem("p", `${tipp.richtung} ${tipp.linie} Tore`, "pick"));
+       item.appendChild(elem("p", `Geschätzte Modellwahrscheinlichkeit: ${Math.round(tipp.p * 100)} %`));
+       item.appendChild(elem("p", `Datengrundlage: je ${h.n} und ${g.n} letzte Spiele. Modell nicht anhand echter Tipps kalibriert.`, "muted"));
+       tipps.appendChild(item);
+     }
+     if (!empfehlungen.length) tipps.textContent = "Heute keine Empfehlung mit ausreichender Datengrundlage und Modell-Tendenz.";
+     // Detailanalysen bewusst nur bei Bedarf in separatem Bereich aufbauen.
+     if (!$("view-analyse").hidden) {
+       for (const spiel of kandidaten.slice(0,12)) ziel.appendChild(spielAnalyse(spiel).box);
+     } else {
+       ziel.textContent = "Öffne diesen Bereich, um die Detailanalysen zu sehen.";
+     }
+   }
 
   function zeigeSpiele() {
     const ziel = $("spiele");
@@ -324,6 +342,15 @@
       ziel.appendChild(elem("p", `${zeitFormat.format(datum(spiel))} | ${spiel.competition?.name || "Fußball"} | ${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)} | ${ergebnis}`));
     }
   }
+
+   document.querySelector(".nav").addEventListener("click", event => {
+     const button = event.target.closest("button[data-view]");
+     if (!button) return;
+     const view = button.dataset.view;
+     for (const b of document.querySelectorAll(".nav-button")) b.setAttribute("aria-pressed", String(b === button));
+     for (const v of document.querySelectorAll(".view")) v.hidden = v.id !== `view-${view}`;
+     if (view === "analyse") zeigeAnalysen();
+   });
 
   $("filter").addEventListener("click", event => {
     const button = event.target.closest("button[data-filter]");
