@@ -1,0 +1,140 @@
+name: MatchIQ - Prognosen automatisch pruefen
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */2 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: matchiq-update
+  cancel-in-progress: false
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Prognosen vor Anpfiff sichern und Ergebnisse auswerten
+        run: |
+          python - <<'PY'
+          import csv, json, math, os
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc)
+          def zeit(s):
+              return datetime.fromisoformat(s.replace('Z', '+00:00'))
+          def key(team):
+              return 'id:' + str(team['id']) if team.get('id') is not None else 'name:' + team.get('name', '').strip().lower()
+          def finished(s):
+              score = (s.get('score') or {}).get('fullTime') or {}
+              return s.get('status') == 'FINISHED' and type(score.get('home')) is int and type(score.get('away')) is int
+          def form(team, fixture, matches, home):
+              cid = (fixture.get('competition') or {}).get('id')
+              past = [s for s in matches if finished(s) and zeit(s['utcDate']) < zeit(fixture['utcDate'])
+                      and (key(s.get('homeTeam') or {}) == key(team) or key(s.get('awayTeam') or {}) == key(team))
+                      and (s.get('competition') or {}).get('id') == cid]
+              past.sort(key=lambda s: s['utcDate'], reverse=True)
+              past = past[:15]
+              venue = [s for s in past if key(s.get('homeTeam') if home else s.get('awayTeam') or {}) == key(team)]
+              def goals(s):
+                  score = s['score']['fullTime']
+                  return (score['home'], score['away']) if key(s['homeTeam']) == key(team) else (score['away'], score['home'])
+              scored = sum(goals(s)[0] for s in past)
+              conceded = sum(goals(s)[1] for s in past)
+              return dict(n=len(past), scored=scored, conceded=conceded, vn=len(venue),
+                          vs=sum(goals(s)[0] for s in venue), vc=sum(goals(s)[1] for s in venue))
+          def pick(h, a):
+              if min(h['n'], a['n']) < 5:
+                  return None
+              def rate(g, n): return (g + 5 * 1.35) / (n + 5)
+              def blended(t, allkey, venuekey):
+                  if t['vn'] < 2: return rate(t[allkey], t['n'])
+                  return .5 * rate(t[allkey], t['n']) + .5 * rate(t[venuekey], t['vn'])
+              lh = max(.35, min(3.5, (blended(h,'scored','vs') + blended(a,'conceded','vc')) / 2 * 1.06))
+              la = max(.35, min(3.5, (blended(a,'scored','vs') + blended(h,'conceded','vc')) / 2 * .94))
+              lam = lh + la
+              prob = math.exp(-lam)
+              cum = 0
+              candidates = []
+              for k in range(6):
+                  cum += prob
+                  for direction, p in [('Über', 1-cum), ('Unter', cum)]:
+                      if .62 <= p <= .80:
+                          line = k + .5
+                          score = p - .035 * abs(line - 2.5)
+                          candidates.append((score, direction, line, p))
+                  prob *= lam / (k + 1)
+              if not candidates: return None
+              return max(candidates, key=lambda x: x[0])
+
+          with open('matches.json', encoding='utf-8') as f:
+              data = json.load(f)
+          matches = data if isinstance(data, list) else data.get('matches', [])
+          path = Path('prognosen.json')
+          records = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
+          if not isinstance(records, list): raise ValueError('prognosen.json muss eine Liste sein')
+          by_id = {str(s['id']): s for s in matches if s.get('id') is not None}
+          saved = {str(r['spiel_id']) for r in records}
+          created = settled = 0
+          for s in sorted(matches, key=lambda m: m.get('utcDate', '')):
+              if s.get('id') is None or s.get('status') not in ('SCHEDULED','TIMED'):
+                  continue
+              if not (now < zeit(s['utcDate']) <= now + timedelta(hours=4)):
+                  continue
+              if str(s['id']) in saved: continue
+              h = form(s['homeTeam'], s, matches, True)
+              a = form(s['awayTeam'], s, matches, False)
+              p = pick(h, a)
+              if not p: continue
+              _, direction, line, probability = p
+              records.append(dict(spiel_id=s['id'], spiel=s['homeTeam'].get('name','?') + ' – ' + s['awayTeam'].get('name','?'),
+                                  wettbewerb=(s.get('competition') or {}).get('name',''), anpfiff=s['utcDate'],
+                                  erstellt=now.isoformat(timespec='seconds'), richtung=direction, linie=line,
+                                  wahrscheinlichkeit=round(probability, 4), modell='MatchIQ-V3-Poisson',
+                                  heim_spiele=h['n'], gast_spiele=a['n'], status='offen'))
+              saved.add(str(s['id']))
+              created += 1
+          for r in records:
+              if r.get('status') != 'offen': continue
+              s = by_id.get(str(r['spiel_id']))
+              if s is None or not finished(s): continue
+              score = s['score']['fullTime']
+              total = score['home'] + score['away']
+              won = total > r['linie'] if r['richtung'] == 'Über' else total < r['linie']
+              r.update(status='gewonnen' if won else 'verloren', ergebnis=f"{score['home']}:{score['away']}",
+                       tore=total, ausgewertet=now.isoformat(timespec='seconds'))
+              settled += 1
+          records.sort(key=lambda r: (r['anpfiff'], str(r['spiel_id'])))
+          path.write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          done = [r for r in records if r['status'] in ('gewonnen','verloren')]
+          wins = sum(r['status']=='gewonnen' for r in done)
+          summary = {'stand':now.isoformat(timespec='seconds'), 'prognosen':len(records),
+                     'offen':sum(r['status']=='offen' for r in records), 'ausgewertet':len(done),
+                     'gewonnen':wins, 'verloren':len(done)-wins,
+                     'trefferquote_prozent':round(100*wins/len(done), 1) if done else None,
+                     'hinweis':'Virtueller Test ohne Wettquoten oder nachgewiesenen finanziellen Vorteil.'}
+          Path('prognosen_statistik.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2)+'\n',encoding='utf-8')
+          with open('prognosen.csv','w',encoding='utf-8',newline='') as f:
+              fields = ['spiel_id','spiel','wettbewerb','anpfiff','erstellt','richtung','linie','wahrscheinlichkeit','modell','heim_spiele','gast_spiele','status','ergebnis','tore','ausgewertet']
+              writer = csv.DictWriter(f,fieldnames=fields,extrasaction='ignore')
+              writer.writeheader()
+              writer.writerows(records)
+          print(f'Neu vor Spielbeginn gespeichert: {created}; neu ausgewertet: {settled}; insgesamt: {len(records)}; davon beendet: {len(done)}; gewonnen: {wins}')
+          PY
+      - name: Prognoseverlauf speichern
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add prognosen.json prognosen.csv prognosen_statistik.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'MatchIQ: virtuelle Prognosen und Ergebnisse aktualisieren'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
