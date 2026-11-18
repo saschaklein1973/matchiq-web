@@ -57,6 +57,17 @@
     .filters button[aria-pressed="false"] { background: #30424d; color: white; }
     #spiele p { border-bottom: 1px solid #344650; padding-bottom: 9px; line-height: 1.5; }
     .error { color: #ffb6a9; }
+    .stats-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:18px 0; }
+    .stat-box { background:#293c47; border-radius:12px; padding:16px; }
+    .stat-box .number { font-size:1.7rem; font-weight:bold; margin-top:8px; }
+    .stats-list { overflow-x:auto; }
+    .stats-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+    .stats-table th,.stats-table td { text-align:left; padding:10px 8px; border-bottom:1px solid #40505b; }
+    .stats-table th { color:#aab8c3; }
+    .stats-table td { vertical-align:top; }
+    .status-won { color:#58e69b; }
+    .status-lost { color:#ffb6a9; }
+    @media (max-width:520px) { .stats-grid { gap:8px; } .stat-box { padding:12px; } .stat-box .number { font-size:1.35rem; } }
     .sports {
       display: flex;
       flex-wrap: wrap;
@@ -88,6 +99,7 @@
       <button type="button" class="nav-button" data-view="empfehlungen" aria-pressed="true">🎯 Empfehlungen</button>
       <button type="button" class="nav-button" data-view="spiele" aria-pressed="false">⚽ Alle Spiele</button>
       <button type="button" class="nav-button" data-view="analyse" aria-pressed="false">📊 Analysen</button>
+      <button type="button" class="nav-button" data-view="erfolge" aria-pressed="false">🏆 Erfolgsstatistik</button>
     </nav>
     <section id="view-empfehlungen" class="card view">
       <h2>🎯 Unsere Über-/Unter-Testprognosen</h2>
@@ -109,6 +121,21 @@
       <h2>📊 Detailanalysen</h2>
       <p class="muted">Weitere Modellwerte und Formvergleiche für kommende Spiele. Die Empfehlungen auf der Startseite werden unabhängig davon automatisch ausgewählt.</p>
       <div id="analysen">Analysen werden geladen ...</div>
+    </section>
+    <section id="view-erfolge" class="card view" hidden>
+      <h2>🏆 Erfolgsstatistik</h2>
+      <p class="muted">Automatisch gespeicherte Prognosen vor Spielbeginn und ihre späteren Ergebnisse. Die Trefferquote ist keine Rendite- oder Gewinnprognose.</p>
+      <div id="erfolge" aria-live="polite">Statistik wird geladen ...</div>
+      <p class="muted" id="erfolge-stand"></p>
+      <button type="button" id="erfolge-neuladen">↻ Statistik aktualisieren</button>
+      <h3>📋 Prognoseverlauf</h3>
+      <div class="filters" id="erfolge-filter" aria-label="Prognosen filtern">
+        <button type="button" data-status="alle" aria-pressed="true">Alle</button>
+        <button type="button" data-status="offen" aria-pressed="false">Offen</button>
+        <button type="button" data-status="gewonnen" aria-pressed="false">Gewonnen</button>
+        <button type="button" data-status="verloren" aria-pressed="false">Verloren</button>
+      </div>
+      <div id="erfolge-verlauf">Prognosen werden geladen ...</div>
     </section>
   </main>
 
@@ -366,6 +393,102 @@
       ziel.appendChild(elem("p", `${zeitFormat.format(datum(spiel))} | ${spiel.competition?.name || "Fußball"} | ${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)} | ${ergebnis}`));
     }
   }
+
+   // Die Erfolgsstatistik nutzt die dauerhaft vor Anpfiff gespeicherten Prognosen,
+   // nicht die im Browser bei jedem Aufruf neu berechneten Empfehlungen.
+   let gespeichertePrognosen = [];
+   let erfolgsFilter = "alle";
+   let statistikGeladen = false;
+   const ganzeZahl = n => Number.isFinite(Number(n)) ? Number(n).toLocaleString("de-DE") : "–";
+   const prozent = n => typeof n === "number" && Number.isFinite(n) ? `${n.toLocaleString("de-DE", {maximumFractionDigits:1})} %` : "Noch nicht verfügbar";
+   const zeitText = value => {
+     if (!value) return "–";
+     const d = new Date(value);
+     return Number.isNaN(d.getTime()) ? "–" : zeitFormat.format(d);
+   };
+   function statistikKachel(label, wert, klasse="") {
+     const box = elem("div", undefined, "stat-box");
+     box.appendChild(elem("div", label, "muted"));
+     box.appendChild(elem("div", String(wert), `number ${klasse}`));
+     return box;
+   }
+   function zeigeErfolgsverlauf() {
+     const ziel = $("erfolge-verlauf");
+     ziel.replaceChildren();
+     const liste = gespeichertePrognosen.filter(r => erfolgsFilter === "alle" || r.status === erfolgsFilter)
+       .sort((a,b) => String(b.anpfiff || "").localeCompare(String(a.anpfiff || "")));
+     if (!liste.length) {
+       ziel.textContent = gespeichertePrognosen.length ? "Für diesen Filter gibt es noch keine Prognosen." : "Noch keine gespeicherten Prognosen vorhanden.";
+       return;
+     }
+     const hinweis = elem("p", `${ganzeZahl(liste.length)} Einträge · Neueste zuerst`, "muted");
+     ziel.appendChild(hinweis);
+     const wrap = elem("div", undefined, "stats-list");
+     const table = elem("table", undefined, "stats-table");
+     const head = elem("thead");
+     const headRow = elem("tr");
+     for (const title of ["Spiel / Anpfiff", "Prognose", "Ergebnis", "Status"]) headRow.appendChild(elem("th", title));
+     head.appendChild(headRow); table.appendChild(head);
+     const body = elem("tbody");
+     for (const r of liste.slice(0,100)) {
+       const tr = elem("tr");
+       const match = elem("td");
+       match.appendChild(elem("div", r.spiel || "Unbekanntes Spiel"));
+       match.appendChild(elem("div", zeitText(r.anpfiff), "muted"));
+       const chance = typeof r.wahrscheinlichkeit === "number" ? ` · ${Math.round(r.wahrscheinlichkeit*100)} % Modellschätzung` : "";
+       const pick = elem("td", `${r.richtung || "–"} ${r.linie ?? "–"} Tore${chance}`);
+       const result = elem("td", r.ergebnis || "–");
+       const status = elem("td", r.status === "gewonnen" ? "✓ Gewonnen" : r.status === "verloren" ? "✕ Verloren" : "⏳ Offen", r.status === "gewonnen" ? "status-won" : r.status === "verloren" ? "status-lost" : "muted");
+       tr.append(match, pick, result, status); body.appendChild(tr);
+     }
+     table.appendChild(body); wrap.appendChild(table); ziel.appendChild(wrap);
+     if (liste.length > 100) ziel.appendChild(elem("p", "Es werden die neuesten 100 Einträge angezeigt.", "muted"));
+   }
+   async function ladeErfolgsstatistik() {
+     const ziel = $("erfolge");
+     ziel.textContent = "Statistik wird geladen ...";
+     try {
+       const [statAntwort, prognoseAntwort] = await Promise.all([
+         fetch("prognosen_statistik.json?zeit=" + Date.now(), {cache:"no-store"}),
+         fetch("prognosen.json?zeit=" + Date.now(), {cache:"no-store"})
+       ]);
+       if (!statAntwort.ok || !prognoseAntwort.ok) throw new Error(`Statistik HTTP ${statAntwort.status}, Prognosen HTTP ${prognoseAntwort.status}`);
+       const [stat, prognosen] = await Promise.all([statAntwort.json(), prognoseAntwort.json()]);
+       if (!stat || typeof stat !== "object" || !Array.isArray(prognosen)) throw new Error("Unerwartetes Datenformat");
+       gespeichertePrognosen = prognosen;
+       const ausgewertet = Number(stat.ausgewertet) || 0;
+       const gewonnen = Number(stat.gewonnen) || 0;
+       const quote = ausgewertet ? 100 * gewonnen / ausgewertet : null;
+       const grid = elem("div", undefined, "stats-grid");
+       for (const [label, wert, klasse] of [
+         ["Gespeicherte Prognosen", ganzeZahl(stat.prognosen), ""],
+         ["Noch offen", ganzeZahl(stat.offen), ""],
+         ["Gewonnen", ganzeZahl(stat.gewonnen), "status-won"],
+         ["Verloren", ganzeZahl(stat.verloren), "status-lost"],
+         ["Ausgewertet", ganzeZahl(stat.ausgewertet), ""],
+         ["Tatsächliche Trefferquote", prozent(quote), ""]
+       ]) grid.appendChild(statistikKachel(label, wert, klasse));
+       ziel.replaceChildren(grid);
+       ziel.appendChild(elem("p", ausgewertet ? `Trefferquote aus ${ganzeZahl(ausgewertet)} ausgewerteten Prognosen. Ohne Buchmacherquoten lässt sich daraus kein finanzieller Vorteil ableiten.` : "Noch keine Spiele ausgewertet. Die Trefferquote erscheint nach den ersten Ergebnissen.", "muted"));
+       $("erfolge-stand").textContent = `Letzter Datenstand: ${zeitText(stat.stand)}`;
+       statistikGeladen = true;
+       zeigeErfolgsverlauf();
+     } catch (fehler) {
+       statistikGeladen = false;
+       ziel.textContent = "Die Erfolgsstatistik konnte nicht geladen werden. Prüfe, ob prognosen.json und prognosen_statistik.json im gleichen GitHub-Pages-Verzeichnis vorhanden sind.";
+       $("erfolge-verlauf").textContent = "Prognoseverlauf derzeit nicht verfügbar.";
+       $("erfolge-stand").textContent = "";
+       console.error("MatchIQ Erfolgsstatistik:", fehler);
+     }
+   }
+   $("erfolge-neuladen").addEventListener("click", ladeErfolgsstatistik);
+   $("erfolge-filter").addEventListener("click", event => {
+     const button = event.target.closest("button[data-status]");
+     if (!button) return;
+     erfolgsFilter = button.dataset.status;
+     for (const b of $("erfolge-filter").querySelectorAll("button")) b.setAttribute("aria-pressed", String(b === button));
+     if (statistikGeladen) zeigeErfolgsverlauf();
+   });
 
    document.querySelector(".nav").addEventListener("click", event => {
      const button = event.target.closest("button[data-view]");
