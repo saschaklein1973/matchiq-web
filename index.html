@@ -140,10 +140,16 @@
     return el;
   };
 
-  function form(team, vorSpiel, spiele) {
-    const letzte = spiele.filter(s => beendet(s) && datum(s) < vorSpiel &&
-      (sameTeam(s.homeTeam, team) || sameTeam(s.awayTeam, team)))
-      .sort((a,b) => datum(b) - datum(a)).slice(0,5);
+  // Bis zu 15 abgeschlossene Spiele vor Anpfiff, zusätzlich nach Spielort getrennt.
+  // Keine zukünftigen Ergebnisse verwenden (Schutz vor Datenleck bei Rücktests).
+  function form(team, vorSpiel, spiele, heimspiel = null, wettbewerb = null) {
+    const historie = spiele.filter(s => beendet(s) && datum(s) < vorSpiel &&
+      (sameTeam(s.homeTeam, team) || sameTeam(s.awayTeam, team)) &&
+      (!wettbewerb || s.competition?.id === wettbewerb.id))
+      .sort((a,b) => datum(b) - datum(a));
+    const letzte = historie.slice(0,15);
+    const ort = letzte.filter(s => heimspiel === null ||
+      sameTeam(heimspiel ? s.homeTeam : s.awayTeam, team));
     let punkte = 0, erzielt = 0, kassiert = 0;
     const reihe = [];
     for (const s of letzte) {
@@ -155,7 +161,15 @@
       else if (eigen === gegen) { punkte += 1; reihe.push("U"); }
       else reihe.push("N");
     }
-    return { n: letzte.length, punkte, erzielt, kassiert, reihe: reihe.join(" · ") };
+    let ortErzielt = 0, ortKassiert = 0;
+    for (const s of ort) {
+      const heim = sameTeam(s.homeTeam, team);
+      ortErzielt += heim ? tore(s).home : tore(s).away;
+      ortKassiert += heim ? tore(s).away : tore(s).home;
+    }
+    return { n: letzte.length, punkte, erzielt, kassiert,
+      reihe: reihe.join(" · "), ortN: ort.length,
+      ortErzielt, ortKassiert };
   }
 
   function einschaetzung(heim, gast) {
@@ -172,11 +186,16 @@
   function modell(heim, gast) {
     if (heim.n < 3 || gast.n < 3) return null;
     const clamp = (x, min, max) => Math.max(min, Math.min(max, x));
-    // Kleine Stichproben werden in Richtung 1,35 Tore pro Team geglättet.
-    const angrH = (heim.erzielt + 4 * 1.35) / (heim.n + 4);
-    const abwH = (heim.kassiert + 4 * 1.35) / (heim.n + 4);
-    const angrG = (gast.erzielt + 4 * 1.35) / (gast.n + 4);
-    const abwG = (gast.kassiert + 4 * 1.35) / (gast.n + 4);
+    // Gewichtete Gesamt- und Heim-/Auswärtsform, geglättet gegen kleine Stichproben.
+    const rate = (tore, n) => (tore + 5 * 1.35) / (n + 5);
+    const angrH = 0.4 * rate(heim.erzielt, heim.n) +
+                  0.6 * rate(heim.ortErzielt, heim.ortN);
+    const abwH = 0.4 * rate(heim.kassiert, heim.n) +
+                 0.6 * rate(heim.ortKassiert, heim.ortN);
+    const angrG = 0.4 * rate(gast.erzielt, gast.n) +
+                  0.6 * rate(gast.ortErzielt, gast.ortN);
+    const abwG = 0.4 * rate(gast.kassiert, gast.n) +
+                 0.6 * rate(gast.ortKassiert, gast.ortN);
     const lambdaH = clamp((angrH + abwG) / 2 * 1.06, 0.35, 3.5);
     const lambdaG = clamp((angrG + abwH) / 2 * 0.94, 0.35, 3.5);
     function verteilung(lambda) {
@@ -230,8 +249,8 @@
     details.appendChild(summary);
     const inhalt = elem("div");
     box.appendChild(details);
-    const h = form(spiel.homeTeam, datum(spiel), alleSpiele);
-    const g = form(spiel.awayTeam, datum(spiel), alleSpiele);
+    const h = form(spiel.homeTeam, datum(spiel), alleSpiele, true, spiel.competition);
+    const g = form(spiel.awayTeam, datum(spiel), alleSpiele, false, spiel.competition);
     const fmt = (name, f) => `${name}: ${f.n} Spiele · ${f.punkte} Punkte · Tore ${f.erzielt}:${f.kassiert} · Form ${f.reihe || "–"}`;
     inhalt.appendChild(elem("p", fmt("Heim", h)));
     inhalt.appendChild(elem("p", fmt("Gast", g)));
@@ -246,17 +265,17 @@
       for (const t of m.torWahrscheinlichkeiten) {
         pred.appendChild(elem("p", `${t.linie} Tore: Über ${m.pct(t.ueber)} · Unter ${m.pct(t.unter)}`));
       }
-      pred.appendChild(elem("p", `Möglichstes exaktes Ergebnis im Modell: ${m.ergebnis.heim}:${m.ergebnis.gast} (${m.pct(m.ergebnis.p)})`));
+      pred.appendChild(elem("p", `Wahrscheinlichstes exaktes Ergebnis im Modell: ${m.ergebnis.heim}:${m.ergebnis.gast} (${m.pct(m.ergebnis.p)})`));
       pred.appendChild(elem("p", `Beide Teams treffen – Ja: ${m.pct(m.btts)} · Nein: ${m.pct(1-m.btts)}`));
       const fazit = elem("p");
       const strong = elem("strong", `MatchIQ-Einschätzung: ${m.ausgang} · ${m.toreTipp} · Beide treffen: ${m.bttsTipp}`);
       fazit.appendChild(strong);
       pred.appendChild(fazit);
-      pred.appendChild(elem("p", `Grundlage: letzte ${h.n} Heimteam- und ${g.n} Gastteam-Spiele; Tore, Gegentore und leichter Heimvorteil. Erwartete Tore (Modell): ${m.lambdaH.toFixed(1)} : ${m.lambdaG.toFixed(1)}.`, "muted"));
+      pred.appendChild(elem("p", `Grundlage: ${h.n}/${g.n} Spiele im Wettbewerb; ${h.ortN} Heim- und ${g.ortN} Auswärtsspiele; Tore, Gegentore und leichter Heimvorteil. Erwartete Tore (Modell): ${m.lambdaH.toFixed(1)} : ${m.lambdaG.toFixed(1)}.`, "muted"));
       pred.appendChild(elem("p", "Grobe, nicht validierte Modellwahrscheinlichkeiten. Der Ergebnistipp ist nur das wahrscheinlichste Einzelergebnis, keine sichere Vorhersage. Ohne Quoten keine Aussage zum Wettwert.", "muted"));
       inhalt.appendChild(pred);
     } else {
-      inhalt.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 3 abgeschlossene Spiele je Team erforderlich).", "muted"));
+      inhalt.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 8 Spiele je Team und je 3 Heim-/Auswärtsspiele im Wettbewerb erforderlich).", "muted"));
     }
     details.appendChild(inhalt);
     return { box, tendenz, modell: m };
@@ -272,10 +291,12 @@
        // Alle sechs Torlinien von 0,5 bis 5,5 werden berücksichtigt.
        if (linie < 0.5 || linie > 5.5) continue;
        for (const [richtung, p] of [["Über", t.ueber], ["Unter", t.unter]]) {
-         if (p >= 0.70 && p <= 0.85) kandidaten.push({ richtung, linie: t.linie, p });
+         if (p >= 0.62 && p <= 0.80) kandidaten.push({ richtung, linie: t.linie, p });
        }
      }
-     kandidaten.sort((a,b) => b.p - a.p || Math.abs(Number(a.linie.replace(",", ".")) - 2.5) - Math.abs(Number(b.linie.replace(",", ".")) - 2.5));
+     // Keine reine Maximierung von P: extreme Linien leicht abwerten.
+      const wert = k => k.p - 0.035 * Math.abs(Number(k.linie.replace(",", ".")) - 2.5);
+      kandidaten.sort((a,b) => wert(b) - wert(a));
      return kandidaten[0] || null;
    }
 
@@ -294,22 +315,22 @@
      const empfehlungen = [];
      // Alle kommenden Spiele prüfen, nicht nur die ersten zwölf.
      for (const spiel of kandidaten) {
-       const h = form(spiel.homeTeam, datum(spiel), alleSpiele);
-       const g = form(spiel.awayTeam, datum(spiel), alleSpiele);
+       const h = form(spiel.homeTeam, datum(spiel), alleSpiele, true, spiel.competition);
+       const g = form(spiel.awayTeam, datum(spiel), alleSpiele, false, spiel.competition);
        // Mehr historische Ergebnisse als Mindestanforderung für die reine Modellberechnung.
-       if (h.n < 5 || g.n < 5) continue;
+       if (h.n < 8 || g.n < 8 || h.ortN < 3 || g.ortN < 3) continue;
        const m = modell(h, g);
        const tipp = waehleTorTipp(m);
        if (tipp) empfehlungen.push({ spiel, tipp, h, g });
      }
-     empfehlungen.sort((a,b) => b.tipp.p - a.tipp.p || datum(a.spiel) - datum(b.spiel));
+     empfehlungen.sort((a,b) => datum(a.spiel) - datum(b.spiel));
      for (const {spiel, tipp, h, g} of empfehlungen.slice(0, 5)) {
        const item = elem("article", undefined, "recommendation");
        item.appendChild(elem("h3", `${teamName(spiel.homeTeam)} – ${teamName(spiel.awayTeam)}`));
        item.appendChild(elem("p", `${spiel.competition?.name || "Fußball"} · ${zeitFormat.format(datum(spiel))}`, "muted"));
        item.appendChild(elem("p", `${tipp.richtung} ${tipp.linie} Tore`, "pick"));
        item.appendChild(elem("p", `Geschätzte Modellwahrscheinlichkeit: ${Math.round(tipp.p * 100)} %`));
-       item.appendChild(elem("p", `Datengrundlage: je ${h.n} und ${g.n} letzte Spiele. Modell nicht anhand echter Tipps kalibriert.`, "muted"));
+       item.appendChild(elem("p", `Datengrundlage: ${h.n}/${g.n} Ligaspiele, davon ${h.ortN} Heim- und ${g.ortN} Auswärtsspiele. Modell nicht kalibriert.`, "muted"));
        tipps.appendChild(item);
      }
      if (!empfehlungen.length) tipps.textContent = "Heute keine Empfehlung mit ausreichender Datengrundlage und Modell-Tendenz.";
