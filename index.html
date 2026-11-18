@@ -90,7 +90,7 @@
       <button type="button" class="nav-button" data-view="analyse" aria-pressed="false">📊 Analysen</button>
     </nav>
     <section id="view-empfehlungen" class="card view">
-      <h2>🎯 Unsere Über-/Unter-Empfehlungen</h2>
+      <h2>🎯 Unsere Über-/Unter-Testprognosen</h2>
       <p id="date" class="muted"></p>
       <div id="tipps" aria-live="polite">Empfehlungen werden berechnet ...</div>
       <p class="muted">Alle Torlinien von 0,5 bis 5,5 werden geprüft. Automatische statistische Modellschätzungen – keine garantierten Treffer oder nachgewiesenen Wettvorteile. Zunächst nur zum Testen ohne Geldeinsatz.</p>
@@ -184,18 +184,18 @@
   // Ein einfaches, bewusst konservatives Poisson-Modell. Keine trainierte KI,
   // keine Buchmacherquoten und keine empirisch kalibrierten Wahrscheinlichkeiten.
   function modell(heim, gast) {
-    if (heim.n < 3 || gast.n < 3) return null;
+    if (heim.n < 5 || gast.n < 5) return null;
     const clamp = (x, min, max) => Math.max(min, Math.min(max, x));
     // Gewichtete Gesamt- und Heim-/Auswärtsform, geglättet gegen kleine Stichproben.
     const rate = (tore, n) => (tore + 5 * 1.35) / (n + 5);
-    const angrH = 0.4 * rate(heim.erzielt, heim.n) +
-                  0.6 * rate(heim.ortErzielt, heim.ortN);
-    const abwH = 0.4 * rate(heim.kassiert, heim.n) +
-                 0.6 * rate(heim.ortKassiert, heim.ortN);
-    const angrG = 0.4 * rate(gast.erzielt, gast.n) +
-                  0.6 * rate(gast.ortErzielt, gast.ortN);
-    const abwG = 0.4 * rate(gast.kassiert, gast.n) +
-                 0.6 * rate(gast.ortKassiert, gast.ortN);
+    const angrH = (heim.ortN >= 2 ? 0.5 : 1) * rate(heim.erzielt, heim.n) +
+                  (heim.ortN >= 2 ? 0.5 : 0) * rate(heim.ortErzielt, heim.ortN);
+    const abwH = (heim.ortN >= 2 ? 0.5 : 1) * rate(heim.kassiert, heim.n) +
+                 (heim.ortN >= 2 ? 0.5 : 0) * rate(heim.ortKassiert, heim.ortN);
+    const angrG = (gast.ortN >= 2 ? 0.5 : 1) * rate(gast.erzielt, gast.n) +
+                  (gast.ortN >= 2 ? 0.5 : 0) * rate(gast.ortErzielt, gast.ortN);
+    const abwG = (gast.ortN >= 2 ? 0.5 : 1) * rate(gast.kassiert, gast.n) +
+                 (gast.ortN >= 2 ? 0.5 : 0) * rate(gast.ortKassiert, gast.ortN);
     const lambdaH = clamp((angrH + abwG) / 2 * 1.06, 0.35, 3.5);
     const lambdaG = clamp((angrG + abwH) / 2 * 0.94, 0.35, 3.5);
     function verteilung(lambda) {
@@ -275,7 +275,7 @@
       pred.appendChild(elem("p", "Grobe, nicht validierte Modellwahrscheinlichkeiten. Der Ergebnistipp ist nur das wahrscheinlichste Einzelergebnis, keine sichere Vorhersage. Ohne Quoten keine Aussage zum Wettwert.", "muted"));
       inhalt.appendChild(pred);
     } else {
-      inhalt.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 8 Spiele je Team und je 3 Heim-/Auswärtsspiele im Wettbewerb erforderlich).", "muted"));
+      inhalt.appendChild(elem("p", "1/X/2, Über/Unter und Beide treffen: noch nicht berechenbar (mindestens 5 abgeschlossene Spiele je Team im Wettbewerb erforderlich).", "muted"));
     }
     details.appendChild(inhalt);
     return { box, tendenz, modell: m };
@@ -313,15 +313,17 @@
        return;
      }
      const empfehlungen = [];
+     let zuWenig = 0, ohneTendenz = 0;
      // Alle kommenden Spiele prüfen, nicht nur die ersten zwölf.
      for (const spiel of kandidaten) {
        const h = form(spiel.homeTeam, datum(spiel), alleSpiele, true, spiel.competition);
        const g = form(spiel.awayTeam, datum(spiel), alleSpiele, false, spiel.competition);
        // Mehr historische Ergebnisse als Mindestanforderung für die reine Modellberechnung.
-       if (h.n < 8 || g.n < 8 || h.ortN < 3 || g.ortN < 3) continue;
+       if (h.n < 5 || g.n < 5) { zuWenig++; continue; }
        const m = modell(h, g);
        const tipp = waehleTorTipp(m);
        if (tipp) empfehlungen.push({ spiel, tipp, h, g });
+       else ohneTendenz++;
      }
      empfehlungen.sort((a,b) => datum(a.spiel) - datum(b.spiel));
      for (const {spiel, tipp, h, g} of empfehlungen.slice(0, 5)) {
@@ -333,7 +335,8 @@
        item.appendChild(elem("p", `Datengrundlage: ${h.n}/${g.n} Ligaspiele, davon ${h.ortN} Heim- und ${g.ortN} Auswärtsspiele. Modell nicht kalibriert.`, "muted"));
        tipps.appendChild(item);
      }
-     if (!empfehlungen.length) tipps.textContent = "Heute keine Empfehlung mit ausreichender Datengrundlage und Modell-Tendenz.";
+     if (!empfehlungen.length) tipps.textContent = "Keine Empfehlung nach unseren vorläufigen Kriterien. Das bedeutet nicht, dass keine Spiele stattfinden.";
+     tipps.appendChild(elem("p", `Geprüft: ${kandidaten.length} Spiele · Zu wenig Daten: ${zuWenig} · Ohne passende Modell-Tendenz: ${ohneTendenz} · Empfehlungen: ${empfehlungen.length}.`, "muted"));
      // Detailanalysen bewusst nur bei Bedarf in separatem Bereich aufbauen.
      if (!$("view-analyse").hidden) {
        for (const spiel of kandidaten.slice(0,12)) ziel.appendChild(spielAnalyse(spiel).box);
