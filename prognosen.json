@@ -206,7 +206,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561944,
@@ -220,7 +223,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 14,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:0",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561948,
@@ -234,7 +240,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:1",
+    "tore": 3,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561950,
@@ -248,7 +257,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 564755,
@@ -262,7 +274,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 11,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:1",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558525,
@@ -276,7 +291,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 11,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:0",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558528,
@@ -290,7 +308,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:0",
+    "tore": 3,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 565857,
@@ -304,7 +325,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 7,
     "gast_spiele": 7,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "4:0",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 565858,
@@ -318,7 +342,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 7,
     "gast_spiele": 7,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:5",
+    "tore": 6,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 565860,
@@ -332,7 +359,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 7,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 565862,
@@ -346,7 +376,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 7,
     "gast_spiele": 7,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 565865,
@@ -360,7 +393,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 7,
     "gast_spiele": 7,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:0",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 560642,
@@ -374,7 +410,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 9,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:4",
+    "tore": 5,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 560644,
@@ -388,7 +427,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "0:0",
+    "tore": 0,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 560647,
@@ -402,7 +444,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:0",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 560648,
@@ -416,7 +461,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:0",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 560650,
@@ -430,7 +478,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:2",
+    "tore": 5,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561941,
@@ -444,7 +495,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 11,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "4:0",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561942,
@@ -458,7 +512,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "2:2",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561943,
@@ -472,7 +529,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 14,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:0",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561945,
@@ -486,7 +546,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561946,
@@ -500,7 +563,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 14,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "1:0",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561949,
@@ -528,7 +594,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 561952,
@@ -542,7 +611,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:1",
+    "tore": 3,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 564751,
@@ -556,7 +628,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558833,
@@ -570,7 +645,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "1:4",
+    "tore": 5,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 559628,
@@ -584,7 +662,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 9,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:3",
+    "tore": 5,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558526,
@@ -598,7 +679,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 11,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:5",
+    "tore": 6,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 560651,
@@ -612,7 +696,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 9,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "2:2",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 564756,
@@ -626,7 +713,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 565861,
@@ -640,7 +730,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:0",
+    "tore": 0,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558831,
@@ -654,7 +747,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 9,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:3",
+    "tore": 5,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558835,
@@ -668,7 +764,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 11,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:3",
+    "tore": 5,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 555098,
@@ -682,7 +781,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 14,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558527,
@@ -696,7 +798,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "1:0",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 559621,
@@ -710,7 +815,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 8,
     "gast_spiele": 7,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 559623,
@@ -724,7 +832,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 8,
     "gast_spiele": 9,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 559624,
@@ -738,7 +849,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 559627,
@@ -752,7 +866,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 9,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558832,
@@ -766,7 +883,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:3",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 558834,
@@ -780,7 +900,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 11,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:3",
+    "tore": 4,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 564754,
@@ -794,7 +917,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:1",
+    "tore": 3,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 555092,
@@ -808,7 +934,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 15,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-21T23:20:01+00:00"
   },
   {
     "spiel_id": 555095,

@@ -1,10 +1,10 @@
 {
-  "stand": "2026-11-21T17:35:07+00:00",
+  "stand": "2026-11-21T23:20:01+00:00",
   "prognosen": 184,
-  "offen": 175,
-  "ausgewertet": 9,
-  "gewonnen": 6,
-  "verloren": 3,
-  "trefferquote_prozent": 66.7,
+  "offen": 132,
+  "ausgewertet": 52,
+  "gewonnen": 40,
+  "verloren": 12,
+  "trefferquote_prozent": 76.9,
   "hinweis": "Virtueller Test ohne Wettquoten oder nachgewiesenen finanziellen Vorteil."
 }
