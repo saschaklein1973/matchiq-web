@@ -164,7 +164,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 7,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-22T16:18:28+00:00"
   },
   {
     "spiel_id": 559622,
@@ -178,7 +181,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 8,
     "gast_spiele": 8,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:1",
+    "tore": 4,
+    "ausgewertet": "2026-11-22T16:18:28+00:00"
   },
   {
     "spiel_id": 564748,
@@ -192,7 +198,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-22T16:18:28+00:00"
   },
   {
     "spiel_id": 560643,
@@ -951,7 +960,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 15,
     "gast_spiele": 14,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:2",
+    "tore": 3,
+    "ausgewertet": "2026-11-22T16:18:28+00:00"
   },
   {
     "spiel_id": 558828,
@@ -965,7 +977,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:1",
+    "tore": 3,
+    "ausgewertet": "2026-11-22T16:18:28+00:00"
   },
   {
     "spiel_id": 558521,
@@ -979,7 +994,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 9,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "4:0",
+    "tore": 4,
+    "ausgewertet": "2026-11-22T16:18:28+00:00"
   },
   {
     "spiel_id": 561947,
@@ -2729,6 +2747,76 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 15,
     "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 558516,
+    "spiel": "US Lecce – Atalanta BC",
+    "wettbewerb": "Serie A",
+    "anpfiff": "2026-11-30T17:30:00Z",
+    "erstellt": "2026-11-22T16:18:28+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7676,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 12,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 558510,
+    "spiel": "Cagliari Calcio – AC Milan",
+    "wettbewerb": "Serie A",
+    "anpfiff": "2026-11-30T19:45:00Z",
+    "erstellt": "2026-11-22T16:18:28+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7555,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 13,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 564763,
+    "spiel": "RCD Espanyol de Barcelona – Getafe CF",
+    "wettbewerb": "Primera Division",
+    "anpfiff": "2026-11-30T20:00:00Z",
+    "erstellt": "2026-11-22T16:18:28+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.797,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 12,
+    "gast_spiele": 13,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 567359,
+    "spiel": "Casa Pia AC – Sporting Clube de Braga",
+    "wettbewerb": "Primeira Liga",
+    "anpfiff": "2026-11-30T20:15:00Z",
+    "erstellt": "2026-11-22T16:18:28+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7757,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 11,
+    "gast_spiele": 10,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 567360,
+    "spiel": "Sport Lisboa e Benfica – FC Famalicão",
+    "wettbewerb": "Primeira Liga",
+    "anpfiff": "2026-11-30T20:15:00Z",
+    "erstellt": "2026-11-22T16:18:28+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7824,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 10,
+    "gast_spiele": 11,
     "status": "offen"
   }
 ]
