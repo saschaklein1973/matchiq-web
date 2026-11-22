@@ -58,26 +58,26 @@ spiel_id,spiel,wettbewerb,anpfiff,erstellt,richtung,linie,wahrscheinlichkeit,mod
 555095,Chapecoense AF – Cruzeiro EC,Campeonato Brasileiro Série A,2026-11-22T00:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7993,MatchIQ-V3-Poisson,15,14,gewonnen,1:2,3,2026-11-22T16:18:28+00:00
 558828,FC Twente '65 – Willem II Tilburg,Eredivisie,2026-11-22T11:15:00Z,2026-11-18T17:46:34+00:00,Über,2.5,0.6951,MatchIQ-V3-Poisson,10,12,gewonnen,2:1,3,2026-11-22T16:18:28+00:00
 558521,Juventus FC – Venezia FC,Serie A,2026-11-22T11:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7425,MatchIQ-V3-Poisson,9,10,gewonnen,4:0,4,2026-11-22T16:18:28+00:00
-561947,Burnley FC – Blackburn Rovers FC,Championship,2026-11-22T12:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7765,MatchIQ-V3-Poisson,12,12,offen,,,
-564749,FC Barcelona – Villarreal CF,Primera Division,2026-11-22T13:00:00Z,2026-11-18T17:46:34+00:00,Über,2.5,0.6891,MatchIQ-V3-Poisson,13,13,offen,,,
-558830,Sparta Rotterdam – AZ,Eredivisie,2026-11-22T13:30:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7663,MatchIQ-V3-Poisson,9,10,offen,,,
-558836,AFC Ajax – ADO Den Haag,Eredivisie,2026-11-22T13:30:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7876,MatchIQ-V3-Poisson,10,11,offen,,,
-558522,Bologna FC 1909 – Udinese Calcio,Serie A,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.6422,MatchIQ-V3-Poisson,10,9,offen,,,
-558524,US Sassuolo Calcio – Genoa CFC,Serie A,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.6342,MatchIQ-V3-Poisson,9,11,offen,,,
-559625,Paris FC – Angers SCO,Ligue 1,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7417,MatchIQ-V3-Poisson,8,8,offen,,,
-560646,Hull City AFC – Brighton & Hove Albion FC,Premier League,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7638,MatchIQ-V3-Poisson,8,10,offen,,,
-565864,FC Augsburg – 1. FSV Mainz 05,Bundesliga,2026-11-22T14:30:00Z,2026-11-18T17:46:34+00:00,Über,2.5,0.6784,MatchIQ-V3-Poisson,8,7,offen,,,
-564750,Real Racing Club de Santander – Real Sociedad de Fútbol,Primera Division,2026-11-22T15:15:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7739,MatchIQ-V3-Poisson,10,11,offen,,,
-558829,Go Ahead Eagles – Fortuna Sittard,Eredivisie,2026-11-22T15:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7644,MatchIQ-V3-Poisson,8,10,offen,,,
-559626,FC Lorient – Stade Rennais FC 1901,Ligue 1,2026-11-22T16:15:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.783,MatchIQ-V3-Poisson,8,9,offen,,,
-560645,Liverpool FC – Manchester United FC,Premier League,2026-11-22T16:30:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7386,MatchIQ-V3-Poisson,10,10,offen,,,
-565863,SV Werder Bremen – Hamburger SV,Bundesliga,2026-11-22T16:30:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7681,MatchIQ-V3-Poisson,8,8,offen,,,
-558523,AC Milan – Frosinone Calcio,Serie A,2026-11-22T17:00:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.796,MatchIQ-V3-Poisson,10,9,offen,,,
-564752,CA Osasuna – Málaga CF,Primera Division,2026-11-22T17:30:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7654,MatchIQ-V3-Poisson,11,9,offen,,,
-555090,CA Paranaense – Clube do Remo,Campeonato Brasileiro Série A,2026-11-22T19:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7842,MatchIQ-V3-Poisson,15,15,offen,,,
-558520,Atalanta BC – FC Internazionale Milano,Serie A,2026-11-22T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7698,MatchIQ-V3-Poisson,11,11,offen,,,
-559629,Olympique de Marseille – Le Mans FC,Ligue 1,2026-11-22T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7977,MatchIQ-V3-Poisson,9,10,offen,,,
-564753,Getafe CF – Club Atlético de Madrid,Primera Division,2026-11-22T20:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7466,MatchIQ-V3-Poisson,13,11,offen,,,
+561947,Burnley FC – Blackburn Rovers FC,Championship,2026-11-22T12:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7765,MatchIQ-V3-Poisson,12,12,gewonnen,2:2,4,2026-11-22T23:37:37+00:00
+564749,FC Barcelona – Villarreal CF,Primera Division,2026-11-22T13:00:00Z,2026-11-18T17:46:34+00:00,Über,2.5,0.6891,MatchIQ-V3-Poisson,13,13,gewonnen,3:2,5,2026-11-22T23:37:37+00:00
+558830,Sparta Rotterdam – AZ,Eredivisie,2026-11-22T13:30:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7663,MatchIQ-V3-Poisson,9,10,verloren,1:5,6,2026-11-22T23:37:37+00:00
+558836,AFC Ajax – ADO Den Haag,Eredivisie,2026-11-22T13:30:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7876,MatchIQ-V3-Poisson,10,11,gewonnen,3:0,3,2026-11-22T23:37:37+00:00
+558522,Bologna FC 1909 – Udinese Calcio,Serie A,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.6422,MatchIQ-V3-Poisson,10,9,gewonnen,1:1,2,2026-11-22T23:37:37+00:00
+558524,US Sassuolo Calcio – Genoa CFC,Serie A,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.6342,MatchIQ-V3-Poisson,9,11,gewonnen,0:2,2,2026-11-22T23:37:37+00:00
+559625,Paris FC – Angers SCO,Ligue 1,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7417,MatchIQ-V3-Poisson,8,8,verloren,4:0,4,2026-11-22T23:37:37+00:00
+560646,Hull City AFC – Brighton & Hove Albion FC,Premier League,2026-11-22T14:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7638,MatchIQ-V3-Poisson,8,10,gewonnen,2:0,2,2026-11-22T23:37:37+00:00
+565864,FC Augsburg – 1. FSV Mainz 05,Bundesliga,2026-11-22T14:30:00Z,2026-11-18T17:46:34+00:00,Über,2.5,0.6784,MatchIQ-V3-Poisson,8,7,gewonnen,3:1,4,2026-11-22T23:37:37+00:00
+564750,Real Racing Club de Santander – Real Sociedad de Fútbol,Primera Division,2026-11-22T15:15:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7739,MatchIQ-V3-Poisson,10,11,verloren,3:2,5,2026-11-22T23:37:37+00:00
+558829,Go Ahead Eagles – Fortuna Sittard,Eredivisie,2026-11-22T15:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7644,MatchIQ-V3-Poisson,8,10,gewonnen,0:1,1,2026-11-22T23:37:37+00:00
+559626,FC Lorient – Stade Rennais FC 1901,Ligue 1,2026-11-22T16:15:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.783,MatchIQ-V3-Poisson,8,9,gewonnen,1:1,2,2026-11-22T23:37:37+00:00
+560645,Liverpool FC – Manchester United FC,Premier League,2026-11-22T16:30:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7386,MatchIQ-V3-Poisson,10,10,verloren,4:0,4,2026-11-22T23:37:37+00:00
+565863,SV Werder Bremen – Hamburger SV,Bundesliga,2026-11-22T16:30:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7681,MatchIQ-V3-Poisson,8,8,gewonnen,4:0,4,2026-11-22T23:37:37+00:00
+558523,AC Milan – Frosinone Calcio,Serie A,2026-11-22T17:00:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.796,MatchIQ-V3-Poisson,10,9,verloren,5:1,6,2026-11-22T23:37:37+00:00
+564752,CA Osasuna – Málaga CF,Primera Division,2026-11-22T17:30:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7654,MatchIQ-V3-Poisson,11,9,gewonnen,1:0,1,2026-11-22T23:37:37+00:00
+555090,CA Paranaense – Clube do Remo,Campeonato Brasileiro Série A,2026-11-22T19:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7842,MatchIQ-V3-Poisson,15,15,gewonnen,4:2,6,2026-11-22T23:37:37+00:00
+558520,Atalanta BC – FC Internazionale Milano,Serie A,2026-11-22T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7698,MatchIQ-V3-Poisson,11,11,verloren,4:4,8,2026-11-22T23:37:37+00:00
+559629,Olympique de Marseille – Le Mans FC,Ligue 1,2026-11-22T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7977,MatchIQ-V3-Poisson,9,10,verloren,2:3,5,2026-11-22T23:37:37+00:00
+564753,Getafe CF – Club Atlético de Madrid,Primera Division,2026-11-22T20:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7466,MatchIQ-V3-Poisson,13,11,gewonnen,0:3,3,2026-11-22T23:37:37+00:00
 555096,Fluminense FC – Mirassol FC,Campeonato Brasileiro Série A,2026-11-22T21:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7446,MatchIQ-V3-Poisson,14,15,offen,,,
 555094,RB Bragantino – CR Vasco da Gama,Campeonato Brasileiro Série A,2026-11-22T22:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.75,MatchIQ-V3-Poisson,13,15,offen,,,
 558519,AC Monza – ACF Fiorentina,Serie A,2026-11-23T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7781,MatchIQ-V3-Poisson,8,10,offen,,,
