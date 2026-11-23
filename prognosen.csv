@@ -33,7 +33,7 @@ spiel_id,spiel,wettbewerb,anpfiff,erstellt,richtung,linie,wahrscheinlichkeit,mod
 561943,Middlesbrough FC – Bristol City FC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.6423,MatchIQ-V3-Poisson,14,12,gewonnen,2:0,2,2026-11-21T23:20:01+00:00
 561945,Bolton Wanderers FC – Portsmouth FC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7468,MatchIQ-V3-Poisson,13,13,gewonnen,1:1,2,2026-11-21T23:20:01+00:00
 561946,Stoke City FC – Birmingham City FC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7346,MatchIQ-V3-Poisson,12,14,verloren,1:0,1,2026-11-21T23:20:01+00:00
-561949,Lincoln City FC – Wrexham AFC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7597,MatchIQ-V3-Poisson,13,13,offen,,,
+561949,Lincoln City FC – Wrexham AFC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7597,MatchIQ-V3-Poisson,13,13,verloren,0:1,1,2026-11-23T20:15:29+00:00
 561951,West Ham United FC – Preston North End FC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7415,MatchIQ-V3-Poisson,12,12,gewonnen,1:1,2,2026-11-21T23:20:01+00:00
 561952,Wolverhampton Wanderers FC – Charlton Athletic FC,Championship,2026-11-21T15:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7605,MatchIQ-V3-Poisson,13,13,gewonnen,2:1,3,2026-11-21T23:20:01+00:00
 564751,Rayo Vallecano de Madrid – Valencia CF,Primera Division,2026-11-21T15:15:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7609,MatchIQ-V3-Poisson,12,12,verloren,0:1,1,2026-11-21T23:20:01+00:00
@@ -188,3 +188,4 @@ spiel_id,spiel,wettbewerb,anpfiff,erstellt,richtung,linie,wahrscheinlichkeit,mod
 564763,RCD Espanyol de Barcelona – Getafe CF,Primera Division,2026-11-30T20:00:00Z,2026-11-22T16:18:28+00:00,Unter,3.5,0.797,MatchIQ-V3-Poisson,12,13,offen,,,
 567359,Casa Pia AC – Sporting Clube de Braga,Primeira Liga,2026-11-30T20:15:00Z,2026-11-22T16:18:28+00:00,Unter,3.5,0.7757,MatchIQ-V3-Poisson,11,10,offen,,,
 567360,Sport Lisboa e Benfica – FC Famalicão,Primeira Liga,2026-11-30T20:15:00Z,2026-11-22T16:18:28+00:00,Über,1.5,0.7824,MatchIQ-V3-Poisson,10,11,offen,,,
+560668,Coventry City FC – Ipswich Town FC,Premier League,2026-12-01T20:00:00Z,2026-11-23T20:15:29+00:00,Unter,4.5,0.7696,MatchIQ-V3-Poisson,10,11,offen,,,

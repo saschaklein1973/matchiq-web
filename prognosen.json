@@ -589,7 +589,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "0:1",
+    "tore": 1,
+    "ausgewertet": "2026-11-23T20:15:29+00:00"
   },
   {
     "spiel_id": 561951,
@@ -2874,6 +2877,20 @@
     "richtung": "Über",
     "linie": 1.5,
     "wahrscheinlichkeit": 0.7824,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 10,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560668,
+    "spiel": "Coventry City FC – Ipswich Town FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-01T20:00:00Z",
+    "erstellt": "2026-11-23T20:15:29+00:00",
+    "richtung": "Unter",
+    "linie": 4.5,
+    "wahrscheinlichkeit": 0.7696,
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 11,
