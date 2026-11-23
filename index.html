@@ -137,6 +137,8 @@
       <div id="erfolge" aria-live="polite">Statistik wird geladen ...</div>
       <p class="muted" id="erfolge-stand"></p>
       <button type="button" id="erfolge-neuladen">↻ Statistik aktualisieren</button>
+      <h3>📈 Trefferquoten-Entwicklung</h3>
+      <div id="erfolge-trend">Entwicklung wird geladen ...</div>
       <h3>📈 Auswertung nach Torlinie und Liga</h3>
       <p class="muted">Nur bereits entschiedene Prognosen zählen zur Trefferquote. Die Modellschätzung bleibt unverändert.</p>
       <div id="erfolge-auswertung">Auswertung wird geladen ...</div>
@@ -601,6 +603,7 @@
        ziel.appendChild(elem("p", ausgewertet ? `Trefferquote aus ${ganzeZahl(ausgewertet)} ausgewerteten Prognosen. Ohne Buchmacherquoten lässt sich daraus kein finanzieller Vorteil ableiten.` : "Noch keine Spiele ausgewertet. Die Trefferquote erscheint nach den ersten Ergebnissen.", "muted"));
        $("erfolge-stand").textContent = `Letzter Datenstand: ${zeitText(stat.stand)}`;
        statistikGeladen = true;
+        zeigeErfolgsTrend();
         zeigeErfolgsAuswertung();
         zeigeErfolgsverlauf();
      } catch (fehler) {
@@ -608,6 +611,7 @@
        ziel.textContent = "Die Erfolgsstatistik konnte nicht geladen werden. Prüfe, ob prognosen.json und prognosen_statistik.json im gleichen GitHub-Pages-Verzeichnis vorhanden sind.";
         $("erfolge-verlauf").textContent = "Prognoseverlauf derzeit nicht verfügbar.";
         $("erfolge-auswertung").textContent = "Auswertung derzeit nicht verfügbar.";
+        $("erfolge-trend").textContent = "Entwicklung derzeit nicht verfügbar.";
        $("erfolge-stand").textContent = "";
        console.error("MatchIQ Erfolgsstatistik:", fehler);
      }
