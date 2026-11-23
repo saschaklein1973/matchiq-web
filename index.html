@@ -61,6 +61,12 @@
     .stat-box { background:#293c47; border-radius:12px; padding:16px; }
     .stat-box .number { font-size:1.7rem; font-weight:bold; margin-top:8px; }
     .stats-list { overflow-x:auto; }
+    .breakdown-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:14px 0 22px; }
+    .breakdown-panel { background:#293c47; border-radius:12px; padding:14px; min-width:0; }
+    .breakdown-panel h4 { margin:0 0 10px; }
+    .breakdown-panel .stats-table { font-size:.82rem; }
+    .breakdown-note { margin:6px 0 16px; }
+    @media(max-width:650px) { .breakdown-grid { grid-template-columns:1fr; } }
     .stats-table { width:100%; border-collapse:collapse; font-size:.88rem; }
     .stats-table th,.stats-table td { text-align:left; padding:10px 8px; border-bottom:1px solid #40505b; }
     .stats-table th { color:#aab8c3; }
@@ -128,6 +134,9 @@
       <div id="erfolge" aria-live="polite">Statistik wird geladen ...</div>
       <p class="muted" id="erfolge-stand"></p>
       <button type="button" id="erfolge-neuladen">↻ Statistik aktualisieren</button>
+      <h3>📈 Auswertung nach Torlinie und Liga</h3>
+      <p class="muted">Nur bereits entschiedene Prognosen zählen zur Trefferquote. Die Modellschätzung bleibt unverändert.</p>
+      <div id="erfolge-auswertung">Auswertung wird geladen ...</div>
       <h3>📋 Prognoseverlauf</h3>
       <div class="filters" id="erfolge-filter" aria-label="Prognosen filtern">
         <button type="button" data-status="alle" aria-pressed="true">Alle</button>
@@ -412,6 +421,62 @@
      box.appendChild(elem("div", String(wert), `number ${klasse}`));
      return box;
    }
+    function zeigeErfolgsAuswertung() {
+      const ziel = $("erfolge-auswertung");
+      ziel.replaceChildren();
+      const entschieden = gespeichertePrognosen.filter(r => r.status === "gewonnen" || r.status === "verloren");
+      if (!entschieden.length) {
+        ziel.appendChild(elem("p", "Noch keine abgeschlossenen Prognosen für eine Aufschlüsselung vorhanden.", "muted"));
+        return;
+      }
+      function gruppiere(keyFn) {
+        const gruppen = new Map();
+        for (const r of entschieden) {
+          const key = keyFn(r);
+          if (!gruppen.has(key)) gruppen.set(key, {name:key, gesamt:0, gewonnen:0});
+          const g = gruppen.get(key);
+          g.gesamt++;
+          if (r.status === "gewonnen") g.gewonnen++;
+        }
+        return [...gruppen.values()].sort((a,b) => b.gesamt-a.gesamt || a.name.localeCompare(b.name, "de"));
+      }
+      const torlinien = gruppiere(r => {
+        const richtung = String(r.richtung || "Unbekannt").trim();
+        const linie = String(r.linie ?? "?").replace(".", ",");
+        return `${richtung} ${linie} Tore`;
+      });
+      const ligen = gruppiere(r => {
+        const liga = r.liga || r.wettbewerb || r.competition;
+        return typeof liga === "string" && liga.trim() ? liga.trim() :
+          liga && typeof liga.name === "string" ? liga.name : "Liga nicht gespeichert";
+      });
+      const grid = elem("div", undefined, "breakdown-grid");
+      function panel(titel, gruppen) {
+        const box = elem("section", undefined, "breakdown-panel");
+        box.appendChild(elem("h4", titel));
+        const wrap = elem("div", undefined, "stats-list");
+        const table = elem("table", undefined, "stats-table");
+        const thead = elem("thead"), head = elem("tr");
+        for (const label of ["Kategorie", "Tipps", "Treffer", "Quote"]) head.appendChild(elem("th", label));
+        thead.appendChild(head); table.appendChild(thead);
+        const tbody = elem("tbody");
+        for (const g of gruppen) {
+          const tr = elem("tr");
+          for (const value of [g.name, ganzeZahl(g.gesamt), ganzeZahl(g.gewonnen), prozent(100*g.gewonnen/g.gesamt)]) tr.appendChild(elem("td", value));
+          tbody.appendChild(tr);
+        }
+        table.appendChild(tbody); wrap.appendChild(table); box.appendChild(wrap);
+        return box;
+      }
+      grid.appendChild(panel("⚽ Torlinien", torlinien));
+      grid.appendChild(panel("🏟️ Ligen", ligen));
+      ziel.appendChild(grid);
+      ziel.appendChild(elem("p", `Grundlage: ${ganzeZahl(entschieden.length)} entschiedene Prognosen. Kleine Stichproben sind wenig aussagekräftig; ohne Wettquoten keine Aussage zur Rentabilität.`, "muted breakdown-note"));
+      if (ligen.some(g => g.name === "Liga nicht gespeichert")) {
+        ziel.appendChild(elem("p", "Hinweis: Bei manchen Prognosen ist keine Liga gespeichert. Für eine vollständige Liga-Auswertung muss die automatische Speicherung diese Information künftig mitliefern.", "muted"));
+      }
+    }
+
    function zeigeErfolgsverlauf() {
      const ziel = $("erfolge-verlauf");
      ziel.replaceChildren();
@@ -472,11 +537,13 @@
        ziel.appendChild(elem("p", ausgewertet ? `Trefferquote aus ${ganzeZahl(ausgewertet)} ausgewerteten Prognosen. Ohne Buchmacherquoten lässt sich daraus kein finanzieller Vorteil ableiten.` : "Noch keine Spiele ausgewertet. Die Trefferquote erscheint nach den ersten Ergebnissen.", "muted"));
        $("erfolge-stand").textContent = `Letzter Datenstand: ${zeitText(stat.stand)}`;
        statistikGeladen = true;
-       zeigeErfolgsverlauf();
+        zeigeErfolgsAuswertung();
+        zeigeErfolgsverlauf();
      } catch (fehler) {
        statistikGeladen = false;
        ziel.textContent = "Die Erfolgsstatistik konnte nicht geladen werden. Prüfe, ob prognosen.json und prognosen_statistik.json im gleichen GitHub-Pages-Verzeichnis vorhanden sind.";
-       $("erfolge-verlauf").textContent = "Prognoseverlauf derzeit nicht verfügbar.";
+        $("erfolge-verlauf").textContent = "Prognoseverlauf derzeit nicht verfügbar.";
+        $("erfolge-auswertung").textContent = "Auswertung derzeit nicht verfügbar.";
        $("erfolge-stand").textContent = "";
        console.error("MatchIQ Erfolgsstatistik:", fehler);
      }
