@@ -78,14 +78,14 @@ spiel_id,spiel,wettbewerb,anpfiff,erstellt,richtung,linie,wahrscheinlichkeit,mod
 558520,Atalanta BC – FC Internazionale Milano,Serie A,2026-11-22T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7698,MatchIQ-V3-Poisson,11,11,verloren,4:4,8,2026-11-22T23:37:37+00:00
 559629,Olympique de Marseille – Le Mans FC,Ligue 1,2026-11-22T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7977,MatchIQ-V3-Poisson,9,10,verloren,2:3,5,2026-11-22T23:37:37+00:00
 564753,Getafe CF – Club Atlético de Madrid,Primera Division,2026-11-22T20:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7466,MatchIQ-V3-Poisson,13,11,gewonnen,0:3,3,2026-11-22T23:37:37+00:00
-555096,Fluminense FC – Mirassol FC,Campeonato Brasileiro Série A,2026-11-22T21:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7446,MatchIQ-V3-Poisson,14,15,offen,,,
-555094,RB Bragantino – CR Vasco da Gama,Campeonato Brasileiro Série A,2026-11-22T22:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.75,MatchIQ-V3-Poisson,13,15,offen,,,
+555096,Fluminense FC – Mirassol FC,Campeonato Brasileiro Série A,2026-11-22T21:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7446,MatchIQ-V3-Poisson,14,15,verloren,1:0,1,2026-11-24T04:50:25+00:00
+555094,RB Bragantino – CR Vasco da Gama,Campeonato Brasileiro Série A,2026-11-22T22:30:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.75,MatchIQ-V3-Poisson,13,15,verloren,1:0,1,2026-11-24T04:50:25+00:00
 558519,AC Monza – ACF Fiorentina,Serie A,2026-11-23T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7781,MatchIQ-V3-Poisson,8,10,offen,,,
 560649,Brentford FC – Everton FC,Premier League,2026-11-23T20:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7715,MatchIQ-V3-Poisson,10,10,offen,,,
 564757,Levante UD – Elche CF,Primera Division,2026-11-23T20:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7766,MatchIQ-V3-Poisson,12,12,offen,,,
 555097,SC Internacional – EC Vitória,Campeonato Brasileiro Série A,2026-11-23T22:30:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7576,MatchIQ-V3-Poisson,15,15,offen,,,
 555093,Botafogo FR – São Paulo FC,Campeonato Brasileiro Série A,2026-11-23T23:00:00Z,2026-11-18T17:46:34+00:00,Unter,3.5,0.7706,MatchIQ-V3-Poisson,15,15,offen,,,
-555099,Santos FC – Grêmio FBPA,Campeonato Brasileiro Série A,2026-11-24T00:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7609,MatchIQ-V3-Poisson,14,15,offen,,,
+555099,Santos FC – Grêmio FBPA,Campeonato Brasileiro Série A,2026-11-24T00:00:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7609,MatchIQ-V3-Poisson,14,15,gewonnen,0:2,2,2026-11-24T04:50:25+00:00
 561953,Cardiff City FC – Preston North End FC,Championship,2026-11-24T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7863,MatchIQ-V3-Poisson,12,12,offen,,,
 561954,Middlesbrough FC – Swansea City AFC,Championship,2026-11-24T19:45:00Z,2026-11-18T17:46:34+00:00,Über,1.5,0.7984,MatchIQ-V3-Poisson,14,12,offen,,,
 561955,Portsmouth FC – West Ham United FC,Championship,2026-11-24T19:45:00Z,2026-11-18T17:46:34+00:00,Unter,4.5,0.7819,MatchIQ-V3-Poisson,13,12,offen,,,
@@ -189,3 +189,13 @@ spiel_id,spiel,wettbewerb,anpfiff,erstellt,richtung,linie,wahrscheinlichkeit,mod
 567359,Casa Pia AC – Sporting Clube de Braga,Primeira Liga,2026-11-30T20:15:00Z,2026-11-22T16:18:28+00:00,Unter,3.5,0.7757,MatchIQ-V3-Poisson,11,10,offen,,,
 567360,Sport Lisboa e Benfica – FC Famalicão,Primeira Liga,2026-11-30T20:15:00Z,2026-11-22T16:18:28+00:00,Über,1.5,0.7824,MatchIQ-V3-Poisson,10,11,offen,,,
 560668,Coventry City FC – Ipswich Town FC,Premier League,2026-12-01T20:00:00Z,2026-11-23T20:15:29+00:00,Unter,4.5,0.7696,MatchIQ-V3-Poisson,10,11,offen,,,
+564855,Real Sociedad de Fútbol – Real Madrid CF,Primera Division,2026-12-02T18:00:00Z,2026-11-24T04:50:25+00:00,Über,1.5,0.7848,MatchIQ-V3-Poisson,12,13,offen,,,
+560663,Liverpool FC – Sunderland AFC,Premier League,2026-12-02T19:30:00Z,2026-11-24T04:50:25+00:00,Unter,3.5,0.7361,MatchIQ-V3-Poisson,11,11,offen,,,
+560664,Hull City AFC – Nottingham Forest FC,Premier League,2026-12-02T19:30:00Z,2026-11-24T04:50:25+00:00,Unter,3.5,0.7598,MatchIQ-V3-Poisson,10,10,offen,,,
+560665,Chelsea FC – Crystal Palace FC,Premier League,2026-12-02T19:30:00Z,2026-11-24T04:50:25+00:00,Unter,4.5,0.775,MatchIQ-V3-Poisson,11,11,offen,,,
+560669,Manchester City FC – Leeds United FC,Premier League,2026-12-02T19:30:00Z,2026-11-24T04:50:25+00:00,Über,1.5,0.7591,MatchIQ-V3-Poisson,12,11,offen,,,
+560666,Aston Villa FC – Everton FC,Premier League,2026-12-02T20:15:00Z,2026-11-24T04:50:25+00:00,Unter,3.5,0.7762,MatchIQ-V3-Poisson,12,10,offen,,,
+560667,Brentford FC – Arsenal FC,Premier League,2026-12-02T20:15:00Z,2026-11-24T04:50:25+00:00,Unter,3.5,0.7469,MatchIQ-V3-Poisson,10,11,offen,,,
+560670,Newcastle United FC – Manchester United FC,Premier League,2026-12-02T20:15:00Z,2026-11-24T04:50:25+00:00,Über,1.5,0.7889,MatchIQ-V3-Poisson,11,11,offen,,,
+560671,AFC Bournemouth – Brighton & Hove Albion FC,Premier League,2026-12-02T20:15:00Z,2026-11-24T04:50:25+00:00,Über,1.5,0.7706,MatchIQ-V3-Poisson,10,11,offen,,,
+564857,FC Barcelona – Club Atlético de Madrid,Primera Division,2026-12-02T20:30:00Z,2026-11-24T04:50:25+00:00,Über,2.5,0.6999,MatchIQ-V3-Poisson,14,12,offen,,,

@@ -1354,7 +1354,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 14,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "1:0",
+    "tore": 1,
+    "ausgewertet": "2026-11-24T04:50:25+00:00"
   },
   {
     "spiel_id": 555094,
@@ -1368,7 +1371,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "1:0",
+    "tore": 1,
+    "ausgewertet": "2026-11-24T04:50:25+00:00"
   },
   {
     "spiel_id": 558519,
@@ -1452,7 +1458,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 14,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:2",
+    "tore": 2,
+    "ausgewertet": "2026-11-24T04:50:25+00:00"
   },
   {
     "spiel_id": 561953,
@@ -2894,6 +2903,146 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 564855,
+    "spiel": "Real Sociedad de Fútbol – Real Madrid CF",
+    "wettbewerb": "Primera Division",
+    "anpfiff": "2026-12-02T18:00:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7848,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 12,
+    "gast_spiele": 13,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560663,
+    "spiel": "Liverpool FC – Sunderland AFC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T19:30:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7361,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 11,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560664,
+    "spiel": "Hull City AFC – Nottingham Forest FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T19:30:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7598,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 10,
+    "gast_spiele": 10,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560665,
+    "spiel": "Chelsea FC – Crystal Palace FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T19:30:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Unter",
+    "linie": 4.5,
+    "wahrscheinlichkeit": 0.775,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 11,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560669,
+    "spiel": "Manchester City FC – Leeds United FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T19:30:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7591,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 12,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560666,
+    "spiel": "Aston Villa FC – Everton FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T20:15:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7762,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 12,
+    "gast_spiele": 10,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560667,
+    "spiel": "Brentford FC – Arsenal FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T20:15:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7469,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 10,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560670,
+    "spiel": "Newcastle United FC – Manchester United FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T20:15:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7889,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 11,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560671,
+    "spiel": "AFC Bournemouth – Brighton & Hove Albion FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-02T20:15:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7706,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 10,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 564857,
+    "spiel": "FC Barcelona – Club Atlético de Madrid",
+    "wettbewerb": "Primera Division",
+    "anpfiff": "2026-12-02T20:30:00Z",
+    "erstellt": "2026-11-24T04:50:25+00:00",
+    "richtung": "Über",
+    "linie": 2.5,
+    "wahrscheinlichkeit": 0.6999,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 14,
+    "gast_spiele": 12,
     "status": "offen"
   }
 ]
