@@ -83673,65 +83673,6 @@
       "currentMatchday": 5,
       "winner": null
     },
-    "id": 575404,
-    "utcDate": "2026-11-25T17:45:00Z",
-    "status": "TIMED",
-    "matchday": 5,
-    "stage": "LEAGUE_STAGE",
-    "group": null,
-    "lastUpdated": "2026-11-25T01:32:00Z",
-    "homeTeam": {
-      "id": 10233,
-      "name": "Sabah FK",
-      "shortName": "Sabah FK",
-      "tla": "SAB",
-      "crest": "https://crests.football-data.org/10233.png"
-    },
-    "awayTeam": {
-      "id": 81,
-      "name": "FC Barcelona",
-      "shortName": "Barça",
-      "tla": "FCB",
-      "crest": "https://crests.football-data.org/81.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2077,
-      "name": "Europe",
-      "code": "EUR",
-      "flag": "https://crests.football-data.org/EUR.svg"
-    },
-    "competition": {
-      "id": 2001,
-      "name": "UEFA Champions League",
-      "code": "CL",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/CL.png"
-    },
-    "season": {
-      "id": 2557,
-      "startDate": "2026-09-08",
-      "endDate": "2027-01-27",
-      "currentMatchday": 5,
-      "winner": null
-    },
     "id": 575405,
     "utcDate": "2026-11-25T17:45:00Z",
     "status": "TIMED",
@@ -83768,7 +83709,80 @@
     "odds": {
       "msg": "Activate Odds-Package in User-Panel to retrieve odds."
     },
-    "referees": []
+    "referees": [
+      {
+        "id": 43936,
+        "name": "Rade Obrenović",
+        "type": "REFEREE",
+        "nationality": "Slovenia"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 2077,
+      "name": "Europe",
+      "code": "EUR",
+      "flag": "https://crests.football-data.org/EUR.svg"
+    },
+    "competition": {
+      "id": 2001,
+      "name": "UEFA Champions League",
+      "code": "CL",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/CL.png"
+    },
+    "season": {
+      "id": 2557,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "currentMatchday": 5,
+      "winner": null
+    },
+    "id": 575404,
+    "utcDate": "2026-11-25T17:45:00Z",
+    "status": "TIMED",
+    "matchday": 5,
+    "stage": "LEAGUE_STAGE",
+    "group": null,
+    "lastUpdated": "2026-11-25T01:32:00Z",
+    "homeTeam": {
+      "id": 10233,
+      "name": "Sabah FK",
+      "shortName": "Sabah FK",
+      "tla": "SAB",
+      "crest": "https://crests.football-data.org/10233.png"
+    },
+    "awayTeam": {
+      "id": 81,
+      "name": "FC Barcelona",
+      "shortName": "Barça",
+      "tla": "FCB",
+      "crest": "https://crests.football-data.org/81.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": [
+      {
+        "id": 15510,
+        "name": "Nick Walsh",
+        "type": "REFEREE",
+        "nationality": "Scotland"
+      }
+    ]
   },
   {
     "area": {
@@ -83791,7 +83805,7 @@
       "currentMatchday": 17,
       "winner": null
     },
-    "id": 561961,
+    "id": 561964,
     "utcDate": "2026-11-25T19:45:00Z",
     "status": "SCHEDULED",
     "matchday": 17,
@@ -83799,18 +83813,18 @@
     "group": null,
     "lastUpdated": "2026-11-19T01:32:05Z",
     "homeTeam": {
-      "id": 346,
-      "name": "Watford FC",
-      "shortName": "Watford",
-      "tla": "WAT",
-      "crest": "https://crests.football-data.org/346.png"
+      "id": 328,
+      "name": "Burnley FC",
+      "shortName": "Burnley",
+      "tla": "BUR",
+      "crest": "https://crests.football-data.org/328.png"
     },
     "awayTeam": {
-      "id": 59,
-      "name": "Blackburn Rovers FC",
-      "shortName": "Blackburn",
-      "tla": "BLA",
-      "crest": "https://crests.football-data.org/59.png"
+      "id": 332,
+      "name": "Birmingham City FC",
+      "shortName": "Birmingham",
+      "tla": "BIR",
+      "crest": "https://crests.football-data.org/332.png"
     },
     "score": {
       "winner": null,
@@ -83909,7 +83923,7 @@
       "currentMatchday": 17,
       "winner": null
     },
-    "id": 561964,
+    "id": 561961,
     "utcDate": "2026-11-25T19:45:00Z",
     "status": "SCHEDULED",
     "matchday": 17,
@@ -83917,313 +83931,18 @@
     "group": null,
     "lastUpdated": "2026-11-19T01:32:05Z",
     "homeTeam": {
-      "id": 328,
-      "name": "Burnley FC",
-      "shortName": "Burnley",
-      "tla": "BUR",
-      "crest": "https://crests.football-data.org/328.png"
+      "id": 346,
+      "name": "Watford FC",
+      "shortName": "Watford",
+      "tla": "WAT",
+      "crest": "https://crests.football-data.org/346.png"
     },
     "awayTeam": {
-      "id": 332,
-      "name": "Birmingham City FC",
-      "shortName": "Birmingham",
-      "tla": "BIR",
-      "crest": "https://crests.football-data.org/332.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2077,
-      "name": "Europe",
-      "code": "EUR",
-      "flag": "https://crests.football-data.org/EUR.svg"
-    },
-    "competition": {
-      "id": 2001,
-      "name": "UEFA Champions League",
-      "code": "CL",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/CL.png"
-    },
-    "season": {
-      "id": 2557,
-      "startDate": "2026-09-08",
-      "endDate": "2027-01-27",
-      "currentMatchday": 5,
-      "winner": null
-    },
-    "id": 575412,
-    "utcDate": "2026-11-25T20:00:00Z",
-    "status": "TIMED",
-    "matchday": 5,
-    "stage": "LEAGUE_STAGE",
-    "group": null,
-    "lastUpdated": "2026-11-25T01:32:00Z",
-    "homeTeam": {
-      "id": 1887,
-      "name": "FK Shakhtar Donetsk",
-      "shortName": "Shaktar",
-      "tla": "SHD",
-      "crest": "https://crests.football-data.org/1887.png"
-    },
-    "awayTeam": {
-      "id": 613,
-      "name": "Fenerbahçe SK",
-      "shortName": "Fenerbahçe",
-      "tla": "FEN",
-      "crest": "https://crests.football-data.org/613.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2077,
-      "name": "Europe",
-      "code": "EUR",
-      "flag": "https://crests.football-data.org/EUR.svg"
-    },
-    "competition": {
-      "id": 2001,
-      "name": "UEFA Champions League",
-      "code": "CL",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/CL.png"
-    },
-    "season": {
-      "id": 2557,
-      "startDate": "2026-09-08",
-      "endDate": "2027-01-27",
-      "currentMatchday": 5,
-      "winner": null
-    },
-    "id": 575408,
-    "utcDate": "2026-11-25T20:00:00Z",
-    "status": "TIMED",
-    "matchday": 5,
-    "stage": "LEAGUE_STAGE",
-    "group": null,
-    "lastUpdated": "2026-11-25T01:32:00Z",
-    "homeTeam": {
-      "id": 524,
-      "name": "Paris Saint-Germain FC",
-      "shortName": "PSG",
-      "tla": "PSG",
-      "crest": "https://crests.football-data.org/524.png"
-    },
-    "awayTeam": {
-      "id": 100,
-      "name": "AS Roma",
-      "shortName": "Roma",
-      "tla": "ROM",
-      "crest": "https://crests.football-data.org/100.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2077,
-      "name": "Europe",
-      "code": "EUR",
-      "flag": "https://crests.football-data.org/EUR.svg"
-    },
-    "competition": {
-      "id": 2001,
-      "name": "UEFA Champions League",
-      "code": "CL",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/CL.png"
-    },
-    "season": {
-      "id": 2557,
-      "startDate": "2026-09-08",
-      "endDate": "2027-01-27",
-      "currentMatchday": 5,
-      "winner": null
-    },
-    "id": 575410,
-    "utcDate": "2026-11-25T20:00:00Z",
-    "status": "TIMED",
-    "matchday": 5,
-    "stage": "LEAGUE_STAGE",
-    "group": null,
-    "lastUpdated": "2026-11-25T01:32:00Z",
-    "homeTeam": {
-      "id": 521,
-      "name": "Lille OSC",
-      "shortName": "Lille",
-      "tla": "LIL",
-      "crest": "https://crests.football-data.org/521.png"
-    },
-    "awayTeam": {
-      "id": 5,
-      "name": "FC Bayern München",
-      "shortName": "Bayern",
-      "tla": "FCB",
-      "crest": "https://crests.football-data.org/5.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2077,
-      "name": "Europe",
-      "code": "EUR",
-      "flag": "https://crests.football-data.org/EUR.svg"
-    },
-    "competition": {
-      "id": 2001,
-      "name": "UEFA Champions League",
-      "code": "CL",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/CL.png"
-    },
-    "season": {
-      "id": 2557,
-      "startDate": "2026-09-08",
-      "endDate": "2027-01-27",
-      "currentMatchday": 5,
-      "winner": null
-    },
-    "id": 575406,
-    "utcDate": "2026-11-25T20:00:00Z",
-    "status": "TIMED",
-    "matchday": 5,
-    "stage": "LEAGUE_STAGE",
-    "group": null,
-    "lastUpdated": "2026-11-25T01:32:00Z",
-    "homeTeam": {
-      "id": 108,
-      "name": "FC Internazionale Milano",
-      "shortName": "Inter",
-      "tla": "INT",
-      "crest": "https://crests.football-data.org/108.png"
-    },
-    "awayTeam": {
-      "id": 10,
-      "name": "VfB Stuttgart",
-      "shortName": "Stuttgart",
-      "tla": "VFB",
-      "crest": "https://crests.football-data.org/10.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2077,
-      "name": "Europe",
-      "code": "EUR",
-      "flag": "https://crests.football-data.org/EUR.svg"
-    },
-    "competition": {
-      "id": 2001,
-      "name": "UEFA Champions League",
-      "code": "CL",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/CL.png"
-    },
-    "season": {
-      "id": 2557,
-      "startDate": "2026-09-08",
-      "endDate": "2027-01-27",
-      "currentMatchday": 5,
-      "winner": null
-    },
-    "id": 575407,
-    "utcDate": "2026-11-25T20:00:00Z",
-    "status": "TIMED",
-    "matchday": 5,
-    "stage": "LEAGUE_STAGE",
-    "group": null,
-    "lastUpdated": "2026-11-25T01:32:00Z",
-    "homeTeam": {
-      "id": 78,
-      "name": "Club Atlético de Madrid",
-      "shortName": "Atleti",
-      "tla": "ATL",
-      "crest": "https://crests.football-data.org/78.png"
-    },
-    "awayTeam": {
-      "id": 5720,
-      "name": "Viking FK",
-      "shortName": "Viking",
-      "tla": "VIK",
-      "crest": "https://crests.football-data.org/5720.png"
+      "id": 59,
+      "name": "Blackburn Rovers FC",
+      "shortName": "Blackburn",
+      "tla": "BLA",
+      "crest": "https://crests.football-data.org/59.png"
     },
     "score": {
       "winner": null,
@@ -84401,6 +84120,301 @@
       "shortName": "Man United",
       "tla": "MUN",
       "crest": "https://crests.football-data.org/66.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2077,
+      "name": "Europe",
+      "code": "EUR",
+      "flag": "https://crests.football-data.org/EUR.svg"
+    },
+    "competition": {
+      "id": 2001,
+      "name": "UEFA Champions League",
+      "code": "CL",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/CL.png"
+    },
+    "season": {
+      "id": 2557,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "currentMatchday": 5,
+      "winner": null
+    },
+    "id": 575407,
+    "utcDate": "2026-11-25T20:00:00Z",
+    "status": "TIMED",
+    "matchday": 5,
+    "stage": "LEAGUE_STAGE",
+    "group": null,
+    "lastUpdated": "2026-11-25T01:32:00Z",
+    "homeTeam": {
+      "id": 78,
+      "name": "Club Atlético de Madrid",
+      "shortName": "Atleti",
+      "tla": "ATL",
+      "crest": "https://crests.football-data.org/78.png"
+    },
+    "awayTeam": {
+      "id": 5720,
+      "name": "Viking FK",
+      "shortName": "Viking",
+      "tla": "VIK",
+      "crest": "https://crests.football-data.org/5720.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2077,
+      "name": "Europe",
+      "code": "EUR",
+      "flag": "https://crests.football-data.org/EUR.svg"
+    },
+    "competition": {
+      "id": 2001,
+      "name": "UEFA Champions League",
+      "code": "CL",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/CL.png"
+    },
+    "season": {
+      "id": 2557,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "currentMatchday": 5,
+      "winner": null
+    },
+    "id": 575410,
+    "utcDate": "2026-11-25T20:00:00Z",
+    "status": "TIMED",
+    "matchday": 5,
+    "stage": "LEAGUE_STAGE",
+    "group": null,
+    "lastUpdated": "2026-11-25T01:32:00Z",
+    "homeTeam": {
+      "id": 521,
+      "name": "Lille OSC",
+      "shortName": "Lille",
+      "tla": "LIL",
+      "crest": "https://crests.football-data.org/521.png"
+    },
+    "awayTeam": {
+      "id": 5,
+      "name": "FC Bayern München",
+      "shortName": "Bayern",
+      "tla": "FCB",
+      "crest": "https://crests.football-data.org/5.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2077,
+      "name": "Europe",
+      "code": "EUR",
+      "flag": "https://crests.football-data.org/EUR.svg"
+    },
+    "competition": {
+      "id": 2001,
+      "name": "UEFA Champions League",
+      "code": "CL",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/CL.png"
+    },
+    "season": {
+      "id": 2557,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "currentMatchday": 5,
+      "winner": null
+    },
+    "id": 575406,
+    "utcDate": "2026-11-25T20:00:00Z",
+    "status": "TIMED",
+    "matchday": 5,
+    "stage": "LEAGUE_STAGE",
+    "group": null,
+    "lastUpdated": "2026-11-25T01:32:00Z",
+    "homeTeam": {
+      "id": 108,
+      "name": "FC Internazionale Milano",
+      "shortName": "Inter",
+      "tla": "INT",
+      "crest": "https://crests.football-data.org/108.png"
+    },
+    "awayTeam": {
+      "id": 10,
+      "name": "VfB Stuttgart",
+      "shortName": "Stuttgart",
+      "tla": "VFB",
+      "crest": "https://crests.football-data.org/10.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2077,
+      "name": "Europe",
+      "code": "EUR",
+      "flag": "https://crests.football-data.org/EUR.svg"
+    },
+    "competition": {
+      "id": 2001,
+      "name": "UEFA Champions League",
+      "code": "CL",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/CL.png"
+    },
+    "season": {
+      "id": 2557,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "currentMatchday": 5,
+      "winner": null
+    },
+    "id": 575412,
+    "utcDate": "2026-11-25T20:00:00Z",
+    "status": "TIMED",
+    "matchday": 5,
+    "stage": "LEAGUE_STAGE",
+    "group": null,
+    "lastUpdated": "2026-11-25T01:32:00Z",
+    "homeTeam": {
+      "id": 1887,
+      "name": "FK Shakhtar Donetsk",
+      "shortName": "Shaktar",
+      "tla": "SHD",
+      "crest": "https://crests.football-data.org/1887.png"
+    },
+    "awayTeam": {
+      "id": 613,
+      "name": "Fenerbahçe SK",
+      "shortName": "Fenerbahçe",
+      "tla": "FEN",
+      "crest": "https://crests.football-data.org/613.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2077,
+      "name": "Europe",
+      "code": "EUR",
+      "flag": "https://crests.football-data.org/EUR.svg"
+    },
+    "competition": {
+      "id": 2001,
+      "name": "UEFA Champions League",
+      "code": "CL",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/CL.png"
+    },
+    "season": {
+      "id": 2557,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "currentMatchday": 5,
+      "winner": null
+    },
+    "id": 575408,
+    "utcDate": "2026-11-25T20:00:00Z",
+    "status": "TIMED",
+    "matchday": 5,
+    "stage": "LEAGUE_STAGE",
+    "group": null,
+    "lastUpdated": "2026-11-25T01:32:00Z",
+    "homeTeam": {
+      "id": 524,
+      "name": "Paris Saint-Germain FC",
+      "shortName": "PSG",
+      "tla": "PSG",
+      "crest": "https://crests.football-data.org/524.png"
+    },
+    "awayTeam": {
+      "id": 100,
+      "name": "AS Roma",
+      "shortName": "Roma",
+      "tla": "ROM",
+      "crest": "https://crests.football-data.org/100.png"
     },
     "score": {
       "winner": null,
@@ -84657,6 +84671,65 @@
   },
   {
     "area": {
+      "id": 2114,
+      "name": "Italy",
+      "code": "ITA",
+      "flag": "https://crests.football-data.org/784.svg"
+    },
+    "competition": {
+      "id": 2019,
+      "name": "Serie A",
+      "code": "SA",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/c111.png"
+    },
+    "season": {
+      "id": 2494,
+      "startDate": "2026-08-23",
+      "endDate": "2027-05-30",
+      "currentMatchday": 12,
+      "winner": null
+    },
+    "id": 558515,
+    "utcDate": "2026-11-27T19:45:00Z",
+    "status": "TIMED",
+    "matchday": 13,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 454,
+      "name": "Venezia FC",
+      "shortName": "Venezia FC",
+      "tla": "VEN",
+      "crest": "https://crests.football-data.org/454.png"
+    },
+    "awayTeam": {
+      "id": 103,
+      "name": "Bologna FC 1909",
+      "shortName": "Bologna",
+      "tla": "BOL",
+      "crest": "https://crests.football-data.org/103.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
       "id": 2081,
       "name": "France",
       "code": "FRA",
@@ -84716,45 +84789,45 @@
   },
   {
     "area": {
-      "id": 2114,
-      "name": "Italy",
-      "code": "ITA",
-      "flag": "https://crests.football-data.org/784.svg"
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
     },
     "competition": {
-      "id": 2019,
-      "name": "Serie A",
-      "code": "SA",
+      "id": 2016,
+      "name": "Championship",
+      "code": "ELC",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/c111.png"
+      "emblem": "https://crests.football-data.org/ELC.png"
     },
     "season": {
-      "id": 2494,
-      "startDate": "2026-08-23",
-      "endDate": "2027-05-30",
-      "currentMatchday": 12,
+      "id": 2509,
+      "startDate": "2026-08-14",
+      "endDate": "2027-05-01",
+      "currentMatchday": 17,
       "winner": null
     },
-    "id": 558515,
-    "utcDate": "2026-11-27T19:45:00Z",
-    "status": "TIMED",
-    "matchday": 13,
+    "id": 561968,
+    "utcDate": "2026-11-27T20:00:00Z",
+    "status": "SCHEDULED",
+    "matchday": 18,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
+    "lastUpdated": "2026-11-21T01:32:04Z",
     "homeTeam": {
-      "id": 454,
-      "name": "Venezia FC",
-      "shortName": "Venezia FC",
-      "tla": "VEN",
-      "crest": "https://crests.football-data.org/454.png"
+      "id": 340,
+      "name": "Southampton FC",
+      "shortName": "Southampton",
+      "tla": "SOU",
+      "crest": "https://crests.football-data.org/340.png"
     },
     "awayTeam": {
-      "id": 103,
-      "name": "Bologna FC 1909",
-      "shortName": "Bologna",
-      "tla": "BOL",
-      "crest": "https://crests.football-data.org/103.png"
+      "id": 343,
+      "name": "Middlesbrough FC",
+      "shortName": "Middlesbrough",
+      "tla": "MID",
+      "crest": "https://crests.football-data.org/343.png"
     },
     "score": {
       "winner": null,
@@ -84873,65 +84946,6 @@
       "shortName": "Chelsea",
       "tla": "CHE",
       "crest": "https://crests.football-data.org/61.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2016,
-      "name": "Championship",
-      "code": "ELC",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ELC.png"
-    },
-    "season": {
-      "id": 2509,
-      "startDate": "2026-08-14",
-      "endDate": "2027-05-01",
-      "currentMatchday": 17,
-      "winner": null
-    },
-    "id": 561968,
-    "utcDate": "2026-11-27T20:00:00Z",
-    "status": "SCHEDULED",
-    "matchday": 18,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-21T01:32:04Z",
-    "homeTeam": {
-      "id": 340,
-      "name": "Southampton FC",
-      "shortName": "Southampton",
-      "tla": "SOU",
-      "crest": "https://crests.football-data.org/340.png"
-    },
-    "awayTeam": {
-      "id": 343,
-      "name": "Middlesbrough FC",
-      "shortName": "Middlesbrough",
-      "tla": "MID",
-      "crest": "https://crests.football-data.org/343.png"
     },
     "score": {
       "winner": null,
@@ -85148,7 +85162,7 @@
       "currentMatchday": 17,
       "winner": null
     },
-    "id": 561969,
+    "id": 561972,
     "utcDate": "2026-11-28T12:30:00Z",
     "status": "SCHEDULED",
     "matchday": 18,
@@ -85156,18 +85170,18 @@
     "group": null,
     "lastUpdated": "2026-11-22T01:32:03Z",
     "homeTeam": {
-      "id": 59,
-      "name": "Blackburn Rovers FC",
-      "shortName": "Blackburn",
-      "tla": "BLA",
-      "crest": "https://crests.football-data.org/59.png"
+      "id": 1126,
+      "name": "Lincoln City FC",
+      "shortName": "Lincoln City",
+      "tla": "LIN",
+      "crest": "https://crests.football-data.org/1126.png"
     },
     "awayTeam": {
-      "id": 348,
-      "name": "Charlton Athletic FC",
-      "shortName": "Charlton",
-      "tla": "CHA",
-      "crest": "https://crests.football-data.org/348.png"
+      "id": 76,
+      "name": "Wolverhampton Wanderers FC",
+      "shortName": "Wolverhampton",
+      "tla": "WOL",
+      "crest": "https://crests.football-data.org/76.png"
     },
     "score": {
       "winner": null,
@@ -85266,7 +85280,7 @@
       "currentMatchday": 17,
       "winner": null
     },
-    "id": 561972,
+    "id": 561969,
     "utcDate": "2026-11-28T12:30:00Z",
     "status": "SCHEDULED",
     "matchday": 18,
@@ -85274,18 +85288,18 @@
     "group": null,
     "lastUpdated": "2026-11-22T01:32:03Z",
     "homeTeam": {
-      "id": 1126,
-      "name": "Lincoln City FC",
-      "shortName": "Lincoln City",
-      "tla": "LIN",
-      "crest": "https://crests.football-data.org/1126.png"
+      "id": 59,
+      "name": "Blackburn Rovers FC",
+      "shortName": "Blackburn",
+      "tla": "BLA",
+      "crest": "https://crests.football-data.org/59.png"
     },
     "awayTeam": {
-      "id": 76,
-      "name": "Wolverhampton Wanderers FC",
-      "shortName": "Wolverhampton",
-      "tla": "WOL",
-      "crest": "https://crests.football-data.org/76.png"
+      "id": 348,
+      "name": "Charlton Athletic FC",
+      "shortName": "Charlton",
+      "tla": "CHA",
+      "crest": "https://crests.football-data.org/348.png"
     },
     "score": {
       "winner": null,
@@ -85443,124 +85457,6 @@
       "currentMatchday": 10,
       "winner": null
     },
-    "id": 565867,
-    "utcDate": "2026-11-28T14:30:00Z",
-    "status": "TIMED",
-    "matchday": 11,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 15,
-      "name": "1. FSV Mainz 05",
-      "shortName": "Mainz",
-      "tla": "M05",
-      "crest": "https://crests.football-data.org/15.png"
-    },
-    "awayTeam": {
-      "id": 28,
-      "name": "1. FC Union Berlin",
-      "shortName": "Union Berlin",
-      "tla": "UNB",
-      "crest": "https://crests.football-data.org/28.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2088,
-      "name": "Germany",
-      "code": "DEU",
-      "flag": "https://crests.football-data.org/759.svg"
-    },
-    "competition": {
-      "id": 2002,
-      "name": "Bundesliga",
-      "code": "BL1",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/BL1.png"
-    },
-    "season": {
-      "id": 2522,
-      "startDate": "2026-08-28",
-      "endDate": "2027-05-22",
-      "currentMatchday": 10,
-      "winner": null
-    },
-    "id": 565866,
-    "utcDate": "2026-11-28T14:30:00Z",
-    "status": "TIMED",
-    "matchday": 11,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 1,
-      "name": "1. FC Köln",
-      "shortName": "1. FC Köln",
-      "tla": "KOE",
-      "crest": "https://crests.football-data.org/1.png"
-    },
-    "awayTeam": {
-      "id": 719,
-      "name": "SV 07 Elversberg",
-      "shortName": "Elversberg",
-      "tla": "ELV",
-      "crest": "https://crests.football-data.org/719.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2088,
-      "name": "Germany",
-      "code": "DEU",
-      "flag": "https://crests.football-data.org/759.svg"
-    },
-    "competition": {
-      "id": 2002,
-      "name": "Bundesliga",
-      "code": "BL1",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/BL1.png"
-    },
-    "season": {
-      "id": 2522,
-      "startDate": "2026-08-28",
-      "endDate": "2027-05-22",
-      "currentMatchday": 10,
-      "winner": null
-    },
     "id": 565868,
     "utcDate": "2026-11-28T14:30:00Z",
     "status": "TIMED",
@@ -85660,163 +85556,104 @@
   },
   {
     "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
+      "id": 2088,
+      "name": "Germany",
+      "code": "DEU",
+      "flag": "https://crests.football-data.org/759.svg"
     },
     "competition": {
-      "id": 2016,
-      "name": "Championship",
-      "code": "ELC",
+      "id": 2002,
+      "name": "Bundesliga",
+      "code": "BL1",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ELC.png"
+      "emblem": "https://crests.football-data.org/BL1.png"
     },
     "season": {
-      "id": 2509,
-      "startDate": "2026-08-14",
-      "endDate": "2027-05-01",
-      "currentMatchday": 17,
+      "id": 2522,
+      "startDate": "2026-08-28",
+      "endDate": "2027-05-22",
+      "currentMatchday": 10,
       "winner": null
     },
-    "id": 561965,
-    "utcDate": "2026-11-28T15:00:00Z",
-    "status": "SCHEDULED",
-    "matchday": 18,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-22T01:32:04Z",
-    "homeTeam": {
-      "id": 404,
-      "name": "Wrexham AFC",
-      "shortName": "Wrexham",
-      "tla": "WRE",
-      "crest": "https://crests.football-data.org/404.png"
-    },
-    "awayTeam": {
-      "id": 325,
-      "name": "Portsmouth FC",
-      "shortName": "Portsmouth",
-      "tla": "POR",
-      "crest": "https://crests.football-data.org/325.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2016,
-      "name": "Championship",
-      "code": "ELC",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ELC.png"
-    },
-    "season": {
-      "id": 2509,
-      "startDate": "2026-08-14",
-      "endDate": "2027-05-01",
-      "currentMatchday": 17,
-      "winner": null
-    },
-    "id": 561975,
-    "utcDate": "2026-11-28T15:00:00Z",
-    "status": "SCHEDULED",
-    "matchday": 18,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-22T01:32:04Z",
-    "homeTeam": {
-      "id": 74,
-      "name": "West Bromwich Albion FC",
-      "shortName": "West Brom",
-      "tla": "WBA",
-      "crest": "https://crests.football-data.org/74.png"
-    },
-    "awayTeam": {
-      "id": 387,
-      "name": "Bristol City FC",
-      "shortName": "Bristol City",
-      "tla": "BRI",
-      "crest": "https://crests.football-data.org/387.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
-    },
-    "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
-      "endDate": "2027-05-30",
-      "currentMatchday": 11,
-      "winner": null
-    },
-    "id": 560652,
-    "utcDate": "2026-11-28T15:00:00Z",
+    "id": 565866,
+    "utcDate": "2026-11-28T14:30:00Z",
     "status": "TIMED",
-    "matchday": 12,
+    "matchday": 11,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
+    "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 341,
-      "name": "Leeds United FC",
-      "shortName": "Leeds United",
-      "tla": "LEE",
-      "crest": "https://crests.football-data.org/341.png"
+      "id": 1,
+      "name": "1. FC Köln",
+      "shortName": "1. FC Köln",
+      "tla": "KOE",
+      "crest": "https://crests.football-data.org/1.png"
     },
     "awayTeam": {
-      "id": 1076,
-      "name": "Coventry City FC",
-      "shortName": "Coventry City",
-      "tla": "COV",
-      "crest": "https://crests.football-data.org/1076.png"
+      "id": 719,
+      "name": "SV 07 Elversberg",
+      "shortName": "Elversberg",
+      "tla": "ELV",
+      "crest": "https://crests.football-data.org/719.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2088,
+      "name": "Germany",
+      "code": "DEU",
+      "flag": "https://crests.football-data.org/759.svg"
+    },
+    "competition": {
+      "id": 2002,
+      "name": "Bundesliga",
+      "code": "BL1",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/BL1.png"
+    },
+    "season": {
+      "id": 2522,
+      "startDate": "2026-08-28",
+      "endDate": "2027-05-22",
+      "currentMatchday": 10,
+      "winner": null
+    },
+    "id": 565867,
+    "utcDate": "2026-11-28T14:30:00Z",
+    "status": "TIMED",
+    "matchday": 11,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:29Z",
+    "homeTeam": {
+      "id": 15,
+      "name": "1. FSV Mainz 05",
+      "shortName": "Mainz",
+      "tla": "M05",
+      "crest": "https://crests.football-data.org/15.png"
+    },
+    "awayTeam": {
+      "id": 28,
+      "name": "1. FC Union Berlin",
+      "shortName": "Union Berlin",
+      "tla": "UNB",
+      "crest": "https://crests.football-data.org/28.png"
     },
     "score": {
       "winner": null,
@@ -85856,7 +85693,7 @@
       "currentMatchday": 17,
       "winner": null
     },
-    "id": 561971,
+    "id": 561966,
     "utcDate": "2026-11-28T15:00:00Z",
     "status": "SCHEDULED",
     "matchday": 18,
@@ -85864,77 +85701,18 @@
     "group": null,
     "lastUpdated": "2026-11-22T01:32:04Z",
     "homeTeam": {
-      "id": 342,
-      "name": "Derby County FC",
-      "shortName": "Derby County",
-      "tla": "DER",
-      "crest": "https://crests.football-data.org/342.png"
+      "id": 69,
+      "name": "Queens Park Rangers FC",
+      "shortName": "QPR",
+      "tla": "QPR",
+      "crest": "https://crests.football-data.org/69.png"
     },
     "awayTeam": {
-      "id": 346,
-      "name": "Watford FC",
-      "shortName": "Watford",
-      "tla": "WAT",
-      "crest": "https://crests.football-data.org/346.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2016,
-      "name": "Championship",
-      "code": "ELC",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ELC.png"
-    },
-    "season": {
-      "id": 2509,
-      "startDate": "2026-08-14",
-      "endDate": "2027-05-01",
-      "currentMatchday": 17,
-      "winner": null
-    },
-    "id": 561967,
-    "utcDate": "2026-11-28T15:00:00Z",
-    "status": "SCHEDULED",
-    "matchday": 18,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-22T01:32:04Z",
-    "homeTeam": {
-      "id": 384,
-      "name": "Millwall FC",
-      "shortName": "Millwall",
-      "tla": "MIL",
-      "crest": "https://crests.football-data.org/384.png"
-    },
-    "awayTeam": {
-      "id": 328,
-      "name": "Burnley FC",
-      "shortName": "Burnley",
-      "tla": "BUR",
-      "crest": "https://crests.football-data.org/328.png"
+      "id": 356,
+      "name": "Sheffield United FC",
+      "shortName": "Sheffield Utd",
+      "tla": "SHE",
+      "crest": "https://crests.football-data.org/356.png"
     },
     "score": {
       "winner": null,
@@ -86138,6 +85916,65 @@
       "flag": "https://crests.football-data.org/770.svg"
     },
     "competition": {
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/PL.png"
+    },
+    "season": {
+      "id": 2502,
+      "startDate": "2026-08-21",
+      "endDate": "2027-05-30",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 560652,
+    "utcDate": "2026-11-28T15:00:00Z",
+    "status": "TIMED",
+    "matchday": 12,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 341,
+      "name": "Leeds United FC",
+      "shortName": "Leeds United",
+      "tla": "LEE",
+      "crest": "https://crests.football-data.org/341.png"
+    },
+    "awayTeam": {
+      "id": 1076,
+      "name": "Coventry City FC",
+      "shortName": "Coventry City",
+      "tla": "COV",
+      "crest": "https://crests.football-data.org/1076.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
       "id": 2016,
       "name": "Championship",
       "code": "ELC",
@@ -86151,7 +85988,7 @@
       "currentMatchday": 17,
       "winner": null
     },
-    "id": 561966,
+    "id": 561971,
     "utcDate": "2026-11-28T15:00:00Z",
     "status": "SCHEDULED",
     "matchday": 18,
@@ -86159,18 +85996,195 @@
     "group": null,
     "lastUpdated": "2026-11-22T01:32:04Z",
     "homeTeam": {
-      "id": 69,
-      "name": "Queens Park Rangers FC",
-      "shortName": "QPR",
-      "tla": "QPR",
-      "crest": "https://crests.football-data.org/69.png"
+      "id": 342,
+      "name": "Derby County FC",
+      "shortName": "Derby County",
+      "tla": "DER",
+      "crest": "https://crests.football-data.org/342.png"
     },
     "awayTeam": {
-      "id": 356,
-      "name": "Sheffield United FC",
-      "shortName": "Sheffield Utd",
-      "tla": "SHE",
-      "crest": "https://crests.football-data.org/356.png"
+      "id": 346,
+      "name": "Watford FC",
+      "shortName": "Watford",
+      "tla": "WAT",
+      "crest": "https://crests.football-data.org/346.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2016,
+      "name": "Championship",
+      "code": "ELC",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/ELC.png"
+    },
+    "season": {
+      "id": 2509,
+      "startDate": "2026-08-14",
+      "endDate": "2027-05-01",
+      "currentMatchday": 17,
+      "winner": null
+    },
+    "id": 561967,
+    "utcDate": "2026-11-28T15:00:00Z",
+    "status": "SCHEDULED",
+    "matchday": 18,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-22T01:32:04Z",
+    "homeTeam": {
+      "id": 384,
+      "name": "Millwall FC",
+      "shortName": "Millwall",
+      "tla": "MIL",
+      "crest": "https://crests.football-data.org/384.png"
+    },
+    "awayTeam": {
+      "id": 328,
+      "name": "Burnley FC",
+      "shortName": "Burnley",
+      "tla": "BUR",
+      "crest": "https://crests.football-data.org/328.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2016,
+      "name": "Championship",
+      "code": "ELC",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/ELC.png"
+    },
+    "season": {
+      "id": 2509,
+      "startDate": "2026-08-14",
+      "endDate": "2027-05-01",
+      "currentMatchday": 17,
+      "winner": null
+    },
+    "id": 561965,
+    "utcDate": "2026-11-28T15:00:00Z",
+    "status": "SCHEDULED",
+    "matchday": 18,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-22T01:32:04Z",
+    "homeTeam": {
+      "id": 404,
+      "name": "Wrexham AFC",
+      "shortName": "Wrexham",
+      "tla": "WRE",
+      "crest": "https://crests.football-data.org/404.png"
+    },
+    "awayTeam": {
+      "id": 325,
+      "name": "Portsmouth FC",
+      "shortName": "Portsmouth",
+      "tla": "POR",
+      "crest": "https://crests.football-data.org/325.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2016,
+      "name": "Championship",
+      "code": "ELC",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/ELC.png"
+    },
+    "season": {
+      "id": 2509,
+      "startDate": "2026-08-14",
+      "endDate": "2027-05-01",
+      "currentMatchday": 17,
+      "winner": null
+    },
+    "id": 561975,
+    "utcDate": "2026-11-28T15:00:00Z",
+    "status": "SCHEDULED",
+    "matchday": 18,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-22T01:32:04Z",
+    "homeTeam": {
+      "id": 74,
+      "name": "West Bromwich Albion FC",
+      "shortName": "West Brom",
+      "tla": "WBA",
+      "crest": "https://crests.football-data.org/74.png"
+    },
+    "awayTeam": {
+      "id": 387,
+      "name": "Bristol City FC",
+      "shortName": "Bristol City",
+      "tla": "BRI",
+      "crest": "https://crests.football-data.org/387.png"
     },
     "score": {
       "winner": null,
@@ -86250,45 +86264,45 @@
   },
   {
     "area": {
-      "id": 2163,
-      "name": "Netherlands",
-      "code": "NLD",
-      "flag": "https://crests.football-data.org/8601.svg"
+      "id": 2187,
+      "name": "Portugal",
+      "code": "POR",
+      "flag": "https://crests.football-data.org/765.svg"
     },
     "competition": {
-      "id": 2003,
-      "name": "Eredivisie",
-      "code": "DED",
+      "id": 2017,
+      "name": "Primeira Liga",
+      "code": "PPL",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ED.png"
+      "emblem": "https://crests.football-data.org/PPL.png"
     },
     "season": {
-      "id": 2493,
-      "startDate": "2026-08-07",
-      "endDate": "2027-05-23",
-      "currentMatchday": 13,
+      "id": 2526,
+      "startDate": "2026-08-08",
+      "endDate": "2027-05-16",
+      "currentMatchday": 12,
       "winner": null
     },
-    "id": 558825,
+    "id": 567357,
     "utcDate": "2026-11-28T15:30:00Z",
     "status": "TIMED",
-    "matchday": 14,
+    "matchday": 12,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
+    "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 670,
-      "name": "SBV Excelsior",
-      "shortName": "Excelsior",
-      "tla": "EXC",
-      "crest": "https://crests.football-data.org/670.png"
+      "id": 583,
+      "name": "Moreirense FC",
+      "shortName": "Moreirense",
+      "tla": "MOR",
+      "crest": "https://crests.football-data.org/583.png"
     },
     "awayTeam": {
-      "id": 1912,
-      "name": "Telstar 1963",
-      "shortName": "Telstar",
-      "tla": "TEL",
-      "crest": "https://crests.football-data.org/1912.png"
+      "id": 5530,
+      "name": "CD Santa Clara",
+      "shortName": "Santa Clara",
+      "tla": "CD ",
+      "crest": "https://crests.football-data.org/5530.png"
     },
     "score": {
       "winner": null,
@@ -86368,45 +86382,45 @@
   },
   {
     "area": {
-      "id": 2187,
-      "name": "Portugal",
-      "code": "POR",
-      "flag": "https://crests.football-data.org/765.svg"
+      "id": 2163,
+      "name": "Netherlands",
+      "code": "NLD",
+      "flag": "https://crests.football-data.org/8601.svg"
     },
     "competition": {
-      "id": 2017,
-      "name": "Primeira Liga",
-      "code": "PPL",
+      "id": 2003,
+      "name": "Eredivisie",
+      "code": "DED",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PPL.png"
+      "emblem": "https://crests.football-data.org/ED.png"
     },
     "season": {
-      "id": 2526,
-      "startDate": "2026-08-08",
-      "endDate": "2027-05-16",
-      "currentMatchday": 12,
+      "id": 2493,
+      "startDate": "2026-08-07",
+      "endDate": "2027-05-23",
+      "currentMatchday": 13,
       "winner": null
     },
-    "id": 567357,
+    "id": 558825,
     "utcDate": "2026-11-28T15:30:00Z",
     "status": "TIMED",
-    "matchday": 12,
+    "matchday": 14,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
+    "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 583,
-      "name": "Moreirense FC",
-      "shortName": "Moreirense",
-      "tla": "MOR",
-      "crest": "https://crests.football-data.org/583.png"
+      "id": 670,
+      "name": "SBV Excelsior",
+      "shortName": "Excelsior",
+      "tla": "EXC",
+      "crest": "https://crests.football-data.org/670.png"
     },
     "awayTeam": {
-      "id": 5530,
-      "name": "CD Santa Clara",
-      "shortName": "Santa Clara",
-      "tla": "CD ",
-      "crest": "https://crests.football-data.org/5530.png"
+      "id": 1912,
+      "name": "Telstar 1963",
+      "shortName": "Telstar",
+      "tla": "TEL",
+      "crest": "https://crests.football-data.org/1912.png"
     },
     "score": {
       "winner": null,
@@ -86545,45 +86559,45 @@
   },
   {
     "area": {
-      "id": 2224,
-      "name": "Spain",
-      "code": "ESP",
-      "flag": "https://crests.football-data.org/760.svg"
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
     },
     "competition": {
-      "id": 2014,
-      "name": "Primera Division",
-      "code": "PD",
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/laliga.png"
+      "emblem": "https://crests.football-data.org/PL.png"
     },
     "season": {
-      "id": 2518,
-      "startDate": "2026-08-16",
+      "id": 2502,
+      "startDate": "2026-08-21",
       "endDate": "2027-05-30",
-      "currentMatchday": 13,
+      "currentMatchday": 11,
       "winner": null
     },
-    "id": 564759,
+    "id": 560653,
     "utcDate": "2026-11-28T17:30:00Z",
     "status": "TIMED",
-    "matchday": 14,
+    "matchday": 12,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
+    "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 285,
-      "name": "Elche CF",
-      "shortName": "Elche",
-      "tla": "ELC",
-      "crest": "https://crests.football-data.org/285.png"
+      "id": 349,
+      "name": "Ipswich Town FC",
+      "shortName": "Ipswich Town",
+      "tla": "IPS",
+      "crest": "https://crests.football-data.org/349.png"
     },
     "awayTeam": {
-      "id": 78,
-      "name": "Club Atlético de Madrid",
-      "shortName": "Atleti",
-      "tla": "ATL",
-      "crest": "https://crests.football-data.org/78.png"
+      "id": 58,
+      "name": "Aston Villa FC",
+      "shortName": "Aston Villa",
+      "tla": "AVL",
+      "crest": "https://crests.football-data.org/58.png"
     },
     "score": {
       "winner": null,
@@ -86663,45 +86677,45 @@
   },
   {
     "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
+      "id": 2224,
+      "name": "Spain",
+      "code": "ESP",
+      "flag": "https://crests.football-data.org/760.svg"
     },
     "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
+      "id": 2014,
+      "name": "Primera Division",
+      "code": "PD",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
+      "emblem": "https://crests.football-data.org/laliga.png"
     },
     "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
+      "id": 2518,
+      "startDate": "2026-08-16",
       "endDate": "2027-05-30",
-      "currentMatchday": 11,
+      "currentMatchday": 13,
       "winner": null
     },
-    "id": 560653,
+    "id": 564759,
     "utcDate": "2026-11-28T17:30:00Z",
     "status": "TIMED",
-    "matchday": 12,
+    "matchday": 14,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
+    "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 349,
-      "name": "Ipswich Town FC",
-      "shortName": "Ipswich Town",
-      "tla": "IPS",
-      "crest": "https://crests.football-data.org/349.png"
+      "id": 285,
+      "name": "Elche CF",
+      "shortName": "Elche",
+      "tla": "ELC",
+      "crest": "https://crests.football-data.org/285.png"
     },
     "awayTeam": {
-      "id": 58,
-      "name": "Aston Villa FC",
-      "shortName": "Aston Villa",
-      "tla": "AVL",
-      "crest": "https://crests.football-data.org/58.png"
+      "id": 78,
+      "name": "Club Atlético de Madrid",
+      "shortName": "Atleti",
+      "tla": "ATL",
+      "crest": "https://crests.football-data.org/78.png"
     },
     "score": {
       "winner": null,
@@ -86840,45 +86854,104 @@
   },
   {
     "area": {
-      "id": 2114,
-      "name": "Italy",
-      "code": "ITA",
-      "flag": "https://crests.football-data.org/784.svg"
+      "id": 2081,
+      "name": "France",
+      "code": "FRA",
+      "flag": "https://crests.football-data.org/773.svg"
     },
     "competition": {
-      "id": 2019,
-      "name": "Serie A",
-      "code": "SA",
+      "id": 2015,
+      "name": "Ligue 1",
+      "code": "FL1",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/c111.png"
+      "emblem": "https://crests.football-data.org/FL1.png"
     },
     "season": {
-      "id": 2494,
-      "startDate": "2026-08-23",
-      "endDate": "2027-05-30",
-      "currentMatchday": 12,
+      "id": 2497,
+      "startDate": "2026-08-22",
+      "endDate": "2027-05-29",
+      "currentMatchday": 11,
       "winner": null
     },
-    "id": 558518,
+    "id": 559614,
     "utcDate": "2026-11-28T19:45:00Z",
     "status": "TIMED",
-    "matchday": 13,
+    "matchday": 12,
     "stage": "REGULAR_SEASON",
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 108,
-      "name": "FC Internazionale Milano",
-      "shortName": "Inter",
-      "tla": "INT",
-      "crest": "https://crests.football-data.org/108.png"
+      "id": 524,
+      "name": "Paris Saint-Germain FC",
+      "shortName": "PSG",
+      "tla": "PSG",
+      "crest": "https://crests.football-data.org/524.png"
     },
     "awayTeam": {
-      "id": 107,
-      "name": "Genoa CFC",
-      "shortName": "Genoa",
-      "tla": "GEN",
-      "crest": "https://crests.football-data.org/107.png"
+      "id": 525,
+      "name": "FC Lorient",
+      "shortName": "Lorient",
+      "tla": "FCL",
+      "crest": "https://crests.football-data.org/525.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2081,
+      "name": "France",
+      "code": "FRA",
+      "flag": "https://crests.football-data.org/773.svg"
+    },
+    "competition": {
+      "id": 2015,
+      "name": "Ligue 1",
+      "code": "FL1",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/FL1.png"
+    },
+    "season": {
+      "id": 2497,
+      "startDate": "2026-08-22",
+      "endDate": "2027-05-29",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 559620,
+    "utcDate": "2026-11-28T19:45:00Z",
+    "status": "TIMED",
+    "matchday": 12,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 522,
+      "name": "OGC Nice",
+      "shortName": "Nice",
+      "tla": "NIC",
+      "crest": "https://crests.football-data.org/522.png"
+    },
+    "awayTeam": {
+      "id": 531,
+      "name": "ES Troyes AC",
+      "shortName": "Troyes",
+      "tla": "ETR",
+      "crest": "https://crests.football-data.org/531.png"
     },
     "score": {
       "winner": null,
@@ -87017,45 +87090,45 @@
   },
   {
     "area": {
-      "id": 2081,
-      "name": "France",
-      "code": "FRA",
-      "flag": "https://crests.football-data.org/773.svg"
+      "id": 2114,
+      "name": "Italy",
+      "code": "ITA",
+      "flag": "https://crests.football-data.org/784.svg"
     },
     "competition": {
-      "id": 2015,
-      "name": "Ligue 1",
-      "code": "FL1",
+      "id": 2019,
+      "name": "Serie A",
+      "code": "SA",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/FL1.png"
+      "emblem": "https://crests.football-data.org/c111.png"
     },
     "season": {
-      "id": 2497,
-      "startDate": "2026-08-22",
-      "endDate": "2027-05-29",
-      "currentMatchday": 11,
+      "id": 2494,
+      "startDate": "2026-08-23",
+      "endDate": "2027-05-30",
+      "currentMatchday": 12,
       "winner": null
     },
-    "id": 559620,
+    "id": 558518,
     "utcDate": "2026-11-28T19:45:00Z",
     "status": "TIMED",
-    "matchday": 12,
+    "matchday": 13,
     "stage": "REGULAR_SEASON",
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 522,
-      "name": "OGC Nice",
-      "shortName": "Nice",
-      "tla": "NIC",
-      "crest": "https://crests.football-data.org/522.png"
+      "id": 108,
+      "name": "FC Internazionale Milano",
+      "shortName": "Inter",
+      "tla": "INT",
+      "crest": "https://crests.football-data.org/108.png"
     },
     "awayTeam": {
-      "id": 531,
-      "name": "ES Troyes AC",
-      "shortName": "Troyes",
-      "tla": "ETR",
-      "crest": "https://crests.football-data.org/531.png"
+      "id": 107,
+      "name": "Genoa CFC",
+      "shortName": "Genoa",
+      "tla": "GEN",
+      "crest": "https://crests.football-data.org/107.png"
     },
     "score": {
       "winner": null,
@@ -87076,85 +87149,26 @@
   },
   {
     "area": {
-      "id": 2081,
-      "name": "France",
-      "code": "FRA",
-      "flag": "https://crests.football-data.org/773.svg"
+      "id": 2224,
+      "name": "Spain",
+      "code": "ESP",
+      "flag": "https://crests.football-data.org/760.svg"
     },
     "competition": {
-      "id": 2015,
-      "name": "Ligue 1",
-      "code": "FL1",
+      "id": 2014,
+      "name": "Primera Division",
+      "code": "PD",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/FL1.png"
+      "emblem": "https://crests.football-data.org/laliga.png"
     },
     "season": {
-      "id": 2497,
-      "startDate": "2026-08-22",
-      "endDate": "2027-05-29",
-      "currentMatchday": 11,
-      "winner": null
-    },
-    "id": 559614,
-    "utcDate": "2026-11-28T19:45:00Z",
-    "status": "TIMED",
-    "matchday": 12,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
-    "homeTeam": {
-      "id": 524,
-      "name": "Paris Saint-Germain FC",
-      "shortName": "PSG",
-      "tla": "PSG",
-      "crest": "https://crests.football-data.org/524.png"
-    },
-    "awayTeam": {
-      "id": 525,
-      "name": "FC Lorient",
-      "shortName": "Lorient",
-      "tla": "FCL",
-      "crest": "https://crests.football-data.org/525.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2163,
-      "name": "Netherlands",
-      "code": "NLD",
-      "flag": "https://crests.football-data.org/8601.svg"
-    },
-    "competition": {
-      "id": 2003,
-      "name": "Eredivisie",
-      "code": "DED",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ED.png"
-    },
-    "season": {
-      "id": 2493,
-      "startDate": "2026-08-07",
-      "endDate": "2027-05-23",
+      "id": 2518,
+      "startDate": "2026-08-16",
+      "endDate": "2027-05-30",
       "currentMatchday": 13,
       "winner": null
     },
-    "id": 558819,
+    "id": 564762,
     "utcDate": "2026-11-28T20:00:00Z",
     "status": "TIMED",
     "matchday": 14,
@@ -87162,18 +87176,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 1909,
-      "name": "SC Cambuur-Leeuwarden",
-      "shortName": "Cambuur",
-      "tla": "CAM",
-      "crest": "https://crests.football-data.org/1909.png"
+      "id": 86,
+      "name": "Real Madrid CF",
+      "shortName": "Real Madrid",
+      "tla": "RMA",
+      "crest": "https://crests.football-data.org/86.png"
     },
     "awayTeam": {
-      "id": 6806,
-      "name": "Sparta Rotterdam",
-      "shortName": "Sparta",
-      "tla": "SPA",
-      "crest": "https://crests.football-data.org/6806.png"
+      "id": 263,
+      "name": "Deportivo Alavés",
+      "shortName": "Alavés",
+      "tla": "ALA",
+      "crest": "https://crests.football-data.org/263.png"
     },
     "score": {
       "winner": null,
@@ -87253,26 +87267,26 @@
   },
   {
     "area": {
-      "id": 2224,
-      "name": "Spain",
-      "code": "ESP",
-      "flag": "https://crests.football-data.org/760.svg"
+      "id": 2163,
+      "name": "Netherlands",
+      "code": "NLD",
+      "flag": "https://crests.football-data.org/8601.svg"
     },
     "competition": {
-      "id": 2014,
-      "name": "Primera Division",
-      "code": "PD",
+      "id": 2003,
+      "name": "Eredivisie",
+      "code": "DED",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/laliga.png"
+      "emblem": "https://crests.football-data.org/ED.png"
     },
     "season": {
-      "id": 2518,
-      "startDate": "2026-08-16",
-      "endDate": "2027-05-30",
+      "id": 2493,
+      "startDate": "2026-08-07",
+      "endDate": "2027-05-23",
       "currentMatchday": 13,
       "winner": null
     },
-    "id": 564762,
+    "id": 558819,
     "utcDate": "2026-11-28T20:00:00Z",
     "status": "TIMED",
     "matchday": 14,
@@ -87280,18 +87294,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 86,
-      "name": "Real Madrid CF",
-      "shortName": "Real Madrid",
-      "tla": "RMA",
-      "crest": "https://crests.football-data.org/86.png"
+      "id": 1909,
+      "name": "SC Cambuur-Leeuwarden",
+      "shortName": "Cambuur",
+      "tla": "CAM",
+      "crest": "https://crests.football-data.org/1909.png"
     },
     "awayTeam": {
-      "id": 263,
-      "name": "Deportivo Alavés",
-      "shortName": "Alavés",
-      "tla": "ALA",
-      "crest": "https://crests.football-data.org/263.png"
+      "id": 6806,
+      "name": "Sparta Rotterdam",
+      "shortName": "Sparta",
+      "tla": "SPA",
+      "crest": "https://crests.football-data.org/6806.png"
     },
     "score": {
       "winner": null,
@@ -87554,65 +87568,6 @@
       "flag": "https://crests.football-data.org/770.svg"
     },
     "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
-    },
-    "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
-      "endDate": "2027-05-30",
-      "currentMatchday": 11,
-      "winner": null
-    },
-    "id": 560656,
-    "utcDate": "2026-11-29T12:00:00Z",
-    "status": "TIMED",
-    "matchday": 12,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
-    "homeTeam": {
-      "id": 62,
-      "name": "Everton FC",
-      "shortName": "Everton",
-      "tla": "EVE",
-      "crest": "https://crests.football-data.org/62.png"
-    },
-    "awayTeam": {
-      "id": 64,
-      "name": "Liverpool FC",
-      "shortName": "Liverpool",
-      "tla": "LIV",
-      "crest": "https://crests.football-data.org/64.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
       "id": 2016,
       "name": "Championship",
       "code": "ELC",
@@ -87646,6 +87601,65 @@
       "shortName": "Cardiff",
       "tla": "CAR",
       "crest": "https://crests.football-data.org/715.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/PL.png"
+    },
+    "season": {
+      "id": 2502,
+      "startDate": "2026-08-21",
+      "endDate": "2027-05-30",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 560656,
+    "utcDate": "2026-11-29T12:00:00Z",
+    "status": "TIMED",
+    "matchday": 12,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 62,
+      "name": "Everton FC",
+      "shortName": "Everton",
+      "tla": "EVE",
+      "crest": "https://crests.football-data.org/62.png"
+    },
+    "awayTeam": {
+      "id": 64,
+      "name": "Liverpool FC",
+      "shortName": "Liverpool",
+      "tla": "LIV",
+      "crest": "https://crests.football-data.org/64.png"
     },
     "score": {
       "winner": null,
@@ -87744,65 +87758,6 @@
       "currentMatchday": 13,
       "winner": null
     },
-    "id": 558821,
-    "utcDate": "2026-11-29T13:30:00Z",
-    "status": "TIMED",
-    "matchday": 14,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 1920,
-      "name": "Fortuna Sittard",
-      "shortName": "Sittard",
-      "tla": "SIT",
-      "crest": "https://crests.football-data.org/1920.png"
-    },
-    "awayTeam": {
-      "id": 673,
-      "name": "SC Heerenveen",
-      "shortName": "Heerenveen",
-      "tla": "HEE",
-      "crest": "https://crests.football-data.org/673.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2163,
-      "name": "Netherlands",
-      "code": "NLD",
-      "flag": "https://crests.football-data.org/8601.svg"
-    },
-    "competition": {
-      "id": 2003,
-      "name": "Eredivisie",
-      "code": "DED",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/ED.png"
-    },
-    "season": {
-      "id": 2493,
-      "startDate": "2026-08-07",
-      "endDate": "2027-05-23",
-      "currentMatchday": 13,
-      "winner": null
-    },
     "id": 558824,
     "utcDate": "2026-11-29T13:30:00Z",
     "status": "TIMED",
@@ -87843,45 +87798,45 @@
   },
   {
     "area": {
-      "id": 2081,
-      "name": "France",
-      "code": "FRA",
-      "flag": "https://crests.football-data.org/773.svg"
+      "id": 2163,
+      "name": "Netherlands",
+      "code": "NLD",
+      "flag": "https://crests.football-data.org/8601.svg"
     },
     "competition": {
-      "id": 2015,
-      "name": "Ligue 1",
-      "code": "FL1",
+      "id": 2003,
+      "name": "Eredivisie",
+      "code": "DED",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/FL1.png"
+      "emblem": "https://crests.football-data.org/ED.png"
     },
     "season": {
-      "id": 2497,
-      "startDate": "2026-08-22",
-      "endDate": "2027-05-29",
-      "currentMatchday": 11,
+      "id": 2493,
+      "startDate": "2026-08-07",
+      "endDate": "2027-05-23",
+      "currentMatchday": 13,
       "winner": null
     },
-    "id": 559619,
-    "utcDate": "2026-11-29T14:00:00Z",
+    "id": 558821,
+    "utcDate": "2026-11-29T13:30:00Z",
     "status": "TIMED",
-    "matchday": 12,
+    "matchday": 14,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
+    "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 519,
-      "name": "AJ Auxerre",
-      "shortName": "Auxerre",
-      "tla": "AJA",
-      "crest": "https://crests.football-data.org/519.png"
+      "id": 1920,
+      "name": "Fortuna Sittard",
+      "shortName": "Sittard",
+      "tla": "SIT",
+      "crest": "https://crests.football-data.org/1920.png"
     },
     "awayTeam": {
-      "id": 516,
-      "name": "Olympique de Marseille",
-      "shortName": "Marseille",
-      "tla": "MAR",
-      "crest": "https://crests.football-data.org/516.png"
+      "id": 673,
+      "name": "SC Heerenveen",
+      "shortName": "Heerenveen",
+      "tla": "HEE",
+      "crest": "https://crests.football-data.org/673.png"
     },
     "score": {
       "winner": null,
@@ -87961,104 +87916,45 @@
   },
   {
     "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
+      "id": 2081,
+      "name": "France",
+      "code": "FRA",
+      "flag": "https://crests.football-data.org/773.svg"
     },
     "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
+      "id": 2015,
+      "name": "Ligue 1",
+      "code": "FL1",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
+      "emblem": "https://crests.football-data.org/FL1.png"
     },
     "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
-      "endDate": "2027-05-30",
+      "id": 2497,
+      "startDate": "2026-08-22",
+      "endDate": "2027-05-29",
       "currentMatchday": 11,
       "winner": null
     },
-    "id": 560660,
-    "utcDate": "2026-11-29T14:05:00Z",
+    "id": 559619,
+    "utcDate": "2026-11-29T14:00:00Z",
     "status": "TIMED",
     "matchday": 12,
     "stage": "REGULAR_SEASON",
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 71,
-      "name": "Sunderland AFC",
-      "shortName": "Sunderland",
-      "tla": "SUN",
-      "crest": "https://crests.football-data.org/71.png"
+      "id": 519,
+      "name": "AJ Auxerre",
+      "shortName": "Auxerre",
+      "tla": "AJA",
+      "crest": "https://crests.football-data.org/519.png"
     },
     "awayTeam": {
-      "id": 73,
-      "name": "Tottenham Hotspur FC",
-      "shortName": "Tottenham",
-      "tla": "TOT",
-      "crest": "https://crests.football-data.org/73.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
-    },
-    "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
-      "endDate": "2027-05-30",
-      "currentMatchday": 11,
-      "winner": null
-    },
-    "id": 560661,
-    "utcDate": "2026-11-29T14:05:00Z",
-    "status": "TIMED",
-    "matchday": 12,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
-    "homeTeam": {
-      "id": 354,
-      "name": "Crystal Palace FC",
-      "shortName": "Crystal Palace",
-      "tla": "CRY",
-      "crest": "https://crests.football-data.org/354.png"
-    },
-    "awayTeam": {
-      "id": 322,
-      "name": "Hull City AFC",
-      "shortName": "Hull City",
-      "tla": "HUL",
-      "crest": "https://crests.football-data.org/322.png"
+      "id": 516,
+      "name": "Olympique de Marseille",
+      "shortName": "Marseille",
+      "tla": "MAR",
+      "crest": "https://crests.football-data.org/516.png"
     },
     "score": {
       "winner": null,
@@ -88177,6 +88073,124 @@
       "shortName": "Newcastle",
       "tla": "NEW",
       "crest": "https://crests.football-data.org/67.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/PL.png"
+    },
+    "season": {
+      "id": 2502,
+      "startDate": "2026-08-21",
+      "endDate": "2027-05-30",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 560661,
+    "utcDate": "2026-11-29T14:05:00Z",
+    "status": "TIMED",
+    "matchday": 12,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 354,
+      "name": "Crystal Palace FC",
+      "shortName": "Crystal Palace",
+      "tla": "CRY",
+      "crest": "https://crests.football-data.org/354.png"
+    },
+    "awayTeam": {
+      "id": 322,
+      "name": "Hull City AFC",
+      "shortName": "Hull City",
+      "tla": "HUL",
+      "crest": "https://crests.football-data.org/322.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/PL.png"
+    },
+    "season": {
+      "id": 2502,
+      "startDate": "2026-08-21",
+      "endDate": "2027-05-30",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 560660,
+    "utcDate": "2026-11-29T14:05:00Z",
+    "status": "TIMED",
+    "matchday": 12,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 71,
+      "name": "Sunderland AFC",
+      "shortName": "Sunderland",
+      "tla": "SUN",
+      "crest": "https://crests.football-data.org/71.png"
+    },
+    "awayTeam": {
+      "id": 73,
+      "name": "Tottenham Hotspur FC",
+      "shortName": "Tottenham",
+      "tla": "TOT",
+      "crest": "https://crests.football-data.org/73.png"
     },
     "score": {
       "winner": null,
@@ -88433,65 +88447,6 @@
   },
   {
     "area": {
-      "id": 2088,
-      "name": "Germany",
-      "code": "DEU",
-      "flag": "https://crests.football-data.org/759.svg"
-    },
-    "competition": {
-      "id": 2002,
-      "name": "Bundesliga",
-      "code": "BL1",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/BL1.png"
-    },
-    "season": {
-      "id": 2522,
-      "startDate": "2026-08-28",
-      "endDate": "2027-05-22",
-      "currentMatchday": 10,
-      "winner": null
-    },
-    "id": 565871,
-    "utcDate": "2026-11-29T16:30:00Z",
-    "status": "TIMED",
-    "matchday": 11,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 2,
-      "name": "TSG 1899 Hoffenheim",
-      "shortName": "Hoffenheim",
-      "tla": "TSG",
-      "crest": "https://crests.football-data.org/2.png"
-    },
-    "awayTeam": {
-      "id": 16,
-      "name": "FC Augsburg",
-      "shortName": "Augsburg",
-      "tla": "FCA",
-      "crest": "https://crests.football-data.org/16.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
       "id": 2072,
       "name": "England",
       "code": "ENG",
@@ -88531,6 +88486,65 @@
       "shortName": "Man City",
       "tla": "MCI",
       "crest": "https://crests.football-data.org/65.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2088,
+      "name": "Germany",
+      "code": "DEU",
+      "flag": "https://crests.football-data.org/759.svg"
+    },
+    "competition": {
+      "id": 2002,
+      "name": "Bundesliga",
+      "code": "BL1",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/BL1.png"
+    },
+    "season": {
+      "id": 2522,
+      "startDate": "2026-08-28",
+      "endDate": "2027-05-22",
+      "currentMatchday": 10,
+      "winner": null
+    },
+    "id": 565871,
+    "utcDate": "2026-11-29T16:30:00Z",
+    "status": "TIMED",
+    "matchday": 11,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:29Z",
+    "homeTeam": {
+      "id": 2,
+      "name": "TSG 1899 Hoffenheim",
+      "shortName": "Hoffenheim",
+      "tla": "TSG",
+      "crest": "https://crests.football-data.org/2.png"
+    },
+    "awayTeam": {
+      "id": 16,
+      "name": "FC Augsburg",
+      "shortName": "Augsburg",
+      "tla": "FCA",
+      "crest": "https://crests.football-data.org/16.png"
     },
     "score": {
       "winner": null,
@@ -88787,65 +88801,6 @@
   },
   {
     "area": {
-      "id": 2032,
-      "name": "Brazil",
-      "code": "BRA",
-      "flag": "https://crests.football-data.org/764.svg"
-    },
-    "competition": {
-      "id": 2013,
-      "name": "Campeonato Brasileiro Série A",
-      "code": "BSA",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/bsa.png"
-    },
-    "season": {
-      "id": 2474,
-      "startDate": "2026-01-28",
-      "endDate": "2026-12-02",
-      "currentMatchday": 37,
-      "winner": null
-    },
-    "id": 555109,
-    "utcDate": "2026-11-29T19:00:00Z",
-    "status": "TIMED",
-    "matchday": 37,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 1782,
-      "name": "EC Vitória",
-      "shortName": "Vitória",
-      "tla": "VIT",
-      "crest": "https://crests.football-data.org/1782.png"
-    },
-    "awayTeam": {
-      "id": 6685,
-      "name": "Santos FC",
-      "shortName": "Santos",
-      "tla": "SAN",
-      "crest": "https://crests.football-data.org/6685.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
       "id": 2163,
       "name": "Netherlands",
       "code": "NLD",
@@ -88964,45 +88919,45 @@
   },
   {
     "area": {
-      "id": 2081,
-      "name": "France",
-      "code": "FRA",
-      "flag": "https://crests.football-data.org/773.svg"
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "https://crests.football-data.org/764.svg"
     },
     "competition": {
-      "id": 2015,
-      "name": "Ligue 1",
-      "code": "FL1",
+      "id": 2013,
+      "name": "Campeonato Brasileiro Série A",
+      "code": "BSA",
       "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/FL1.png"
+      "emblem": "https://crests.football-data.org/bsa.png"
     },
     "season": {
-      "id": 2497,
-      "startDate": "2026-08-22",
-      "endDate": "2027-05-29",
-      "currentMatchday": 11,
+      "id": 2474,
+      "startDate": "2026-01-28",
+      "endDate": "2026-12-02",
+      "currentMatchday": 37,
       "winner": null
     },
-    "id": 559615,
-    "utcDate": "2026-11-29T19:45:00Z",
+    "id": 555109,
+    "utcDate": "2026-11-29T19:00:00Z",
     "status": "TIMED",
-    "matchday": 12,
+    "matchday": 37,
     "stage": "REGULAR_SEASON",
     "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
+    "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 523,
-      "name": "Olympique Lyonnais",
-      "shortName": "Olympique Lyon",
-      "tla": "LYO",
-      "crest": "https://crests.football-data.org/523.png"
+      "id": 1782,
+      "name": "EC Vitória",
+      "shortName": "Vitória",
+      "tla": "VIT",
+      "crest": "https://crests.football-data.org/1782.png"
     },
     "awayTeam": {
-      "id": 548,
-      "name": "AS Monaco FC",
-      "shortName": "Monaco",
-      "tla": "ASM",
-      "crest": "https://crests.football-data.org/548.png"
+      "id": 6685,
+      "name": "Santos FC",
+      "shortName": "Santos",
+      "tla": "SAN",
+      "crest": "https://crests.football-data.org/6685.png"
     },
     "score": {
       "winner": null,
@@ -89062,6 +89017,65 @@
       "shortName": "Juventus",
       "tla": "JUV",
       "crest": "https://crests.football-data.org/109.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2081,
+      "name": "France",
+      "code": "FRA",
+      "flag": "https://crests.football-data.org/773.svg"
+    },
+    "competition": {
+      "id": 2015,
+      "name": "Ligue 1",
+      "code": "FL1",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/FL1.png"
+    },
+    "season": {
+      "id": 2497,
+      "startDate": "2026-08-22",
+      "endDate": "2027-05-29",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 559615,
+    "utcDate": "2026-11-29T19:45:00Z",
+    "status": "TIMED",
+    "matchday": 12,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 523,
+      "name": "Olympique Lyonnais",
+      "shortName": "Olympique Lyon",
+      "tla": "LYO",
+      "crest": "https://crests.football-data.org/523.png"
+    },
+    "awayTeam": {
+      "id": 548,
+      "name": "AS Monaco FC",
+      "shortName": "Monaco",
+      "tla": "ASM",
+      "crest": "https://crests.football-data.org/548.png"
     },
     "score": {
       "winner": null,
@@ -89219,6 +89233,65 @@
       "currentMatchday": 37,
       "winner": null
     },
+    "id": 555106,
+    "utcDate": "2026-11-29T21:30:00Z",
+    "status": "TIMED",
+    "matchday": 37,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:29Z",
+    "homeTeam": {
+      "id": 6684,
+      "name": "SC Internacional",
+      "shortName": "Internacional",
+      "tla": "SCI",
+      "crest": "https://crests.football-data.org/6684.png"
+    },
+    "awayTeam": {
+      "id": 4286,
+      "name": "RB Bragantino",
+      "shortName": "Bragantino",
+      "tla": "RBB",
+      "crest": "https://crests.football-data.org/4286.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "https://crests.football-data.org/764.svg"
+    },
+    "competition": {
+      "id": 2013,
+      "name": "Campeonato Brasileiro Série A",
+      "code": "BSA",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/bsa.png"
+    },
+    "season": {
+      "id": 2474,
+      "startDate": "2026-01-28",
+      "endDate": "2026-12-02",
+      "currentMatchday": 37,
+      "winner": null
+    },
     "id": 555107,
     "utcDate": "2026-11-29T21:30:00Z",
     "status": "TIMED",
@@ -89298,65 +89371,6 @@
       "shortName": "Grêmio",
       "tla": "FBP",
       "crest": "https://crests.football-data.org/1767.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2032,
-      "name": "Brazil",
-      "code": "BRA",
-      "flag": "https://crests.football-data.org/764.svg"
-    },
-    "competition": {
-      "id": 2013,
-      "name": "Campeonato Brasileiro Série A",
-      "code": "BSA",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/bsa.png"
-    },
-    "season": {
-      "id": 2474,
-      "startDate": "2026-01-28",
-      "endDate": "2026-12-02",
-      "currentMatchday": 37,
-      "winner": null
-    },
-    "id": 555106,
-    "utcDate": "2026-11-29T21:30:00Z",
-    "status": "TIMED",
-    "matchday": 37,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 6684,
-      "name": "SC Internacional",
-      "shortName": "Internacional",
-      "tla": "SCI",
-      "crest": "https://crests.football-data.org/6684.png"
-    },
-    "awayTeam": {
-      "id": 4286,
-      "name": "RB Bragantino",
-      "shortName": "Bragantino",
-      "tla": "RBB",
-      "crest": "https://crests.football-data.org/4286.png"
     },
     "score": {
       "winner": null,
@@ -89632,7 +89646,7 @@
       "currentMatchday": 12,
       "winner": null
     },
-    "id": 567360,
+    "id": 567359,
     "utcDate": "2026-11-30T20:15:00Z",
     "status": "TIMED",
     "matchday": 12,
@@ -89640,18 +89654,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 1903,
-      "name": "Sport Lisboa e Benfica",
-      "shortName": "SL Benfica",
-      "tla": "BEN",
-      "crest": "https://crests.football-data.org/1903.png"
+      "id": 6618,
+      "name": "Casa Pia AC",
+      "shortName": "Casa Pia",
+      "tla": "CAS",
+      "crest": "https://crests.football-data.org/6618.png"
     },
     "awayTeam": {
-      "id": 5531,
-      "name": "FC Famalicão",
-      "shortName": "Famalicão",
-      "tla": "FAM",
-      "crest": "https://crests.football-data.org/5531.png"
+      "id": 5613,
+      "name": "Sporting Clube de Braga",
+      "shortName": "Braga",
+      "tla": "SCB",
+      "crest": "https://crests.football-data.org/5613.png"
     },
     "score": {
       "winner": null,
@@ -89691,7 +89705,7 @@
       "currentMatchday": 12,
       "winner": null
     },
-    "id": 567359,
+    "id": 567360,
     "utcDate": "2026-11-30T20:15:00Z",
     "status": "TIMED",
     "matchday": 12,
@@ -89699,18 +89713,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 6618,
-      "name": "Casa Pia AC",
-      "shortName": "Casa Pia",
-      "tla": "CAS",
-      "crest": "https://crests.football-data.org/6618.png"
+      "id": 1903,
+      "name": "Sport Lisboa e Benfica",
+      "shortName": "SL Benfica",
+      "tla": "BEN",
+      "crest": "https://crests.football-data.org/1903.png"
     },
     "awayTeam": {
-      "id": 5613,
-      "name": "Sporting Clube de Braga",
-      "shortName": "Braga",
-      "tla": "SCB",
-      "crest": "https://crests.football-data.org/5613.png"
+      "id": 5531,
+      "name": "FC Famalicão",
+      "shortName": "Famalicão",
+      "tla": "FAM",
+      "crest": "https://crests.football-data.org/5531.png"
     },
     "score": {
       "winner": null,
@@ -89868,7 +89882,7 @@
       "currentMatchday": 11,
       "winner": null
     },
-    "id": 560664,
+    "id": 560663,
     "utcDate": "2026-12-02T19:30:00Z",
     "status": "TIMED",
     "matchday": 13,
@@ -89876,18 +89890,77 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 322,
-      "name": "Hull City AFC",
-      "shortName": "Hull City",
-      "tla": "HUL",
-      "crest": "https://crests.football-data.org/322.png"
+      "id": 64,
+      "name": "Liverpool FC",
+      "shortName": "Liverpool",
+      "tla": "LIV",
+      "crest": "https://crests.football-data.org/64.png"
     },
     "awayTeam": {
-      "id": 351,
-      "name": "Nottingham Forest FC",
-      "shortName": "Nottingham",
-      "tla": "NOT",
-      "crest": "https://crests.football-data.org/351.png"
+      "id": 71,
+      "name": "Sunderland AFC",
+      "shortName": "Sunderland",
+      "tla": "SUN",
+      "crest": "https://crests.football-data.org/71.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/PL.png"
+    },
+    "season": {
+      "id": 2502,
+      "startDate": "2026-08-21",
+      "endDate": "2027-05-30",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 560669,
+    "utcDate": "2026-12-02T19:30:00Z",
+    "status": "TIMED",
+    "matchday": 13,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 65,
+      "name": "Manchester City FC",
+      "shortName": "Man City",
+      "tla": "MCI",
+      "crest": "https://crests.football-data.org/65.png"
+    },
+    "awayTeam": {
+      "id": 341,
+      "name": "Leeds United FC",
+      "shortName": "Leeds United",
+      "tla": "LEE",
+      "crest": "https://crests.football-data.org/341.png"
     },
     "score": {
       "winner": null,
@@ -89986,7 +90059,7 @@
       "currentMatchday": 11,
       "winner": null
     },
-    "id": 560663,
+    "id": 560664,
     "utcDate": "2026-12-02T19:30:00Z",
     "status": "TIMED",
     "matchday": 13,
@@ -89994,18 +90067,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 64,
-      "name": "Liverpool FC",
-      "shortName": "Liverpool",
-      "tla": "LIV",
-      "crest": "https://crests.football-data.org/64.png"
+      "id": 322,
+      "name": "Hull City AFC",
+      "shortName": "Hull City",
+      "tla": "HUL",
+      "crest": "https://crests.football-data.org/322.png"
     },
     "awayTeam": {
-      "id": 71,
-      "name": "Sunderland AFC",
-      "shortName": "Sunderland",
-      "tla": "SUN",
-      "crest": "https://crests.football-data.org/71.png"
+      "id": 351,
+      "name": "Nottingham Forest FC",
+      "shortName": "Nottingham",
+      "tla": "NOT",
+      "crest": "https://crests.football-data.org/351.png"
     },
     "score": {
       "winner": null,
@@ -90045,26 +90118,85 @@
       "currentMatchday": 11,
       "winner": null
     },
-    "id": 560669,
-    "utcDate": "2026-12-02T19:30:00Z",
+    "id": 560667,
+    "utcDate": "2026-12-02T20:15:00Z",
     "status": "TIMED",
     "matchday": 13,
     "stage": "REGULAR_SEASON",
     "group": null,
     "lastUpdated": "2026-11-25T00:20:30Z",
     "homeTeam": {
-      "id": 65,
-      "name": "Manchester City FC",
-      "shortName": "Man City",
-      "tla": "MCI",
-      "crest": "https://crests.football-data.org/65.png"
+      "id": 402,
+      "name": "Brentford FC",
+      "shortName": "Brentford",
+      "tla": "BRE",
+      "crest": "https://crests.football-data.org/402.png"
     },
     "awayTeam": {
-      "id": 341,
-      "name": "Leeds United FC",
-      "shortName": "Leeds United",
-      "tla": "LEE",
-      "crest": "https://crests.football-data.org/341.png"
+      "id": 57,
+      "name": "Arsenal FC",
+      "shortName": "Arsenal",
+      "tla": "ARS",
+      "crest": "https://crests.football-data.org/57.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "https://crests.football-data.org/770.svg"
+    },
+    "competition": {
+      "id": 2021,
+      "name": "Premier League",
+      "code": "PL",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/PL.png"
+    },
+    "season": {
+      "id": 2502,
+      "startDate": "2026-08-21",
+      "endDate": "2027-05-30",
+      "currentMatchday": 11,
+      "winner": null
+    },
+    "id": 560671,
+    "utcDate": "2026-12-02T20:15:00Z",
+    "status": "TIMED",
+    "matchday": 13,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:30Z",
+    "homeTeam": {
+      "id": 1044,
+      "name": "AFC Bournemouth",
+      "shortName": "Bournemouth",
+      "tla": "BOU",
+      "crest": "https://crests.football-data.org/bournemouth.png"
+    },
+    "awayTeam": {
+      "id": 397,
+      "name": "Brighton & Hove Albion FC",
+      "shortName": "Brighton Hove",
+      "tla": "BHA",
+      "crest": "https://crests.football-data.org/397.png"
     },
     "score": {
       "winner": null,
@@ -90203,124 +90335,6 @@
   },
   {
     "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
-    },
-    "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
-      "endDate": "2027-05-30",
-      "currentMatchday": 11,
-      "winner": null
-    },
-    "id": 560671,
-    "utcDate": "2026-12-02T20:15:00Z",
-    "status": "TIMED",
-    "matchday": 13,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
-    "homeTeam": {
-      "id": 1044,
-      "name": "AFC Bournemouth",
-      "shortName": "Bournemouth",
-      "tla": "BOU",
-      "crest": "https://crests.football-data.org/bournemouth.png"
-    },
-    "awayTeam": {
-      "id": 397,
-      "name": "Brighton & Hove Albion FC",
-      "shortName": "Brighton Hove",
-      "tla": "BHA",
-      "crest": "https://crests.football-data.org/397.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "competition": {
-      "id": 2021,
-      "name": "Premier League",
-      "code": "PL",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/PL.png"
-    },
-    "season": {
-      "id": 2502,
-      "startDate": "2026-08-21",
-      "endDate": "2027-05-30",
-      "currentMatchday": 11,
-      "winner": null
-    },
-    "id": 560667,
-    "utcDate": "2026-12-02T20:15:00Z",
-    "status": "TIMED",
-    "matchday": 13,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:30Z",
-    "homeTeam": {
-      "id": 402,
-      "name": "Brentford FC",
-      "shortName": "Brentford",
-      "tla": "BRE",
-      "crest": "https://crests.football-data.org/402.png"
-    },
-    "awayTeam": {
-      "id": 57,
-      "name": "Arsenal FC",
-      "shortName": "Arsenal",
-      "tla": "ARS",
-      "crest": "https://crests.football-data.org/57.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
       "id": 2224,
       "name": "Spain",
       "code": "ESP",
@@ -90399,7 +90413,7 @@
       "currentMatchday": 37,
       "winner": null
     },
-    "id": 555115,
+    "id": 555112,
     "utcDate": "2026-12-03T00:30:00Z",
     "status": "TIMED",
     "matchday": 38,
@@ -90407,18 +90421,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 1767,
-      "name": "Grêmio FBPA",
-      "shortName": "Grêmio",
-      "tla": "FBP",
-      "crest": "https://crests.football-data.org/1767.png"
+      "id": 4286,
+      "name": "RB Bragantino",
+      "shortName": "Bragantino",
+      "tla": "RBB",
+      "crest": "https://crests.football-data.org/4286.png"
     },
     "awayTeam": {
-      "id": 4364,
-      "name": "Mirassol FC",
-      "shortName": "Mirassol",
-      "tla": "MIR",
-      "crest": "https://crests.football-data.org/4364.png"
+      "id": 1765,
+      "name": "Fluminense FC",
+      "shortName": "Fluminense",
+      "tla": "FLU",
+      "crest": "https://crests.football-data.org/1765.png"
     },
     "score": {
       "winner": null,
@@ -90458,7 +90472,7 @@
       "currentMatchday": 37,
       "winner": null
     },
-    "id": 555111,
+    "id": 555118,
     "utcDate": "2026-12-03T00:30:00Z",
     "status": "TIMED",
     "matchday": 38,
@@ -90466,18 +90480,195 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 1777,
-      "name": "EC Bahia",
-      "shortName": "Bahia",
-      "tla": "BAH",
-      "crest": "https://crests.football-data.org/1777.png"
+      "id": 6685,
+      "name": "Santos FC",
+      "shortName": "Santos",
+      "tla": "SAN",
+      "crest": "https://crests.football-data.org/6685.png"
     },
     "awayTeam": {
-      "id": 1766,
-      "name": "CA Mineiro",
-      "shortName": "Mineiro",
-      "tla": "CAM",
-      "crest": "https://crests.football-data.org/1766.png"
+      "id": 1770,
+      "name": "Botafogo FR",
+      "shortName": "Botafogo",
+      "tla": "BOT",
+      "crest": "https://crests.football-data.org/1770.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "https://crests.football-data.org/764.svg"
+    },
+    "competition": {
+      "id": 2013,
+      "name": "Campeonato Brasileiro Série A",
+      "code": "BSA",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/bsa.png"
+    },
+    "season": {
+      "id": 2474,
+      "startDate": "2026-01-28",
+      "endDate": "2026-12-02",
+      "currentMatchday": 37,
+      "winner": null
+    },
+    "id": 555114,
+    "utcDate": "2026-12-03T00:30:00Z",
+    "status": "TIMED",
+    "matchday": 38,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:29Z",
+    "homeTeam": {
+      "id": 1783,
+      "name": "CR Flamengo",
+      "shortName": "Flamengo",
+      "tla": "FLA",
+      "crest": "https://crests.football-data.org/1783.png"
+    },
+    "awayTeam": {
+      "id": 1772,
+      "name": "Chapecoense AF",
+      "shortName": "Chapecoense",
+      "tla": "CHA",
+      "crest": "https://crests.football-data.org/1772_large.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "https://crests.football-data.org/764.svg"
+    },
+    "competition": {
+      "id": 2013,
+      "name": "Campeonato Brasileiro Série A",
+      "code": "BSA",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/bsa.png"
+    },
+    "season": {
+      "id": 2474,
+      "startDate": "2026-01-28",
+      "endDate": "2026-12-02",
+      "currentMatchday": 37,
+      "winner": null
+    },
+    "id": 555110,
+    "utcDate": "2026-12-03T00:30:00Z",
+    "status": "TIMED",
+    "matchday": 38,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:29Z",
+    "homeTeam": {
+      "id": 1768,
+      "name": "CA Paranaense",
+      "shortName": "Paranaense",
+      "tla": "CAP",
+      "crest": "https://crests.football-data.org/1768.png"
+    },
+    "awayTeam": {
+      "id": 1776,
+      "name": "São Paulo FC",
+      "shortName": "São Paulo",
+      "tla": "PAU",
+      "crest": "https://crests.football-data.org/1776.png"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "https://crests.football-data.org/764.svg"
+    },
+    "competition": {
+      "id": 2013,
+      "name": "Campeonato Brasileiro Série A",
+      "code": "BSA",
+      "type": "LEAGUE",
+      "emblem": "https://crests.football-data.org/bsa.png"
+    },
+    "season": {
+      "id": 2474,
+      "startDate": "2026-01-28",
+      "endDate": "2026-12-02",
+      "currentMatchday": 37,
+      "winner": null
+    },
+    "id": 555116,
+    "utcDate": "2026-12-03T00:30:00Z",
+    "status": "TIMED",
+    "matchday": 38,
+    "stage": "REGULAR_SEASON",
+    "group": null,
+    "lastUpdated": "2026-11-25T00:20:29Z",
+    "homeTeam": {
+      "id": 1769,
+      "name": "SE Palmeiras",
+      "shortName": "Palmeiras",
+      "tla": "PAL",
+      "crest": "https://crests.football-data.org/1769.png"
+    },
+    "awayTeam": {
+      "id": 4241,
+      "name": "Coritiba FBC",
+      "shortName": "Coritiba",
+      "tla": "COR",
+      "crest": "https://crests.football-data.org/4241.png"
     },
     "score": {
       "winner": null,
@@ -90694,7 +90885,7 @@
       "currentMatchday": 37,
       "winner": null
     },
-    "id": 555110,
+    "id": 555115,
     "utcDate": "2026-12-03T00:30:00Z",
     "status": "TIMED",
     "matchday": 38,
@@ -90702,18 +90893,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 1768,
-      "name": "CA Paranaense",
-      "shortName": "Paranaense",
-      "tla": "CAP",
-      "crest": "https://crests.football-data.org/1768.png"
+      "id": 1767,
+      "name": "Grêmio FBPA",
+      "shortName": "Grêmio",
+      "tla": "FBP",
+      "crest": "https://crests.football-data.org/1767.png"
     },
     "awayTeam": {
-      "id": 1776,
-      "name": "São Paulo FC",
-      "shortName": "São Paulo",
-      "tla": "PAU",
-      "crest": "https://crests.football-data.org/1776.png"
+      "id": 4364,
+      "name": "Mirassol FC",
+      "shortName": "Mirassol",
+      "tla": "MIR",
+      "crest": "https://crests.football-data.org/4364.png"
     },
     "score": {
       "winner": null,
@@ -90753,7 +90944,7 @@
       "currentMatchday": 37,
       "winner": null
     },
-    "id": 555116,
+    "id": 555111,
     "utcDate": "2026-12-03T00:30:00Z",
     "status": "TIMED",
     "matchday": 38,
@@ -90761,195 +90952,18 @@
     "group": null,
     "lastUpdated": "2026-11-25T00:20:29Z",
     "homeTeam": {
-      "id": 1769,
-      "name": "SE Palmeiras",
-      "shortName": "Palmeiras",
-      "tla": "PAL",
-      "crest": "https://crests.football-data.org/1769.png"
+      "id": 1777,
+      "name": "EC Bahia",
+      "shortName": "Bahia",
+      "tla": "BAH",
+      "crest": "https://crests.football-data.org/1777.png"
     },
     "awayTeam": {
-      "id": 4241,
-      "name": "Coritiba FBC",
-      "shortName": "Coritiba",
-      "tla": "COR",
-      "crest": "https://crests.football-data.org/4241.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2032,
-      "name": "Brazil",
-      "code": "BRA",
-      "flag": "https://crests.football-data.org/764.svg"
-    },
-    "competition": {
-      "id": 2013,
-      "name": "Campeonato Brasileiro Série A",
-      "code": "BSA",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/bsa.png"
-    },
-    "season": {
-      "id": 2474,
-      "startDate": "2026-01-28",
-      "endDate": "2026-12-02",
-      "currentMatchday": 37,
-      "winner": null
-    },
-    "id": 555112,
-    "utcDate": "2026-12-03T00:30:00Z",
-    "status": "TIMED",
-    "matchday": 38,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 4286,
-      "name": "RB Bragantino",
-      "shortName": "Bragantino",
-      "tla": "RBB",
-      "crest": "https://crests.football-data.org/4286.png"
-    },
-    "awayTeam": {
-      "id": 1765,
-      "name": "Fluminense FC",
-      "shortName": "Fluminense",
-      "tla": "FLU",
-      "crest": "https://crests.football-data.org/1765.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2032,
-      "name": "Brazil",
-      "code": "BRA",
-      "flag": "https://crests.football-data.org/764.svg"
-    },
-    "competition": {
-      "id": 2013,
-      "name": "Campeonato Brasileiro Série A",
-      "code": "BSA",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/bsa.png"
-    },
-    "season": {
-      "id": 2474,
-      "startDate": "2026-01-28",
-      "endDate": "2026-12-02",
-      "currentMatchday": 37,
-      "winner": null
-    },
-    "id": 555118,
-    "utcDate": "2026-12-03T00:30:00Z",
-    "status": "TIMED",
-    "matchday": 38,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 6685,
-      "name": "Santos FC",
-      "shortName": "Santos",
-      "tla": "SAN",
-      "crest": "https://crests.football-data.org/6685.png"
-    },
-    "awayTeam": {
-      "id": 1770,
-      "name": "Botafogo FR",
-      "shortName": "Botafogo",
-      "tla": "BOT",
-      "crest": "https://crests.football-data.org/1770.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2032,
-      "name": "Brazil",
-      "code": "BRA",
-      "flag": "https://crests.football-data.org/764.svg"
-    },
-    "competition": {
-      "id": 2013,
-      "name": "Campeonato Brasileiro Série A",
-      "code": "BSA",
-      "type": "LEAGUE",
-      "emblem": "https://crests.football-data.org/bsa.png"
-    },
-    "season": {
-      "id": 2474,
-      "startDate": "2026-01-28",
-      "endDate": "2026-12-02",
-      "currentMatchday": 37,
-      "winner": null
-    },
-    "id": 555114,
-    "utcDate": "2026-12-03T00:30:00Z",
-    "status": "TIMED",
-    "matchday": 38,
-    "stage": "REGULAR_SEASON",
-    "group": null,
-    "lastUpdated": "2026-11-25T00:20:29Z",
-    "homeTeam": {
-      "id": 1783,
-      "name": "CR Flamengo",
-      "shortName": "Flamengo",
-      "tla": "FLA",
-      "crest": "https://crests.football-data.org/1783.png"
-    },
-    "awayTeam": {
-      "id": 1772,
-      "name": "Chapecoense AF",
-      "shortName": "Chapecoense",
-      "tla": "CHA",
-      "crest": "https://crests.football-data.org/1772_large.png"
+      "id": 1766,
+      "name": "CA Mineiro",
+      "shortName": "Mineiro",
+      "tla": "CAM",
+      "crest": "https://crests.football-data.org/1766.png"
     },
     "score": {
       "winner": null,
