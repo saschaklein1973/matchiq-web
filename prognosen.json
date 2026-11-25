@@ -1388,7 +1388,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 8,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:0",
+    "tore": 3,
+    "ausgewertet": "2026-11-25T02:31:31+00:00"
   },
   {
     "spiel_id": 560649,
@@ -1402,7 +1405,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 10,
     "gast_spiele": 10,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "4:0",
+    "tore": 4,
+    "ausgewertet": "2026-11-25T02:31:31+00:00"
   },
   {
     "spiel_id": 564757,
@@ -1416,7 +1422,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-25T02:31:31+00:00"
   },
   {
     "spiel_id": 555097,
@@ -1430,7 +1439,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 15,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "2:5",
+    "tore": 7,
+    "ausgewertet": "2026-11-25T02:31:31+00:00"
   },
   {
     "spiel_id": 555093,
@@ -1444,7 +1456,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 15,
     "gast_spiele": 15,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-25T02:31:31+00:00"
   },
   {
     "spiel_id": 555099,
@@ -3042,6 +3057,160 @@
     "wahrscheinlichkeit": 0.6999,
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 14,
+    "gast_spiele": 12,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555110,
+    "spiel": "CA Paranaense – São Paulo FC",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7768,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555111,
+    "spiel": "EC Bahia – CA Mineiro",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7427,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555112,
+    "spiel": "RB Bragantino – Fluminense FC",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7501,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555113,
+    "spiel": "Cruzeiro EC – SC Internacional",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7717,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555114,
+    "spiel": "CR Flamengo – Chapecoense AF",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7852,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555115,
+    "spiel": "Grêmio FBPA – Mirassol FC",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7938,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555116,
+    "spiel": "SE Palmeiras – Coritiba FBC",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7734,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555117,
+    "spiel": "Clube do Remo – SC Corinthians Paulista",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7784,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555118,
+    "spiel": "Santos FC – Botafogo FR",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7442,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 555119,
+    "spiel": "CR Vasco da Gama – EC Vitória",
+    "wettbewerb": "Campeonato Brasileiro Série A",
+    "anpfiff": "2026-12-03T00:30:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.787,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 560662,
+    "spiel": "Tottenham Hotspur FC – Fulham FC",
+    "wettbewerb": "Premier League",
+    "anpfiff": "2026-12-03T20:00:00Z",
+    "erstellt": "2026-11-25T02:31:31+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.6657,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 11,
     "gast_spiele": 12,
     "status": "offen"
   }
