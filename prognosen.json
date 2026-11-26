@@ -1490,7 +1490,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "0:4",
+    "tore": 4,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561954,
@@ -1504,7 +1507,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 14,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "2:1",
+    "tore": 3,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561955,
@@ -1518,7 +1524,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:0",
+    "tore": 1,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561956,
@@ -1532,7 +1541,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 12,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561958,
@@ -1546,7 +1558,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "verloren",
+    "ergebnis": "4:0",
+    "tore": 4,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561959,
@@ -1560,7 +1575,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 12,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561960,
@@ -1574,7 +1592,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 13,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "1:1",
+    "tore": 2,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561957,
@@ -1588,7 +1609,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 13,
     "gast_spiele": 14,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:0",
+    "tore": 3,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 555102,
@@ -1602,7 +1626,10 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 15,
     "gast_spiele": 14,
-    "status": "offen"
+    "status": "gewonnen",
+    "ergebnis": "3:0",
+    "tore": 3,
+    "ausgewertet": "2026-11-26T10:57:20+00:00"
   },
   {
     "spiel_id": 561961,
@@ -3212,6 +3239,104 @@
     "modell": "MatchIQ-V3-Poisson",
     "heim_spiele": 11,
     "gast_spiele": 12,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 558812,
+    "spiel": "Telstar 1963 – FC Groningen",
+    "wettbewerb": "Eredivisie",
+    "anpfiff": "2026-12-04T19:00:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Über",
+    "linie": 2.5,
+    "wahrscheinlichkeit": 0.732,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 13,
+    "gast_spiele": 10,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 565882,
+    "spiel": "FC Bayern München – SC Paderborn 07",
+    "wettbewerb": "Bundesliga",
+    "anpfiff": "2026-12-04T19:30:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Unter",
+    "linie": 4.5,
+    "wahrscheinlichkeit": 0.7958,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 9,
+    "gast_spiele": 9,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 558502,
+    "spiel": "Bologna FC 1909 – AS Roma",
+    "wettbewerb": "Serie A",
+    "anpfiff": "2026-12-04T19:45:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Unter",
+    "linie": 4.5,
+    "wahrscheinlichkeit": 0.7939,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 13,
+    "gast_spiele": 13,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 559609,
+    "spiel": "Toulouse FC – Paris Saint-Germain FC",
+    "wettbewerb": "Ligue 1",
+    "anpfiff": "2026-12-04T19:45:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.789,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 10,
+    "gast_spiele": 11,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 561979,
+    "spiel": "Sheffield United FC – West Ham United FC",
+    "wettbewerb": "Championship",
+    "anpfiff": "2026-12-04T20:00:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Über",
+    "linie": 1.5,
+    "wahrscheinlichkeit": 0.7942,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 15,
+    "gast_spiele": 15,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 564770,
+    "spiel": "Deportivo Alavés – RCD Espanyol de Barcelona",
+    "wettbewerb": "Primera Division",
+    "anpfiff": "2026-12-04T20:00:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.7519,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 13,
+    "gast_spiele": 12,
+    "status": "offen"
+  },
+  {
+    "spiel_id": 567365,
+    "spiel": "Sporting Clube de Portugal – CS Marítimo",
+    "wettbewerb": "Primeira Liga",
+    "anpfiff": "2026-12-04T20:15:00Z",
+    "erstellt": "2026-11-26T10:57:20+00:00",
+    "richtung": "Unter",
+    "linie": 3.5,
+    "wahrscheinlichkeit": 0.6418,
+    "modell": "MatchIQ-V3-Poisson",
+    "heim_spiele": 11,
+    "gast_spiele": 9,
     "status": "offen"
   }
 ]
